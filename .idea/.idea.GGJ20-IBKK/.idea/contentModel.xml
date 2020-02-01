@@ -42,6 +42,9 @@
           </e>
           <e p="GameStateManagement" t="Include">
             <e p="GameStateManager.cs" t="Include" />
+            <e p="LevelStateManagement" t="Include">
+              <e p="LevelStateManager.cs" t="Include" />
+            </e>
           </e>
           <e p="Grid System and Pathfinding" t="Include">
             <e p="Astar.cs" t="Include" />
@@ -51,13 +54,21 @@
             <e p="NodeEditor.cs" t="Include" />
             <e p="TestAstar.cs" t="Include" />
           </e>
+          <e p="Initiative + AP System" t="Include">
+            <e p="InitiativeSystem.cs" t="Include" />
+          </e>
           <e p="State Machine" t="Include">
             <e p="BasicIdleClass.cs" t="Include" />
             <e p="BasicWalkState.cs" t="Include" />
+            <e p="PatrolState.cs" t="Include" />
             <e p="State.cs" t="Include" />
             <e p="StateMachine.cs" t="Include" />
           </e>
+          <e p="TopLevel" t="Include">
+            <e p="GameMaster.cs" t="Include" />
+          </e>
           <e p="Units" t="Include">
+            <e p="MovementLeftoverCode.cs" t="Include" />
             <e p="Unit.cs" t="Include" />
           </e>
         </e>
