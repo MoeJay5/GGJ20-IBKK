@@ -21,6 +21,7 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
         if (cardIsPreviewingUse)
             return;
 
+        AudioManager.Instance.PlayAudio(AudioManager.CardSfx.OnHover);
         cardAnimator.SetBool("MousedOver", true);
     }
 
