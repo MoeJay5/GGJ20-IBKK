@@ -14,6 +14,9 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
     private Vector3 positionInHand = Vector3.zero;
     private bool cardIsPreviewingUse = false;
 
+    // Private vars
+    private Coroutine cardPreviewUsageCoroutine = null;
+
     /* Main Functionality */
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -35,24 +38,46 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (HandCardManager.Instance.CurrentlySelectedCard != null)
+            return;
+
         if(cardIsPreviewingUse == false)
             Animate_PreviewCardUsage(true);
+    }
+
+    public void Update()
+    {
+        if (cardIsPreviewingUse && InputListener.Instance.PressedDown_Escape)
+            Animate_PreviewCardUsage(false);
     }
 
     /* Animation Helper Functions */
 
     private void Animate_PreviewCardUsage(bool moveToPreviewSpot)
     {
-        cardIsPreviewingUse = true;
-        cardAnimator.SetBool("CardUsagePreviewing", true);
+        HandCardManager.Instance.SetCurrentlySelectedCard(moveToPreviewSpot ? this : null);
+
+        cardIsPreviewingUse = moveToPreviewSpot;
+        cardAnimator.SetBool("CardUsagePreviewing", moveToPreviewSpot);
+
+        if (cardPreviewUsageCoroutine != null)
+        {
+            StopCoroutine(cardPreviewUsageCoroutine);
+            cardPreviewUsageCoroutine = null;
+        }
 
         if (moveToPreviewSpot)
         {
+            AudioManager.Instance.PlayAudio(AudioManager.CardSfx.OnPreviewUsage);
+
             positionInHand = this.GetComponent<RectTransform>().position;
-            StartCoroutine(LerpAnimation(this.GetComponent<RectTransform>(), positionInHand, cardUsagePreviewDestination.position));
+            cardPreviewUsageCoroutine = StartCoroutine(LerpAnimation(this.GetComponent<RectTransform>(), positionInHand, cardUsagePreviewDestination.position));
         }
         else
-            StartCoroutine(LerpAnimation(this.GetComponent<RectTransform>(), cardUsagePreviewDestination.position.normalized, positionInHand));
+        {
+            cardAnimator.SetBool("MousedOver", false);
+            StartCoroutine(LerpAnimation(this.GetComponent<RectTransform>(), cardUsagePreviewDestination.position, positionInHand));
+        }
     }
 
     private IEnumerator LerpAnimation(RectTransform transform, Vector3 from, Vector3 to)

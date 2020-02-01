@@ -20,6 +20,8 @@ public class InputListener : MonoBehaviour
     public bool PressedDown_Mouse_RightClick { get; private set; }
     public bool PressedUp_Mouse_RightClick { get; private set; }
 
+    public bool PressedDown_Escape { get; private set; }
+
     /* Listen and Update Input Values - once per physics frame (0, 1, or 2+ calls per render frame, depends on physis) */
 
     private void Update() //Trying out Update, but was using FixedUpdate ()
@@ -36,5 +38,8 @@ public class InputListener : MonoBehaviour
         Pressing_Mouse_RightClick = Input.GetButton("Mouse-Right");
         PressedDown_Mouse_RightClick = Input.GetButtonDown("Mouse-Right");
         PressedUp_Mouse_RightClick = Input.GetButtonUp("Mouse-Right");
+
+        // Keyboard Buttons
+        PressedDown_Escape = Input.GetButtonDown("Esc");
     }
 }
