@@ -79,9 +79,7 @@ public class Astar
             }
         }
 
-
         return null;
-
     }
 
 
@@ -93,7 +91,7 @@ public class Astar
 
         }
         else
-            return 14f;
+            return 100f;
     }
     static float Manhattan(Node testingNode, Node destination)
     {
