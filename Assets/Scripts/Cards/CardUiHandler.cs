@@ -39,15 +39,23 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
             Animate_PreviewCardUsage(true);
     }
 
+    public void Update()
+    {
+        if (cardIsPreviewingUse && InputListener.Instance.PressedDown_Escape)
+            Animate_PreviewCardUsage(false);
+    }
+
     /* Animation Helper Functions */
 
     private void Animate_PreviewCardUsage(bool moveToPreviewSpot)
     {
-        cardIsPreviewingUse = true;
-        cardAnimator.SetBool("CardUsagePreviewing", true);
+        cardIsPreviewingUse = moveToPreviewSpot;
+        cardAnimator.SetBool("CardUsagePreviewing", moveToPreviewSpot);
 
         if (moveToPreviewSpot)
         {
+            AudioManager.Instance.PlayAudio(AudioManager.CardSfx.OnPreviewUsage);
+
             positionInHand = this.GetComponent<RectTransform>().position;
             StartCoroutine(LerpAnimation(this.GetComponent<RectTransform>(), positionInHand, cardUsagePreviewDestination.position));
         }
