@@ -14,7 +14,7 @@ public class GridSystem : MonoBehaviour
     {
         foreach(Node n in gridNodes)
         {
-            n.GetNeighbors(this);
+            n.CalculateNeighbors(this);
         }
     }
 
