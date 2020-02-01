@@ -2891,10 +2891,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207f3f382b03d304ba2ab4d14475d60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1330829481}
+  currentlyInitiatedUnit: {fileID: 917095344}
+  gameCamera: {fileID: 1330829481}
   generatedGrid: {fileID: 522335890}
-  currentlySelectedUnit: {fileID: 917095344}
-  movingSelectedUnit: 1
+  movingInitiatedUnit: 1
 --- !u!1 &423790255
 GameObject:
   m_ObjectHideFlags: 0
