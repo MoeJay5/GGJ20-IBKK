@@ -59,6 +59,7 @@ public class Astar
                             open.Add(node);
                             openList.Add(node);
                         }
+
                     }
                     else
                     {
