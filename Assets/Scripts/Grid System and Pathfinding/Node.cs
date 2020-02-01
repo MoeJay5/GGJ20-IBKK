@@ -32,23 +32,23 @@ public class Node : MonoBehaviour
                         if (!this.isStairs || this.direction)
                             neighbors.Add(right);
             //upright
-            if (myGridIndex < grid.width * (grid.height - 1) && !isStairs)
-            {
-                Node n = grid.gridNodes[myGridIndex + grid.width + 1];
-                if (!n.isStairs && !this.isStairs)
-                    if (n.transform.position.y < (this.transform.position.y + this.transform.localScale.y))
-                        if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
-                            neighbors.Add(n);
-            }
-            //downright
-            if (myGridIndex > (grid.width - 1) && !isStairs)
-            {
-                Node n = grid.gridNodes[myGridIndex - grid.width + 1];
-                if (!n.isStairs && !this.isStairs)
-                    if (n.transform.position.y < (this.transform.position.y + this.transform.localScale.y))
-                        if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
-                            neighbors.Add(n);
-            }
+           // if (myGridIndex < grid.width * (grid.height - 1) && !isStairs)
+           // {
+           //     Node n = grid.gridNodes[myGridIndex + grid.width + 1];
+           //     if (!n.isStairs && !this.isStairs)
+           //         if (n.transform.position.y < (this.transform.position.y + this.transform.localScale.y))
+           //             if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
+           //                 neighbors.Add(n);
+           // }
+           // //downright
+           // if (myGridIndex > (grid.width - 1) && !isStairs)
+           // {
+           //     Node n = grid.gridNodes[myGridIndex - grid.width + 1];
+           //     if (!n.isStairs && !this.isStairs)
+           //         if (n.transform.position.y < (this.transform.position.y + this.transform.localScale.y))
+           //             if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
+           //                 neighbors.Add(n);
+           // }
         }
         //left
         if ((myGridIndex % grid.width) != 0)
@@ -60,23 +60,23 @@ public class Node : MonoBehaviour
                         if (!this.isStairs || this.direction)
                             neighbors.Add(left);
             //upleft
-            if (myGridIndex < grid.width * (grid.height - 1) && !isStairs)
-            {
-                Node n = grid.gridNodes[myGridIndex + grid.width - 1];
-                if (!n.isStairs && !this.isStairs)
-                    if (n.transform.position.y < (this.transform.position.y + this.transform.localScale.y))
-                        if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
-                            neighbors.Add(n);
-            }
-            //downleft
-            if (myGridIndex > (grid.width - 1) && !isStairs)
-            {
-                Node n = grid.gridNodes[myGridIndex - grid.width - 1];
-                if (!n.isStairs && !this.isStairs)
-                    if (n.transform.position.y < (this.transform.position.y + this.transform.localScale.y))
-                        if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
-                            neighbors.Add(n);
-            }
+            //if (myGridIndex < grid.width * (grid.height - 1) && !isStairs)
+            //{
+            //    Node n = grid.gridNodes[myGridIndex + grid.width - 1];
+            //    if (!n.isStairs && !this.isStairs)
+            //        if (n.transform.position.y < (this.transform.position.y + this.transform.localScale.y))
+            //            if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
+            //                neighbors.Add(n);
+            //}
+            ////downleft
+            //if (myGridIndex > (grid.width - 1) && !isStairs)
+            //{
+            //    Node n = grid.gridNodes[myGridIndex - grid.width - 1];
+            //    if (!n.isStairs && !this.isStairs)
+            //        if (n.transform.position.y < (this.transform.position.y + this.transform.localScale.y))
+            //            if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
+            //                neighbors.Add(n);
+            //}
         }
         //up
         if (myGridIndex < grid.width * (grid.height - 1))
