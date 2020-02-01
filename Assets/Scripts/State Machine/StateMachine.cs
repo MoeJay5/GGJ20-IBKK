@@ -39,7 +39,7 @@ public class StateMachine : MonoBehaviour
         if (stateStack.Count > 0)
         {
             stateStack.Peek().ExitState(this);
-            stateStack.Pop();
+            Destroy(stateStack.Pop());
         }
 
         if (stateStack.Count == 0)
@@ -57,7 +57,7 @@ public class StateMachine : MonoBehaviour
         if (stateStack.Count > 0)
         {
             stateStack.Peek().ExitState(this);
-            stateStack.Pop();
+            Destroy(stateStack.Pop());
         }
         
         stateStack.Push(Instantiate(s));
