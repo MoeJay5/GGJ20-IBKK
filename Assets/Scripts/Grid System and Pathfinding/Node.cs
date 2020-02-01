@@ -5,11 +5,17 @@ public class Node : MonoBehaviour
 {
 
     public bool walkable;
+    [HideInInspector]
     public Node parent;
+    [HideInInspector]
     public List<Node> neighbors = new List<Node>();
+    [HideInInspector]
     public float gScore;
+    [HideInInspector]
     public float hScore;
+    [HideInInspector]
     public float fScore;
+    [HideInInspector]
     public int myGridIndex;
     public bool isStairs = false;
     public bool direction = false;
