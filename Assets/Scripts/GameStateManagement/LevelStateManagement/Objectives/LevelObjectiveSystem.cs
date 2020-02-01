@@ -8,17 +8,6 @@ public class LevelObjectiveSystem : MonoBehaviour
     private void OnEnable() => Instance = this;
     #endregion
 
-    /* Initialization */
-
-    [Header("Debug Dependencies")]
-    [SerializeField] private GameStateManager gameStateManagerPrefab = null;
-
-    private void Start()
-    {
-        if (GameStateManager.Instance == null)
-            GameObject.Instantiate(gameStateManagerPrefab);
-    }
-
     /* Variables */
 
     [Header("Properties")]
