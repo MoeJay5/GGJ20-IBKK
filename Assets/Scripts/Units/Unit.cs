@@ -14,4 +14,13 @@ public class Unit : MonoBehaviour
     {
         initiative = Random.Range(1, 100);
     }
+
+    public Node GetMyGridNode()
+    {
+        RaycastHit hit;
+        if (!Physics.Raycast(transform.position + Vector3.up * 2, Vector3.down, out hit, 7, 1 << GameMaster.Layer_GridNode))
+            return null;
+        else
+            return hit.collider.gameObject.GetComponent<Node>();
+    }
 }

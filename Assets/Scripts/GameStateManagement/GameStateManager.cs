@@ -7,25 +7,42 @@ public class GameStateManager : MonoBehaviour
     private void OnEnable() => Instance = this;
     #endregion
 
-    /* Variables */
+    /* Temp Dev work: Move one unit by clicking on a node */
 
-    [Header("Temp References")]
-    [SerializeField] private Unit[] units = new Unit[0];
+    [Header("Placeholder until Initiative and Multiple Enemies implemented")]
+    [SerializeField] private Unit currentlyInitiatedUnit;
 
-    /* Initialization */
+    [Header("Dependencies")]
+    [SerializeField] private Camera gameCamera;
+    [SerializeField] private GridSystem generatedGrid;
 
-    private void Start()
+    // States
+    [SerializeField] private bool movingInitiatedUnit = true;
+
+    private void Update()
     {
-        UpdateAllUnitInitiatives();
+        if (movingInitiatedUnit == false)
+            return;
+
+        Node startingNode = currentlyInitiatedUnit.GetMyGridNode();
+        Node destinationNode = GetMousedOverNode();
+        if (GetMousedOverNode() == null)
+            return;
+
+        Path movementPath = Astar.CalculatePath(startingNode, destinationNode, generatedGrid);
+
+        Debug.Log("Calculated Path!");
     }
 
     /* Helper Functions */
 
-    private void UpdateAllUnitInitiatives()
+    private Node GetMousedOverNode()
     {
-        foreach (Unit unit in units)
-        {
-            unit.SetRandomInitiative();
-        }
+        RaycastHit hit;
+        Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
+        if (!Physics.Raycast(ray, out hit, 100, 1 << GameMaster.Layer_GridNode))
+            return null;
+        else
+            return hit.collider.GetComponent<Node>();
     }
 }
