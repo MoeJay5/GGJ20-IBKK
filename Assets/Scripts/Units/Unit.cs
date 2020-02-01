@@ -6,14 +6,24 @@ public class Unit : MonoBehaviour
 
     [Header("Unit Stats")]
     [SerializeField] private int health = 5;
-    private int initiative = -1;
-    public float speed = 1;
+
+    public readonly float speed = 1;
+
+    public bool InGamePlay = true;
+    public bool CurrentTurn = false;
+
+    [SerializeField] private int _initiative = -1;
+    public int Initiative
+    {
+        get => _initiative;
+    }
 
     /* Main Functions */
 
-    public void SetRandomInitiative()
+    public void Start()
     {
-        initiative = Random.Range(1, 100);
+        _initiative = Random.Range(1, 100);
+        InitiativeSystem.registerUnit(this);
     }
 
     public Node GetMyGridNode()
@@ -22,7 +32,7 @@ public class Unit : MonoBehaviour
         RaycastHit hit;
         
         
-        if (!Physics.Raycast(transform.position + Vector3.up * 2, Vector3.down, out hit, 7, 1 << 1))
+        if (!Physics.Raycast(transform.position + Vector3.up * 2, Vector3.down, out hit, 7, 1 << GameMaster.Layer_GridNode))
             return null;
         else
             return hit.collider.gameObject.GetComponent<Node>();
