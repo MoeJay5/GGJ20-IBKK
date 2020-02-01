@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Astar : MonoBehaviour
+public class Astar
 {
-
-    public Path AstarCalc(Node start, Node end, GridSystem grid)
+    
+    public static Path CalculatePath(Node start, Node end, GridSystem grid)
     {
 
         HashSet<Node> open = new HashSet<Node>();
@@ -30,7 +30,7 @@ public class Astar : MonoBehaviour
             {
                 return Retrace(start, current);
             }
-            current.GetNeighbors(grid);
+            //current.GetNeighbors(grid);
             foreach (Node node in current.neighbors)
             {
                 if (closed.Contains(node) || !node.walkable)
@@ -59,7 +59,7 @@ public class Astar : MonoBehaviour
     }
 
 
-    float Distance(Node first, Node second)
+    static float Distance(Node first, Node second)
     {
         if (first.transform.position.x == second.transform.position.x || first.transform.position.z == second.transform.position.z)
         {
@@ -69,12 +69,12 @@ public class Astar : MonoBehaviour
         else
             return 14f;
     }
-    float Manhattan(Node testingNode, Node destination)
+    static float Manhattan(Node testingNode, Node destination)
     {
         return (Mathf.Abs(destination.transform.position.x - testingNode.transform.position.x) + Mathf.Abs(destination.transform.position.z - testingNode.transform.position.z)) * 10f;
     }
 
-    Path Retrace(Node start, Node end)
+    static Path Retrace(Node start, Node end)
     {
         Path p = new Path();
         Node cur = end;
