@@ -6,5 +6,12 @@ public class Unit : MonoBehaviour
 
     [Header("Unit Stats")]
     [SerializeField] private int health = 5;
-    [SerializeField, Range(1, 100)] private int initiative = 50;
+    private int initiative = -1;
+
+    /* Main Functions */
+
+    public void SetRandomInitiative()
+    {
+        initiative = Random.Range(1, 100);
+    }
 }
