@@ -1,7 +1,15 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-public static class GameStateManager
+public class GameStateManager : MonoBehaviour
 {
+    #region Singleton & DontDestroyOnLoad
+    public static GameStateManager Instance;
+    private void OnEnable()
+    {
+        Instance = this;
+        DontDestroyOnLoad(this);
+    }
+    #endregion
+
 
 }
