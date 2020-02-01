@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Scien\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Scien\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_GGJ20-IBKK.-120218751.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Scien\Projects\GGJ20-IBKK" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Packages-Unofficial" t="Include">
+          <e p="TextMesh Pro" t="Include">
+            <e p="Fonts" t="Include">
+              <e p="LiberationSans - OFL.txt" t="Include" />
+            </e>
+            <e p="Resources" t="Include">
+              <e p="LineBreaking Following Characters.txt" t="Include" />
+              <e p="LineBreaking Leading Characters.txt" t="Include" />
+              <e p="Shaders" t="Include">
+                <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+                <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+                <e p="TMP_Bitmap.shader" t="Include" />
+                <e p="TMP_SDF Overlay.shader" t="Include" />
+                <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+                <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+                <e p="TMP_SDF-Mobile.shader" t="Include" />
+                <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+                <e p="TMP_SDF-Surface.shader" t="Include" />
+                <e p="TMP_SDF.shader" t="Include" />
+                <e p="TMP_Sprite.shader" t="Include" />
+                <e p="TMPro.cginc" t="Include" />
+                <e p="TMPro_Properties.cginc" t="Include" />
+                <e p="TMPro_Surface.cginc" t="Include" />
+              </e>
+            </e>
+            <e p="Sprites" t="Include">
+              <e p="EmojiOne Attribution.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Core Player Scripts" t="Include">
+            <e p="InputListener.cs" t="Include" />
+          </e>
+          <e p="GameStateManagement" t="Include">
+            <e p="GameStateManager.cs" t="Include" />
+          </e>
+          <e p="Grid System and Pathfinding" t="Include">
+            <e p="Astar.cs" t="Include" />
+            <e p="GridGenerator.cs" t="Include" />
+            <e p="GridSystem.cs" t="Include" />
+            <e p="Node.cs" t="Include" />
+            <e p="NodeEditor.cs" t="Include" />
+            <e p="TestAstar.cs" t="Include" />
+          </e>
+          <e p="State Machine" t="Include">
+            <e p="BasicIdleClass.cs" t="Include" />
+            <e p="BasicWalkState.cs" t="Include" />
+            <e p="State.cs" t="Include" />
+            <e p="StateMachine.cs" t="Include" />
+          </e>
+          <e p="Units" t="Include">
+            <e p="Unit.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="GGJ20-IBKK.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
