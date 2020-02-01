@@ -17,6 +17,8 @@ public class NodeEditor : UnityEditor.Editor
         {
             var n = obj as Node;
 
+            if (n == null) continue;
+
             var mesh = n.GetComponent<MeshRenderer>();
 
             if (!n.walkable)
@@ -31,6 +33,11 @@ public class NodeEditor : UnityEditor.Editor
             }
             else
                 mesh.material.color = ogColor;
+
+            foreach (var neighbor in n.neighbors)
+            {
+                Debug.DrawLine(n.transform.position + Vector3.up, neighbor.transform.position + Vector3.up);
+            }
 
         }
     }

@@ -6,12 +6,11 @@ public class GridGenerator : MonoBehaviour
 {
     public int dimensions = 10;
     public float PhysicalNodeSize = 1f;
-    
+
     [ContextMenu("Generate Grid")]
     public void GenerateGrid()
     {
         GameObject gridParent = new GameObject();
-        
         gridParent.name = "Generated Grid";
         GridSystem grid = gridParent.AddComponent<GridSystem>();
         grid.height = dimensions;

@@ -8,11 +8,19 @@ public class StateMachine : MonoBehaviour
     Stack<State> stateStack = new Stack<State>();
 
     [SerializeField] State defaultState;
+    [SerializeField] State startState;
         
     // Start is called before the first frame update
     void Start()
     {
-        PushState(Instantiate(defaultState));
+        if (startState != null)
+        {
+            PushState(startState);
+        }
+        else
+        {
+            PushState(defaultState);
+        }
         Debug.Log("Test 1");
     }
 
