@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BasicWalkState", menuName = "ScriptableObjects/States/BasicWalkState")]
 class BasicWalkState : State
 {
     [SerializeField] private float distance;
@@ -24,7 +23,7 @@ class BasicWalkState : State
         if (Time.time > startTime + duration)
         {
             parent.gameObject.transform.position = endPosition;
-            parent.ReplaceState(ScriptableObject.CreateInstance<BasicIdleClass>());
+            parent.PopState();
         }
         
         Debug.Log("Update!");

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class State : ScriptableObject {
+public class State : MonoBehaviour {
     public virtual void EnterState(StateMachine parent)
     {
     }

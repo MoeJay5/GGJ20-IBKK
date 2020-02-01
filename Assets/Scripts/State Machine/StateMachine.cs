@@ -21,13 +21,11 @@ public class StateMachine : MonoBehaviour
         {
             PushState(defaultState);
         }
-        Debug.Log("Test 1");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Test 2");
         stateStack.Peek().UpdateState(this);
     }
 
@@ -38,7 +36,7 @@ public class StateMachine : MonoBehaviour
             stateStack.Peek().PauseState(this);
         }
 
-        stateStack.Push(Instantiate(s));
+        stateStack.Push(s);
         stateStack.Peek().EnterState(this);
     }
 
@@ -47,12 +45,12 @@ public class StateMachine : MonoBehaviour
         if (stateStack.Count > 0)
         {
             stateStack.Peek().ExitState(this);
-            Destroy(stateStack.Pop());
+            stateStack.Pop();
         }
 
         if (stateStack.Count == 0)
         {
-            PushState(Instantiate(defaultState));
+            PushState(defaultState);
         }
         else
         {
@@ -65,10 +63,10 @@ public class StateMachine : MonoBehaviour
         if (stateStack.Count > 0)
         {
             stateStack.Peek().ExitState(this);
-            Destroy(stateStack.Pop());
+            stateStack.Pop();
         }
         
-        stateStack.Push(Instantiate(s));
+        stateStack.Push(s);
         stateStack.Peek().EnterState(this);
         
     }
