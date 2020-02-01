@@ -17,6 +17,7 @@ public class Unit : MonoBehaviour
 
     public Node GetMyGridNode()
     {
+        // This should only be called if we don't know the current node. We should be able to use the last tile of the path.
         RaycastHit hit;
         if (!Physics.Raycast(transform.position + Vector3.up * 2, Vector3.down, out hit, 7, 1 << GameMaster.Layer_GridNode))
             return null;
