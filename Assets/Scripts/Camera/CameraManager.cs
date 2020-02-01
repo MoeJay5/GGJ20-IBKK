@@ -52,14 +52,14 @@ public class CameraManager : MonoBehaviour
         if (Input.GetMouseButton (0) && rotation_FallOff == 0)
         {
             float speed = this.movementSpeed * Time.deltaTime;
-            newPosition = new Vector3 (Input.GetAxis ("Mouse X") * speed, 0, 0);
+            newPosition = new Vector3 (InputListener.Instance.Mouse_X * speed, 0, 0);
             movement_FallOff = 1f;
         }
         //Rotation functionality
         else if (Input.GetMouseButton (1) && movement_FallOff == 0)
         {
             float speed = this.movementSpeed * Time.deltaTime;
-            newRotation = new Vector3 (0, Input.GetAxis ("Mouse X") * speed, 0);
+            newRotation = new Vector3 (0, InputListener.Instance.Mouse_X * speed, 0);
             rotation_FallOff = 1f;
         }
     }
