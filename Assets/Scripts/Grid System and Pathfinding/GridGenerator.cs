@@ -28,8 +28,8 @@ public class GridGenerator : MonoBehaviour
             node.myGridIndex = i;
             grid.gridNodes.Add(node);
         }
-        var tester = this.GetComponent<TestAstar>();
-        tester.grid = grid;
+
+        grid.GenerateNeighbors();
     }
 
 

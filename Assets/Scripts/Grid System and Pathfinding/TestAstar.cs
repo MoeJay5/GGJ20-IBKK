@@ -15,9 +15,8 @@ public class TestAstar : MonoBehaviour
     [ContextMenu("Test Path Finding")]
     void TestPath()
     {
-        Astar pf = this.GetComponent<Astar>();
 
-        Path p = pf.AstarCalc(start, end, grid);
+        Path p = Astar.CalculatePath(start, end, grid);
         foreach (Node n in p.nodes)
         {
             var mesh = n.GetComponent<MeshRenderer>();
