@@ -9,25 +9,27 @@ public class GameStateManager : MonoBehaviour
 
     /* Temp Dev work: Move one unit by clicking on a node */
 
-    [Header("Temp Dev References")]
-    [SerializeField] private Camera camera;
-    [SerializeField] private GridSystem generatedGrid;
-    [SerializeField] private Unit currentlySelectedUnit;
-    [SerializeField] private bool movingSelectedUnit = true;
-    private Node currentlySelectedUnitNode;
+    [Header("Placeholder until Initiative and Multiple Enemies implemented")]
+    [SerializeField] private Unit currentlyInitiatedUnit;
 
-    private void Start()
-    {
-        currentlySelectedUnitNode = currentlySelectedUnit.GetMyGridNode();
-    }
+    [Header("Dependencies")]
+    [SerializeField] private Camera gameCamera;
+    [SerializeField] private GridSystem generatedGrid;
+
+    // States
+    [SerializeField] private bool movingInitiatedUnit = true;
 
     private void Update()
     {
-        Node destination = GetMousedOverNode();
+        if (movingInitiatedUnit == false)
+            return;
+
+        Node startingNode = currentlyInitiatedUnit.GetMyGridNode();
+        Node destinationNode = GetMousedOverNode();
         if (GetMousedOverNode() == null)
             return;
 
-        Path movementPath = Astar.CalculatePath(currentlySelectedUnitNode, destination, generatedGrid);
+        Path movementPath = Astar.CalculatePath(startingNode, destinationNode, generatedGrid);
 
         Debug.Log("Calculated Path!");
     }
@@ -37,7 +39,7 @@ public class GameStateManager : MonoBehaviour
     private Node GetMousedOverNode()
     {
         RaycastHit hit;
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
         if (!Physics.Raycast(ray, out hit, 100, 1 << GameMaster.Layer_GridNode))
             return null;
         else
