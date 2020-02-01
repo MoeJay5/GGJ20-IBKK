@@ -9,14 +9,24 @@ public class UnitMovementManager : MonoBehaviour
 
     [Header ("Properties")]
     [SerializeField] private bool movingInitiatedUnit;
+    [SerializeField] private Node startingNode;
 
     private Unit currentlyInitiatedUnit;
+    private GridSystem grid;
+    private float lastClickTime_ForDoubleClick;
+
+    private float catchTime_ForDoubleClick = 0.25f;
+    private bool unitIsMoveing;
 
     /* Main Functions */
 
     void OnEnable ()
     {
         currentlyInitiatedUnit = gameObject.GetComponent<Unit> ();
+        grid = FindObjectOfType<GridSystem> ();
+
+        if (startingNode == null)
+            startingNode = grid.gridNodes[0];
     }
 
     private void Update ()
@@ -34,8 +44,15 @@ public class UnitMovementManager : MonoBehaviour
         Path movementPath = Astar.CalculatePath (startingNode, destinationNode, LevelStateManager.Instance.generatedGrid);
 
         if (InputListener.Instance.PressedDown_Mouse_LeftClick)
-            OrderUnitMovement (currentlyInitiatedUnit, movementPath);
+        {
+            if (Time.time - lastClickTime_ForDoubleClick < catchTime_ForDoubleClick)
+            {
+                OrderUnitMovement (currentlyInitiatedUnit, movementPath);
+            }
+            lastClickTime_ForDoubleClick = Time.time;
+        }
 
+        HighlightNavigation ();
     }
 
     //Helper Functions 
@@ -60,18 +77,28 @@ public class UnitMovementManager : MonoBehaviour
         Node prevNode = unitToMove.GetMyGridNode ();
         foreach (Node nextNode in Enumerable.Reverse (movementPath.nodes))
         {
+            if (currentlyInitiatedUnit.Initiative <= 0)
+                break;
+
+            currentlyInitiatedUnit.DecreaseInitiativeBy (1);
+
             //Move Unit to Node
             float t = 0;
             float tickDuration = currentlyInitiatedUnit.speed * Time.deltaTime;
             while (t < 1)
             {
+                unitIsMoveing = true;
                 Vector3 newPos = Vector3.Lerp (prevNode.transform.position, nextNode.transform.position, t);
-                newPos.y = unitToMove.transform.position.y;
+                //newPos.y = unitToMove.transform.position.y;
+                newPos.y += nextNode.transform.localScale.y / 2;
                 unitToMove.transform.position = newPos;
 
                 t += tickDuration;
                 yield return null;
             }
+
+            unitIsMoveing = false;
+            Unit.current_UnitNode = nextNode;
 
             prevNode = nextNode;
             yield return new WaitUntil (() => unitToMove.GetMyGridNode () == nextNode);
@@ -80,4 +107,33 @@ public class UnitMovementManager : MonoBehaviour
         //Done moving along path
         movingInitiatedUnit = true;
     }
+
+    private void HighlightNavigation ()
+    {
+        if (unitIsMoveing)
+            return;
+
+        if (Unit.current_UnitNode == null)
+            Unit.current_UnitNode = startingNode;
+        Path p = Astar.CalculatePath (Unit.current_UnitNode, Node.current_SelectedNode, grid);
+        foreach (Node n in grid.gridNodes)
+        {
+            if (n.walkable)
+                n.GetComponent<MeshRenderer> ().material.SetColor ("_BaseColor", Color.white);
+        }
+
+        int allowedMovement = currentlyInitiatedUnit.Initiative;
+        foreach (Node n in Enumerable.Reverse (p.nodes))
+        {
+            var mesh = n.GetComponent<MeshRenderer> ();
+            if (allowedMovement > 0)
+                mesh.material.SetColor ("_BaseColor", Color.green);
+            else
+                mesh.material.SetColor ("_BaseColor", Color.red);
+
+            allowedMovement--;
+        }
+        //p.nodes[0].GetComponent<MeshRenderer>().material.color = Color.green;
+    }
+
 }
