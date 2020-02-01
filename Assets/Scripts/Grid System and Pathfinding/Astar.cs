@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Astar
 {
-    
+
     public static Path CalculatePath(Node start, Node end, GridSystem grid)
     {
 
         HashSet<Node> open = new HashSet<Node>();
         HashSet<Node> closed = new HashSet<Node>();
-        List<Node>  openList = new List<Node>();
+        List<Node> openList = new List<Node>();
         Node current;
         start.hScore = 0;
         start.gScore = 0;
@@ -21,7 +21,7 @@ public class Astar
 
         while (open.Count != 0)
         {
-            
+
             current = openList[0];
             open.Remove(current);
             openList.Remove(current);
@@ -36,10 +36,36 @@ public class Astar
                 if (closed.Contains(node) || !node.walkable)
                     continue;
                 var tentative_g = current.gScore + Distance(current, node);
+                Node shared1 = null;
+                Node shared2 = null;
+                foreach (Node n in current.neighbors)
+                {
+                    if (node.neighbors.Contains(n))
+                    {
+                        if (shared1 == null)
+                            shared1 = n;
+                        else
+                            shared2 = n;
+                    }
+
+                }
+
                 if (!open.Contains(node))
                 {
-                    open.Add(node);
-                    openList.Add(node);
+                    if (shared1 != null && shared2 != null)
+                    {
+                        if ((shared1.walkable || shared2.walkable))
+                        {
+                            open.Add(node);
+                            openList.Add(node);
+                        }
+
+                    }
+                    else
+                    {
+                        open.Add(node);
+                        openList.Add(node);
+                    }
                 }
                 else if (tentative_g >= node.gScore)
                     continue;
