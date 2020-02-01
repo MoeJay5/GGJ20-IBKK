@@ -13,9 +13,9 @@ public class LevelLoader : MonoBehaviour
         instance = this;
         StartCoroutine(LoadScene(levelToLoad));
     }
-    public static bool LoadLevelByNumber(int levelNumber)
+    public static void LoadLevelByNumber(int levelNumber)
     {
-        return false;
+        LoadSceneByName("Level" + levelNumber.ToString());
     }
 
 
