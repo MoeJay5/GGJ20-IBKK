@@ -76,7 +76,7 @@ public class UnitMovementManager : MonoBehaviour
                         else
                             n = n?.GetNeighbor (Direction.Down);
                     }
-                    n?.tile?.gameObject.SetActive (true);
+                    n?.tile?.setState(Tile.TileStates.ACTIVE);
                     n?.tile?.GetComponent<MeshRenderer> ().material.SetTexture ("_MainTex", (p.isGood) ? HandCardManager.BlueOutline : HandCardManager.RedOutline);
                 }
             }
@@ -108,7 +108,8 @@ public class UnitMovementManager : MonoBehaviour
         {
             if (Time.time - lastClickTime_ForDoubleClick < catchTime_ForDoubleClick)
             {
-                OrderUnitMovement (currentlyInitiatedUnit, movementPath);
+                if(movementPath!=null)
+                    OrderUnitMovement (currentlyInitiatedUnit, movementPath);
             }
             lastClickTime_ForDoubleClick = Time.time;
         }
