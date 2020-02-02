@@ -22,6 +22,7 @@ public class Unit : MonoBehaviour
     public bool IsEnemy = true;
 
     public Sprite unitIcon;
+    public Sprite unitIconDisabled;
 
     public int previousAP = 0;
 

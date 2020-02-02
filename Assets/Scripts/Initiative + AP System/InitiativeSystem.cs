@@ -60,14 +60,17 @@ public static class InitiativeSystem
 
     public static void finishNextTurn()
     {
-        do
-        {
-            currentQueue.Enqueue(currentQueue.Dequeue());
-            Unit u = currentQueue.First();
-            u.previousAP = u.AP;
-            u.SetAP(u.MaxAP);
-        } while (!currentQueue.First().InGamePlay);
+        currentQueue.Enqueue(currentQueue.Dequeue());
+        Unit u = currentQueue.First();
 
+        if (!u.InGamePlay)
+        {
+            nextTurn();
+            return;
+        }
+        
+        u.previousAP = u.AP;
+        u.SetAP(u.MaxAP);
         currentQueue.First().CurrentTurn = true;
 
         turnListeners = turnListeners.Where(l => l != null).ToList();

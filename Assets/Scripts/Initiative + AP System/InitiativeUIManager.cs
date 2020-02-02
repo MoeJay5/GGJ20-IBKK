@@ -86,7 +86,7 @@ public class InitiativeUIManager : MonoBehaviour
         currentQueue.Where(val => !existingImages.ContainsKey(val)).ToList().ForEach(val =>
         {
             Image newIcon = Instantiate(IconPrefab, InitiativeBar.transform);
-            newIcon.sprite = val.unitIcon;
+            newIcon.sprite = val.InGamePlay ? val.unitIcon : val.unitIconDisabled;
             newIcon.transform.localPosition = Vector3.right * 900f;
             existingImages.Add(val, newIcon);
         });
