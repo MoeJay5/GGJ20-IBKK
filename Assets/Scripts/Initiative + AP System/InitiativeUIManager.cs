@@ -9,17 +9,23 @@ public class InitiativeUIManager : MonoBehaviour
     [SerializeField] private Image InitiativeBar;
     [SerializeField] private Image IconPrefab;
 
-    private Dictionary<Unit, Image> existingImages;
+    private Dictionary<Unit, Image> existingImages = new Dictionary<Unit, Image>();
 
     // Start is called before the first frame update
     void Start()
     {
         InitiativeSystem.registerManager(this);
+        InitiativeSystem.nextTurn();
     }
 
     IEnumerator transitionTurns()
     {
         List<Unit> currentQueue = InitiativeSystem.currentQueue.ToList();
+
+        if (currentQueue.Count == 0) yield break;
+        
+        currentQueue.Add(currentQueue[0]);
+        currentQueue.RemoveAt(0);
 
         // Clear old images
         existingImages.Keys.Where(key => !currentQueue.Contains(key)).ToList().ForEach(val =>

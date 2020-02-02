@@ -60,11 +60,12 @@ public static class InitiativeSystem
 
     public static void finishNextTurn()
     {
-        Debug.Log("Finishinhg Change");
         do
         {
             currentQueue.Enqueue(currentQueue.Dequeue());
-            currentQueue.First().SetAP(currentQueue.First().MaxAP);
+            Unit u = currentQueue.First();
+            u.previousAP = u.AP;
+            u.SetAP(u.MaxAP);
         } while (!currentQueue.First().InGamePlay);
 
         currentQueue.First().CurrentTurn = true;

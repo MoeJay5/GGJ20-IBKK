@@ -23,6 +23,8 @@ public class Unit : MonoBehaviour
 
     public Sprite unitIcon;
 
+    public int previousAP = 0;
+
     public int MaxAP
     {
         get => maxAP;
@@ -41,8 +43,7 @@ public class Unit : MonoBehaviour
     }
 
     /* Main Functions */
-
-    public void Start ()
+    public void Awake ()
     {
         initiative = Random.Range (1, 100);
         _AP = MaxAP;

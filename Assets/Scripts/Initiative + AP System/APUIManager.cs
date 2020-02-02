@@ -25,10 +25,18 @@ public class APUIManager : MonoBehaviour, ITurnListener
     // Update is called once per frame
     void Update()
     {
-        if (InitiativeSystem.currentUnit() == null) return;
-        if (InitiativeSystem.currentUnit().IsEnemy) return;
+        Unit u = InitiativeSystem.currentUnit();
+        
+        if (u == null) return;
+        
+        if (!u.CurrentTurn)
+        {
+            APMeter.sprite = APMeterImages[u.AP];
+        };
+        
+        if (u.IsEnemy) return;
 
-        targetAPValue = InitiativeSystem.currentUnit().AP;
+        targetAPValue = u.AP;
 
         if (currentAPValue != targetAPValue && (Time.time - lastChange) > delayChange)
         {
@@ -40,7 +48,8 @@ public class APUIManager : MonoBehaviour, ITurnListener
 
     public void NextTurn(Unit unit)
     {
-        currentAPValue = InitiativeSystem.currentUnit().AP;
+        currentAPValue = InitiativeSystem.currentUnit().previousAP;
+        targetAPValue = InitiativeSystem.currentUnit().AP;
         APMeter.sprite = APMeterImages[currentAPValue];
     }
 }
