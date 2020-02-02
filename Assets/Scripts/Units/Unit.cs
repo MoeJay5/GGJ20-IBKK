@@ -3,6 +3,7 @@
 public class Unit : MonoBehaviour
 {
     /* Variables */
+    public bool isEnemy;
 
     public static Node current_UnitNode;
 
@@ -16,18 +17,51 @@ public class Unit : MonoBehaviour
 
     public int initiative = -1;
 
+    [SerializeField] private int _HP;
+
     private int maxAP;
+
+    [SerializeField] private int _AP;
+
+
+    public int HP
+    {
+        get => _HP;
+    }
 
     public int MaxAP
     {
         get => maxAP;
     }
 
-    [SerializeField] private int _AP;
-
     public int AP
     {
         get => _AP;
+    }
+
+    public void IncreaseHPBy (int amount)
+    {
+        _HP += amount;
+    }
+
+    public void DecreaseHPBy (int amount)
+    {
+        _HP -= amount;
+    }
+
+    public void SetHP (int newHP)
+    {
+        _HP = newHP;
+    }
+
+    public void IncreaseAPBy (int amount)
+    {
+        _AP += amount;
+    }
+
+    public void DecreaseAPBy (int amount)
+    {
+        _AP -= amount;
     }
 
     public void SetAP (int newAP)
@@ -53,10 +87,5 @@ public class Unit : MonoBehaviour
             return null;
         else
             return hit.collider.gameObject.GetComponent<Node> ();
-    }
-
-    public void DecreaseAPBy (int amount)
-    {
-        _AP -= amount;
     }
 }
