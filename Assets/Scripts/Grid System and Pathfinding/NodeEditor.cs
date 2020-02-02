@@ -28,7 +28,7 @@ public class NodeEditor : UnityEditor.Editor
            
             }
 
-            /*
+            
             if (!n.walkable)
             {
                 mesh.material.SetColor("_BaseColor", Color.red);
@@ -40,7 +40,7 @@ public class NodeEditor : UnityEditor.Editor
             }
             else
                 mesh.material.color = ogColor;
-                */
+                
 
             foreach (var neighbor in n.neighbors)
             {
