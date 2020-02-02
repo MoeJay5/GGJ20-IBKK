@@ -51,9 +51,10 @@ class PatrolState : State
             playerWithinRange = occupyingUnit != null ? true : false;
             if (playerWithinRange)
             {
-                Debug.Log ("Player is within range.", gameObject);
+                Debug.Log (occupyingUnit.name + " is within range.", gameObject);
                 parent.PushState (parent.gameObject.GetComponent<AttackState> ());
             }
+            else Debug.Log (occupyingUnit.name + " is not within range.", gameObject);
         }
 
         if (!playerWithinRange)
