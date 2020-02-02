@@ -11,6 +11,7 @@ public class UnitMovementManager : MonoBehaviour
     [Header ("Properties")]
     [SerializeField] private bool movingInitiatedUnit;
     [SerializeField] private Node startingNode;
+    private Node prevNode;
 
     private Unit currentlyInitiatedUnit;
     private GridSystem grid;
@@ -32,6 +33,7 @@ public class UnitMovementManager : MonoBehaviour
 
         if (startingNode == null)
             startingNode = grid.gridNodes[0];
+
         myUnit = this.GetComponent<Unit> ();
     }
 
@@ -94,6 +96,12 @@ public class UnitMovementManager : MonoBehaviour
             if (currentlyInitiatedUnit.AP <= 0 || movementPath.nodes[0].isStairs)
                 break;
 
+            if (prevNode != null)
+                prevNode.occupyingUnit = null;
+
+            nextNode.occupyingUnit = unitToMove;
+            prevNode = nextNode;
+
             currentlyInitiatedUnit.DecreaseAPBy (1);
 
             myAnimator.transform.LookAt (nextNode.transform, Vector3.up);
@@ -146,9 +154,10 @@ public class UnitMovementManager : MonoBehaviour
         }
 
         int allowedMovement = currentlyInitiatedUnit.AP;
+        if (p == null) return;
         foreach (Node n in Enumerable.Reverse (p.nodes))
         {
-            var mesh = n.GetComponent<MeshRenderer> ();
+            //var mesh = n.GetComponent<MeshRenderer> ();
             if (allowedMovement > 0)
                 n.tile.gameObject.SetActive (true);
             // else
