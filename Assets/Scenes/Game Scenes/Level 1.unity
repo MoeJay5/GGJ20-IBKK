@@ -406,6 +406,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1919988046}
     m_Modifications:
+    - target: {fileID: 698835363, guid: 2a5183a698808804c8a76fc88dd175a5, type: 3}
+      propertyPath: defaultState
+      value: 
+      objectReference: {fileID: 87356104}
+    - target: {fileID: 698835363, guid: 2a5183a698808804c8a76fc88dd175a5, type: 3}
+      propertyPath: startState
+      value: 
+      objectReference: {fileID: 87356104}
     - target: {fileID: 6738178788784320484, guid: 2a5183a698808804c8a76fc88dd175a5,
         type: 3}
       propertyPath: m_Name
@@ -516,6 +524,7 @@ MonoBehaviour:
   initiative: -1
   maxAP: 2
   IsEnemy: 1
+  unitIcon: {fileID: 0}
   _AP: 0
 --- !u!114 &87356101
 MonoBehaviour:
@@ -537,6 +546,18 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 87356096}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &87356104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 698835362, guid: 2a5183a698808804c8a76fc88dd175a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 87356096}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87356098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158d1a3cb1dfcb040b20340c11a77bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!21 &107315650
 Material:
   serializedVersion: 6
@@ -3683,6 +3704,7 @@ MonoBehaviour:
   initiative: -1
   maxAP: 5
   IsEnemy: 0
+  unitIcon: {fileID: 0}
   _AP: 0
 --- !u!1001 &509893732
 PrefabInstance:
@@ -9600,6 +9622,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1348566187, guid: 610cfbee4a52c8f47999c2d60c5240e9, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449307070, guid: 610cfbee4a52c8f47999c2d60c5240e9, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1634658106, guid: 610cfbee4a52c8f47999c2d60c5240e9, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6358490388996705321, guid: 610cfbee4a52c8f47999c2d60c5240e9,
         type: 3}
       propertyPath: m_Name
@@ -13433,6 +13467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20834842df005dc41a682a309cdd94c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InitiativeBar: {fileID: 0}
+  IconPrefab: {fileID: 0}
 --- !u!1 &1635429772
 GameObject:
   m_ObjectHideFlags: 0

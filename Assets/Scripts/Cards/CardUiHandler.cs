@@ -56,6 +56,7 @@ public class CardUiHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             cardRef.UseCard(InitiativeSystem.currentUnit(), InitiativeSystem.currentUnit().GetMyGridNode());
             Animate_PreviewCardUsage(false);
+            HandCardManager.Instance.RemoveCardFromHand(cardRef);
             this.gameObject.SetActive(false);
         }
     }
