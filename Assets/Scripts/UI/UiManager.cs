@@ -15,6 +15,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private Image newCardImage = null;
     [SerializeField] private Image noRoomForNewCardImage = null;
     [SerializeField] private Animator gameOverAnimator = null;
+    [SerializeField] private GameObject levelVictoryScreen = null;
 
     // States
     private bool showingOffNewCard = false;
@@ -79,5 +80,15 @@ public class UiManager : MonoBehaviour
     public void TryAgain()
     {
         LevelLoader.LoadSceneByName("Level 1");
+    }
+
+    public void LevelCompleted()
+    {
+        levelVictoryScreen.SetActive(true);
+    }
+
+    public void ToNextLevel(string nameOfLevelToLoad)
+    {
+        LevelLoader.LoadSceneByName(nameOfLevelToLoad);
     }
 }
