@@ -123,6 +123,9 @@ public class UnitMovementManager : MonoBehaviour
             currentlyInitiatedUnit.DecreaseAPBy(1);
 
             myAnimator.transform.LookAt(nextNode.transform, Vector3.up);
+            Vector3 localRot = myAnimator.transform.localEulerAngles;
+            localRot.x = 0;
+            myAnimator.transform.localEulerAngles = localRot;
             myAnimator.SetBool("Walking", true);
 
             //Move Unit to Node
