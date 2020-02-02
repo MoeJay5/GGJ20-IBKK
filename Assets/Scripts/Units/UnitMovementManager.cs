@@ -115,6 +115,8 @@ public class UnitMovementManager : MonoBehaviour
     private IEnumerator MoveUnitAlongPath(Unit unitToMove, Path movementPath)
     {
         Node prevNode = unitToMove.GetMyGridNode();
+        if (movementPath == null)
+            yield break;
         foreach (Node nextNode in Enumerable.Reverse(movementPath.nodes))
         {
             if (currentlyInitiatedUnit.AP <= 0 || movementPath.nodes[0].isStairs)
