@@ -59,11 +59,17 @@ public class UnitMovementManager : MonoBehaviour
         //Will calculate path AND show the path in-game
         Path movementPath = Astar.CalculatePath(startingNode, destinationNode, LevelStateManager.Instance.generatedGrid);
 
-        movementPath.nodes = movementPath.nodes.GetRange(Math.Max(movementPath.nodes.Count - myUnit.AP, 0), Math.Min(myUnit.AP, movementPath.nodes.Count));
-        
-        if (movementPath.nodes.First().isStairs)
+        if (movementPath != null && movementPath.nodes.Count > 0)
         {
-            movementPath.nodes.Remove(movementPath.nodes.First());
+            if (movementPath.nodes.Count > myUnit.AP)
+            {
+                movementPath.nodes = movementPath.nodes.GetRange(movementPath.nodes.Count - myUnit.AP, myUnit.AP);
+            }
+        
+            if (movementPath.nodes.First().isStairs)
+            {
+                movementPath.nodes.Remove(movementPath.nodes.First());
+            }
         }
 
         if (InputListener.Instance.PressedDown_Mouse_LeftClick)
@@ -80,6 +86,17 @@ public class UnitMovementManager : MonoBehaviour
 
     //Helper Functions 
 
+    private void clearTiles()
+    {
+        foreach (Node n in grid.gridNodes)
+        {
+            if (n.walkable)
+            {
+                n.tile?.setState(Tile.TileStates.INACTIVE);
+            }
+        }
+    }
+    
     private Node GetMousedOverNode()
     {
         RaycastHit hit;
@@ -128,12 +145,14 @@ public class UnitMovementManager : MonoBehaviour
 
             myAnimator.SetBool("Walking", false);
 
+            prevNode.tile.setState(Tile.TileStates.INACTIVE);
             prevNode = nextNode;
             yield return new WaitUntil(() => unitToMove.GetMyGridNode() == nextNode);
         }
 
         //Done moving along path
         movingInitiatedUnit = true;
+        clearTiles();
     }
 
     private void HighlightNavigation(Path p)
@@ -143,29 +162,14 @@ public class UnitMovementManager : MonoBehaviour
 
         if (Unit.current_UnitNode == null)
             Unit.current_UnitNode = startingNode;
+        
+        clearTiles();
 
-        //Path p = Astar.CalculatePath(Unit.current_UnitNode, Node.current_SelectedNode, grid);
-        foreach (Node n in grid.gridNodes)
-        {
-            if (n.walkable)
-            {
-                //n.GetComponent<MeshRenderer> ().material.SetColor ("_BaseColor", Color.white);
-                n.tile?.gameObject.SetActive(false);
-            }
-        }
-
-        int allowedMovement = currentlyInitiatedUnit.AP;
+        if (p == null) return;
         foreach (Node n in Enumerable.Reverse(p.nodes))
         {
-            var mesh = n.GetComponent<MeshRenderer>();
-            if (allowedMovement > 0)
-                n.tile?.gameObject.SetActive(true);
-            // else
-            //     mesh.material.SetColor ("_BaseColor", Color.red);
-
-            allowedMovement--;
+            n.tile?.setState(Tile.TileStates.ACTIVE);
         }
-        //p.nodes[0].GetComponent<MeshRenderer>().material.color = Color.green;
     }
 
     void PlayerTurnHandleRotate()
