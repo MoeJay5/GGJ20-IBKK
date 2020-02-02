@@ -45,6 +45,7 @@ public class Node : MonoBehaviour
 
     private void Start()
     {
+        neighborDirections.Clear();
         for(int i = 0;i<nodeList.Count;i++)
         {
             neighborDirections.Add(directionsList[i], nodeList[i]);
