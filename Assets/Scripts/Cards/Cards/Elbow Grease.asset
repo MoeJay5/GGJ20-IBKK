@@ -12,9 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04b146841b3230408f3a5aa9fa38433, type: 3}
   m_Name: Elbow Grease
   m_EditorClassIdentifier: 
-  cardName: 
-  cost: 0
-  effectIntensity: 0
-  cardImage: {fileID: 0}
-  pattern: []
-  OriginalPattern: []
+  cardName: Elbow Grease
+  cost: 2
+  effectIntensity: 2
+  cardImage: {fileID: 21300000, guid: 82beff7d58cf6ff4a8565b5cba5884c9, type: 3}
+  pattern:
+  - elementTitle: 
+    xAxis: 0
+    yAxis: -1
+    isGood: 1
+  - elementTitle: 
+    xAxis: -1
+    yAxis: -1
+    isGood: 0
+  OriginalPattern:
+  - elementTitle: 
+    xAxis: 0
+    yAxis: -1
+    isGood: 1
+  - elementTitle: 
+    xAxis: -1
+    yAxis: -1
+    isGood: 0

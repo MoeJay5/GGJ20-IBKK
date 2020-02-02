@@ -12,9 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04b146841b3230408f3a5aa9fa38433, type: 3}
   m_Name: Cornered
   m_EditorClassIdentifier: 
-  cardName: 
-  cost: 0
-  effectIntensity: 0
-  cardImage: {fileID: 0}
-  pattern: []
-  OriginalPattern: []
+  cardName: cornered
+  cost: 2
+  effectIntensity: 4
+  cardImage: {fileID: 21300000, guid: c281361afc92e2b48b114dbe7dcf992d, type: 3}
+  pattern:
+  - elementTitle: 
+    xAxis: -1
+    yAxis: -1
+    isGood: 1
+  - elementTitle: 
+    xAxis: 0
+    yAxis: -1
+    isGood: 0
+  OriginalPattern:
+  - elementTitle: 
+    xAxis: -1
+    yAxis: -1
+    isGood: 1
+  - elementTitle: 
+    xAxis: 0
+    yAxis: -1
+    isGood: 0
