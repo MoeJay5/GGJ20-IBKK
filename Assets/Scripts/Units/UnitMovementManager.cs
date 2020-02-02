@@ -9,14 +9,20 @@ public class UnitMovementManager : MonoBehaviour
 
     [Header ("Properties")]
     [SerializeField] private bool movingInitiatedUnit;
+    [SerializeField] private Node startingNode;
 
     private Unit currentlyInitiatedUnit;
+    private GridSystem grid;
 
     /* Main Functions */
 
     void OnEnable ()
     {
         currentlyInitiatedUnit = gameObject.GetComponent<Unit> ();
+        grid = FindObjectOfType<GridSystem> ();
+
+        if (startingNode == null)
+            startingNode = grid.gridNodes[0];
     }
 
     private void Update ()
@@ -69,6 +75,7 @@ public class UnitMovementManager : MonoBehaviour
             {
                 Vector3 newPos = Vector3.Lerp (prevNode.transform.position, nextNode.transform.position, t);
                 //newPos.y = unitToMove.transform.position.y;
+                newPos.y += nextNode.transform.localScale.y / 2;
                 unitToMove.transform.position = newPos;
 
                 t += tickDuration;
@@ -87,10 +94,8 @@ public class UnitMovementManager : MonoBehaviour
 
     private void HighlightNavigation ()
     {
-        var grid = FindObjectOfType<GridSystem> ();
-
         if (Unit.current_UnitNode == null)
-            Unit.current_UnitNode = grid.gridNodes[0];
+            Unit.current_UnitNode = startingNode;
         Path p = Astar.CalculatePath (Unit.current_UnitNode, Node.current_SelectedNode, grid);
         foreach (Node n in grid.gridNodes)
         {
