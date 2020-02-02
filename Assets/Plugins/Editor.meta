@@ -1,14 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Plugins/Editor.meta
 guid: 65478f9daaf70e546a760fad2a99dfda
 folderAsset: yes
 DefaultImporter:
-=======
-guid: 8318175996cb0f04bb20c3fb533d9790
-NativeFormatImporter:
->>>>>>> 96c01f3d5c602efdee85bbd11a51118af076875b:Assets/Scripts/Cards/Cards/Test Card.asset.meta
   externalObjects: {}
-  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
