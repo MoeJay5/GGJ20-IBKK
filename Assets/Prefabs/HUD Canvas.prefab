@@ -247,19 +247,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitiativeBar: {fileID: 1944527722}
-  IconPrefab: {fileID: 8233926536120366554, guid: 9d4df7f498b5f034fa357aabe6bcb959,
+  IconPrefab: {fileID: 8233926536120366552, guid: 9d4df7f498b5f034fa357aabe6bcb959,
     type: 3}
-  PlayerImages:
-  - {fileID: 21300000, guid: de5edc0cbc1fb4b4cb3e82a80ff444fb, type: 3}
-  - {fileID: 21300000, guid: e6f1304e80369944aa61ababea635a10, type: 3}
-  - {fileID: 21300000, guid: 61a36984a7d92434da6d0d509c44b391, type: 3}
-  - {fileID: 21300000, guid: 3a649bdbf0019884ab2b7ef06703ef45, type: 3}
-  - {fileID: 21300000, guid: b7aed9989a92199478aad993275d3cf3, type: 3}
-  - {fileID: 21300000, guid: 7649aa44b1147d540b1ecc7d97c91951, type: 3}
-  - {fileID: 21300000, guid: f60a75b4db4ce4c42b37eb7743b5e6b9, type: 3}
-  - {fileID: 21300000, guid: 70e00c578030e6e488f761ab9eeb5746, type: 3}
-  - {fileID: 21300000, guid: de5edc0cbc1fb4b4cb3e82a80ff444fb, type: 3}
-  - {fileID: 21300000, guid: e6f1304e80369944aa61ababea635a10, type: 3}
 --- !u!1 &1944527720
 GameObject:
   m_ObjectHideFlags: 0
