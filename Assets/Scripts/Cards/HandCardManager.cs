@@ -55,16 +55,9 @@ public class HandCardManager : MonoBehaviour
     //ToDo: Call this when getting a new card
     public void GainNewCard(Card_ScriptableObject cardGained)
     {
-        if (myCards.Count >= maxNumberCards)
-            GainedNewCardWithNoRoomLeft();
-
         myCards.Add(cardGained);
 
         UiManager.Instance.ShowOffNewCard(cardGained.cardImage, myCards.Count > maxNumberCards);
-    }
-    private void GainedNewCardWithNoRoomLeft()
-    {
-        //ToDo
     }
 
     /* Helper Functions */
@@ -72,15 +65,5 @@ public class HandCardManager : MonoBehaviour
     private float GetCardSpawnPosition(int totalNumCards, int thisCardNum) //thisCardNum = [1, totalNumCards]
     {
         return ((2.0f / (totalNumCards + 1) * thisCardNum) - 1f) * cardSpacingMultiplier;
-    }
-
-    /* TESTING */
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            GainNewCard(myCards[0]);
-        }
     }
 }
