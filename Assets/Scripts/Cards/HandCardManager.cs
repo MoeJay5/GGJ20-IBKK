@@ -49,6 +49,7 @@ public class HandCardManager : MonoBehaviour
             Vector3 localPos = spawnedCard.localPosition;
             localPos.x = GetCardSpawnPosition(Mathf.Clamp(myCards.Count, 0, maxNumberCards), i++);
             spawnedCard.localPosition = localPos * 100;
+            spawnedCard.GetComponent<CardUiHandler>().cardRef = card;
         }
     }
 
