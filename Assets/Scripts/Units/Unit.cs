@@ -14,7 +14,7 @@ public class Unit : MonoBehaviour
     public bool InGamePlay = true;
     public bool CurrentTurn = false;
 
-    [SerializeField] private int _initiative = -1;
+    public int _initiative = -1;
     public int Initiative
     {
         get => _initiative;
@@ -24,7 +24,7 @@ public class Unit : MonoBehaviour
 
     public void Start ()
     {
-        _initiative = Random.Range (1, 100);
+        _initiative = Random.Range (1, 10);
         InitiativeSystem.registerUnit (this);
     }
 
@@ -37,5 +37,10 @@ public class Unit : MonoBehaviour
             return null;
         else
             return hit.collider.gameObject.GetComponent<Node> ();
+    }
+
+    public void DecreaseInitiativeBy (int amount)
+    {
+        _initiative -= amount;
     }
 }
