@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class Unit : MonoBehaviour
     [SerializeField] int maxAP = 5;
 
     public bool IsEnemy = true;
+
+    public Sprite unitIcon;
 
     public int MaxAP
     {
