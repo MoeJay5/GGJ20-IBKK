@@ -19,9 +19,14 @@ public class HandCardManager : MonoBehaviour
     [SerializeField] private float cardSpacingMultiplier = 1.0f;
     [SerializeField, Range(3, 20)] private int maxNumberCards = 7;
 
+
     // Private Vars
     private CardUiHandler currentlySelectedCard = null;
     public CardUiHandler CurrentlySelectedCard { get => currentlySelectedCard; }
+    public static Texture BlueOutline => Instance.blueOutline;
+    public static Texture RedOutline => Instance.redOutline;
+    [SerializeField()]private Texture redOutline;
+    [SerializeField()]private Texture blueOutline;
 
     public void SetCurrentlySelectedCard(CardUiHandler newlySelectedCard) => currentlySelectedCard = newlySelectedCard;
 

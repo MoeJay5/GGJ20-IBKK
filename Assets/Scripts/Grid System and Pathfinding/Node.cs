@@ -28,6 +28,10 @@ public class Node : MonoBehaviour
     public List<Node> neighbors = new List<Node> ();
     [HideInInspector]
     public Dictionary<Direction, Node> neighborDirections = new Dictionary<Direction, Node> ();
+    [SerializeField]
+    private List<Direction> directionsList = new List<Direction>();
+    [SerializeField]
+    private List<Node> nodeList = new List<Node>();
     [HideInInspector]
     public float gScore;
     [HideInInspector]
@@ -38,8 +42,14 @@ public class Node : MonoBehaviour
     public int myGridIndex;
     public bool isStairs = false;
     public bool direction = false;
-    
-    
+
+    private void Start()
+    {
+        for(int i = 0;i<nodeList.Count;i++)
+        {
+            neighborDirections.Add(directionsList[i], nodeList[i]);
+        }
+    }
 
     public void CalculateNeighbors (GridSystem grid)
     {
@@ -55,7 +65,9 @@ public class Node : MonoBehaviour
                         if (!this.isStairs || this.direction)
                         {
                             neighbors.Add (right);
-                            neighborDirections.Add (Direction.Right, right);
+                            //neighborDirections.Add (Direction.Right, right);
+                            directionsList.Add(Direction.Right);
+                            nodeList.Add(right);
                         }
             //upright
             if (myGridIndex < grid.width * (grid.height - 1) && !isStairs)
@@ -66,7 +78,9 @@ public class Node : MonoBehaviour
                         if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
                         {
                             neighbors.Add (n);
-                            neighborDirections.Add (Direction.UpRight, n);
+                            // neighborDirections.Add (Direction.UpRight, n);
+                            directionsList.Add(Direction.UpRight);
+                            nodeList.Add(n);
                         }
             }
             //downright
@@ -78,7 +92,9 @@ public class Node : MonoBehaviour
                         if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
                         {
                             neighbors.Add (n);
-                            neighborDirections.Add (Direction.DownRight, n);
+                            //neighborDirections.Add (Direction.DownRight, n);
+                            directionsList.Add(Direction.DownRight);
+                            nodeList.Add(n);
                         }
             }
         }
@@ -92,7 +108,9 @@ public class Node : MonoBehaviour
                         if (!this.isStairs || this.direction)
                         {
                             neighbors.Add (left);
-                            neighborDirections.Add (Direction.Left, left);
+                            //neighborDirections.Add (Direction.Left, left);
+                            directionsList.Add(Direction.Left);
+                            nodeList.Add(left);
                         }
             //upleft
             if (myGridIndex < grid.width * (grid.height - 1) && !isStairs)
@@ -103,7 +121,9 @@ public class Node : MonoBehaviour
                         if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
                         {
                             neighbors.Add (n);
-                            neighborDirections.Add (Direction.UpLeft, n);
+                            //neighborDirections.Add (Direction.UpLeft, n);
+                            directionsList.Add(Direction.UpLeft);
+                            nodeList.Add(n);
                         }
             }
             //downleft
@@ -115,7 +135,9 @@ public class Node : MonoBehaviour
                         if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
                         {
                             neighbors.Add (n);
-                            neighborDirections.Add (Direction.DownLeft, n);
+                            //neighborDirections.Add (Direction.DownLeft, n);
+                            directionsList.Add(Direction.DownLeft);
+                            nodeList.Add(n);
                         }
             }
         }
@@ -129,7 +151,9 @@ public class Node : MonoBehaviour
                         if (!this.isStairs || !this.direction)
                         {
                             neighbors.Add (up);
-                            neighborDirections.Add (Direction.Up, up);
+                            //neighborDirections.Add (Direction.Up, up);
+                            directionsList.Add(Direction.Up);
+                            nodeList.Add(up);
                         }
         }
         //down
@@ -142,7 +166,9 @@ public class Node : MonoBehaviour
                         if (!this.isStairs || !this.direction)
                         {
                             neighbors.Add (down);
-                            neighborDirections.Add (Direction.Down, down);
+                            //neighborDirections.Add (Direction.Down, down);
+                            directionsList.Add(Direction.Down);
+                            nodeList.Add(down);
                         }
         }
 

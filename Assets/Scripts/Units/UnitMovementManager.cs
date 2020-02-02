@@ -47,7 +47,34 @@ public class UnitMovementManager : MonoBehaviour
 
         if (currentlyInitiatedUnit == myUnit)
             if (HandCardManager.Instance.CurrentlySelectedCard != null)
+            {
                 PlayerTurnHandleRotate();
+                foreach (var p in HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern)
+                {
+                    Node n = myUnit.GetMyGridNode();
+
+                    for (int i = 0; i < Mathf.Abs(p.xAxis); i++)
+                    {
+                        if (p.xAxis > 0)
+                        {
+                            n = n?.GetNeighbor(Direction.Right);
+                        }
+                        else
+                            n = n?.GetNeighbor(Direction.Left);
+                    }
+                    for (int j = 0; j < Mathf.Abs(p.yAxis); j++)
+                    {
+                        if (p.yAxis > 0)
+                        {
+                            n = n?.GetNeighbor(Direction.Up);
+                        }
+                        else
+                            n = n?.GetNeighbor(Direction.Down);
+                    }
+                    n?.tile?.gameObject.SetActive(true);
+                    n?.tile?.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", (p.isGood) ? HandCardManager.BlueOutline : HandCardManager.RedOutline);
+                }
+            }
         if (movingInitiatedUnit == false)
             return;
 
