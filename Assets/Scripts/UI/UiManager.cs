@@ -83,8 +83,14 @@ public class UiManager : MonoBehaviour
         LevelLoader.LoadSceneByName("Level 1");
     }
 
-    public void LevelCompleted()
+    public void LevelCompleted(bool isLastLevel)
     {
+        if (isLastLevel)
+        {
+            GameCompleted();
+            return;
+        }
+
         levelVictoryScreen.SetActive(true);
     }
 
