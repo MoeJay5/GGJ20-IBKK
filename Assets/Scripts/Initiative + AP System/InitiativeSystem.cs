@@ -31,6 +31,16 @@ public static class InitiativeSystem
         turnListeners.Add(l);
     }
 
+    public static Unit currentUnit()
+    {
+        if (currentQueue.Count > 0)
+        {
+            return currentQueue.Peek();
+        }
+
+        return null;
+    }
+
     public static void registerUnit( Unit u )
     {
         activeUnits.Add(u);
