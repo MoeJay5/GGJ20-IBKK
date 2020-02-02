@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: afff110dbb7e3ad44a30c6383595c8ca,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -50722,7 +50722,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330829479}
   m_LocalRotation: {x: -0.3097934, y: 0.6380802, z: -0.31296185, w: -0.63161427}
-  m_LocalPosition: {x: 18.706635, y: 11.249439, z: 10.5367155}
+  m_LocalPosition: {x: 15.8, y: 7.26, z: 10.5367155}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2078669591}
@@ -76914,7 +76914,7 @@ MonoBehaviour:
   mainCamera: {fileID: 1330829481}
   lookAtTarget: {fileID: 2119471280}
   boundDistance: 10
-  movementSpeed: 3
+  movementSpeed: 2
   movementFallOffSpeed: 2
   rotationFallOffSpeed: 1
   minFov: 60
