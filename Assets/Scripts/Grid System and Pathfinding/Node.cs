@@ -18,6 +18,9 @@ public class Node : MonoBehaviour
 {
     public static Node current_SelectedNode;
 
+    public Unit occupyingUnit = null;
+    [SerializeField] private Tile myTile;
+
     public bool walkable;
     [HideInInspector]
     public Node parent;
@@ -35,6 +38,8 @@ public class Node : MonoBehaviour
     public int myGridIndex;
     public bool isStairs = false;
     public bool direction = false;
+    
+    
 
     public void CalculateNeighbors (GridSystem grid)
     {

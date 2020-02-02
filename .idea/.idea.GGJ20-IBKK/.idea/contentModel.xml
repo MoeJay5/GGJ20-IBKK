@@ -45,8 +45,11 @@
           </e>
           <e p="Cards" t="Include">
             <e p="Card_Base.cs" t="Include" />
+            <e p="Card_ScriptableObject.cs" t="Include" />
             <e p="CardUiHandler.cs" t="Include" />
+            <e p="CardUsagePreviewPosition.cs" t="Include" />
             <e p="HandCardManager.cs" t="Include" />
+            <e p="HandCardsParentTransform.cs" t="Include" />
           </e>
           <e p="Core Player Scripts" t="Include">
             <e p="InputListener.cs" t="Include" />
@@ -64,7 +67,7 @@
             <e p="Node.cs" t="Include" />
             <e p="NodeEditor.cs" t="Include" />
             <e p="TestAstar.cs" t="Include" />
-            <e p="TileManager.cs" t="Include" />
+            <e p="Tile.cs" t="Include" />
           </e>
           <e p="Initiative + AP System" t="Include">
             <e p="InitiativeSystem.cs" t="Include" />

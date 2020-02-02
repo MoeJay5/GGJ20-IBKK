@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+public interface ITurnListener
+{
+    void NextTurn(Unit unit);
+}
+
 public static class InitiativeSystem
 {
     private static List<Unit> activeUnits = new List<Unit>();
+    private static List<ITurnListener> turnListeners = new List<ITurnListener>();
     private static Queue<Unit> currentQueue = new Queue<Unit>();
     
     public static void recalculateInitiativeOrder()
@@ -18,6 +24,11 @@ public static class InitiativeSystem
             currentQueue.Enqueue(unit);
         });
         currentQueue.First().CurrentTurn = true;
+    }
+
+    public static void registerListener(ITurnListener l)
+    {
+        turnListeners.Add(l);
     }
 
     public static void registerUnit( Unit u )
@@ -41,5 +52,9 @@ public static class InitiativeSystem
         } while (!currentQueue.First().InGamePlay);
 
         currentQueue.First().CurrentTurn = true;
+
+        turnListeners = turnListeners.Where(l => l != null).ToList();
+        Unit unit = currentQueue.First();
+        turnListeners.ForEach(l => l.NextTurn(unit));
     }
 }
