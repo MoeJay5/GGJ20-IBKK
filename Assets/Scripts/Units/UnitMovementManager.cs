@@ -19,7 +19,7 @@ public class UnitMovementManager : MonoBehaviour
     private float catchTime_ForDoubleClick = 0.25f;
     private bool unitIsMoveing;
 
-    [Header("Dependencies")]
+    [Header ("Dependencies")]
     [SerializeField] private Animator myAnimator = null;
 
     /* Main Functions */
@@ -37,7 +37,7 @@ public class UnitMovementManager : MonoBehaviour
     {
         if (currentlyInitiatedUnit.AP == 0 && currentlyInitiatedUnit.CurrentTurn && movingInitiatedUnit)
         {
-            InitiativeSystem.nextTurn();
+            InitiativeSystem.nextTurn ();
             return;
         }
 
@@ -91,8 +91,8 @@ public class UnitMovementManager : MonoBehaviour
 
             currentlyInitiatedUnit.DecreaseAPBy (1);
 
-            myAnimator.transform.LookAt(nextNode.transform, Vector3.up);
-            myAnimator.SetBool("Walking", true);
+            myAnimator.transform.LookAt (nextNode.transform, Vector3.up);
+            myAnimator.SetBool ("Walking", true);
 
             //Move Unit to Node
             float t = 0;
@@ -112,8 +112,7 @@ public class UnitMovementManager : MonoBehaviour
             unitIsMoveing = false;
             Unit.current_UnitNode = nextNode;
 
-
-            myAnimator.SetBool("Walking", false);
+            myAnimator.SetBool ("Walking", false);
 
             prevNode = nextNode;
             yield return new WaitUntil (() => unitToMove.GetMyGridNode () == nextNode);
@@ -130,11 +129,15 @@ public class UnitMovementManager : MonoBehaviour
 
         if (Unit.current_UnitNode == null)
             Unit.current_UnitNode = startingNode;
+
         Path p = Astar.CalculatePath (Unit.current_UnitNode, Node.current_SelectedNode, grid);
         foreach (Node n in grid.gridNodes)
         {
             if (n.walkable)
-                n.GetComponent<MeshRenderer> ().material.SetColor ("_BaseColor", Color.white);
+            {
+                //n.GetComponent<MeshRenderer> ().material.SetColor ("_BaseColor", Color.white);
+                n.tile.gameObject.SetActive (false);
+            }
         }
 
         int allowedMovement = currentlyInitiatedUnit.AP;
@@ -142,9 +145,9 @@ public class UnitMovementManager : MonoBehaviour
         {
             var mesh = n.GetComponent<MeshRenderer> ();
             if (allowedMovement > 0)
-                mesh.material.SetColor ("_BaseColor", Color.green);
-            else
-                mesh.material.SetColor ("_BaseColor", Color.red);
+                n.tile.gameObject.SetActive (true);
+            // else
+            //     mesh.material.SetColor ("_BaseColor", Color.red);
 
             allowedMovement--;
         }
