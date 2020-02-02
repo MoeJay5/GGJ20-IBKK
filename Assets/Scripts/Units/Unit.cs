@@ -8,7 +8,7 @@ public class Unit : MonoBehaviour
     public static Node current_UnitNode;
     public Animator anim;
     [Header ("Unit Stats")]
-    [SerializeField] private int health = 5;
+    public int health = 5;
 
     public readonly float speed = 6;
 
