@@ -5,7 +5,7 @@ public class Unit : MonoBehaviour
     /* Variables */
 
     public static Node current_UnitNode;
-    [HideInInspector] public Animator anim;
+    public Animator anim;
     [Header ("Unit Stats")]
     [SerializeField] private int health = 5;
 
@@ -51,10 +51,15 @@ public class Unit : MonoBehaviour
         // This should only be called if we don't know the current node. We should be able to use the last tile of the path.
         RaycastHit hit;
 
-        if (!Physics.Raycast (transform.position + Vector3.up * 2, Vector3.down, out hit, 7, 1 << GameMaster.Layer_GridNode))
+        if (!Physics.Raycast(transform.position + Vector3.up * 2, Vector3.down, out hit, 7, 1 << GameMaster.Layer_GridNode))
             return null;
         else
-            return hit.collider.gameObject.GetComponent<Node> ();
+        {
+
+            var n = hit.collider.gameObject.GetComponent<Node>();
+            n.occupyingUnit = this;
+            return n;
+        }
     }
 
     public void DecreaseAPBy(int amount)

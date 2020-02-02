@@ -21,7 +21,7 @@ public class Card_ScriptableObject : ScriptableObject
     }
     public void UseCard(Unit unitUsingCard,Node n)
     {
-
+        unitUsingCard.DecreaseAPBy(cost);
         foreach(var p in pattern)
         {
             Node target = n;
@@ -44,10 +44,11 @@ public class Card_ScriptableObject : ScriptableObject
                 else
                     target = target?.GetNeighbor(Direction.Down);
             }
-
-            if(n.occupyingUnit!=null)
+            if (!target)
+                continue;
+            if(target.occupyingUnit!=null)
             {
-                n.occupyingUnit.Damage((p.isGood)?-effectIntensity:effectIntensity);
+                target.occupyingUnit.Damage((p.isGood)?-effectIntensity:effectIntensity);
             }
         }
 
