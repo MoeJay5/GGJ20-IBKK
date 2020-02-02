@@ -4,7 +4,7 @@ public class LevelObjective : MonoBehaviour
 {
     /* Variables */
 
-    private bool completed = false;
+    public bool completed = false;
     public bool Completed { get => completed; }
 
     /* Main Functionality */

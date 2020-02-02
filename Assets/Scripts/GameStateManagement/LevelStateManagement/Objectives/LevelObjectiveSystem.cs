@@ -23,6 +23,14 @@ public class LevelObjectiveSystem : MonoBehaviour
     //Called by an objective
     public void ObjectiveCompleted()
     {
+        foreach(var ob in mandatoryObjectives)
+        {
+            if(!ob.Completed)
+            {
+                ob.completed = true;
+                break;
+            }
+        }
         if (highlightedExit == false && AllMandatoryObjectivesCompleted())
             CompletedLastMandatoryObjective();
     }
