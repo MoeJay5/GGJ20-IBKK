@@ -27476,6 +27476,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6288766965228992460, guid: f3396aed8a68d5e4ba35fb996c404a85,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d8667e6f627892e49a5a76102a6c084b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3396aed8a68d5e4ba35fb996c404a85, type: 3}
 --- !u!21 &1173376199
@@ -31127,6 +31132,7 @@ MonoBehaviour:
   mandatoryObjectives:
   - {fileID: 0}
   levelToLoadAfterThisOne: Level 2
+  isLastLevel: 0
 --- !u!1 &1302061215
 GameObject:
   m_ObjectHideFlags: 0

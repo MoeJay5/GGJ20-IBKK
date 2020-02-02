@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: afff110dbb7e3ad44a30c6383595c8ca,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -44789,6 +44789,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6288766965228992460, guid: f3396aed8a68d5e4ba35fb996c404a85,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fbceedc547aa7ab47be340fb4025c827, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3396aed8a68d5e4ba35fb996c404a85, type: 3}
 --- !u!1 &1172860122
@@ -49814,6 +49819,7 @@ MonoBehaviour:
   mandatoryObjectives:
   - {fileID: 0}
   levelToLoadAfterThisOne: Level 2
+  isLastLevel: 0
 --- !u!1 &1305528078
 GameObject:
   m_ObjectHideFlags: 0
