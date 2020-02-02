@@ -1,6 +1,9 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BasicIdleClass", menuName = "ScriptableObjects/States/BasicIdleClass")]
 class BasicIdleClass : State
 {
+    public override void UpdateState(StateMachine parent)
+    {
+        InitiativeSystem.nextTurn();
+    }
 }

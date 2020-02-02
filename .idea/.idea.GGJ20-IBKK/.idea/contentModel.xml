@@ -77,14 +77,17 @@
           <e p="Initiative + AP System" t="Include">
             <e p="APUIManager.cs" t="Include" />
             <e p="InitiativeSystem.cs" t="Include" />
+            <e p="InitiativeUIManager.cs" t="Include" />
           </e>
           <e p="Level Loading" t="Include">
             <e p="LevelLoader.cs" t="Include" />
             <e p="LevelLoadingEventHelper.cs" t="Include" />
           </e>
           <e p="State Machine" t="Include">
+            <e p="AttackState.cs" t="Include" />
             <e p="BasicIdleClass.cs" t="Include" />
             <e p="BasicWalkState.cs" t="Include" />
+            <e p="IdleState.cs" t="Include" />
             <e p="PatrolState.cs" t="Include" />
             <e p="State.cs" t="Include" />
             <e p="StateMachine.cs" t="Include" />
@@ -93,9 +96,12 @@
             <e p="GameMaster.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="TitleScreenLogic.cs" t="Include" />
             <e p="UiManager.cs" t="Include" />
+            <e p="WorldspaceCanvas_FaceCamera.cs" t="Include" />
           </e>
           <e p="Units" t="Include">
+            <e p="HealthUiManager.cs" t="Include" />
             <e p="Unit.cs" t="Include" />
             <e p="UnitMovementManager.cs" t="Include" />
           </e>

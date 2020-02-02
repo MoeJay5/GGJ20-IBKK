@@ -12,8 +12,9 @@ public static class InitiativeSystem
 {
     private static List<Unit> activeUnits = new List<Unit>();
     private static List<ITurnListener> turnListeners = new List<ITurnListener>();
-    private static Queue<Unit> currentQueue = new Queue<Unit>();
-    
+    public static Queue<Unit> currentQueue = new Queue<Unit>();
+    private static InitiativeUIManager uiManager;
+
     public static void recalculateInitiativeOrder()
     {
         activeUnits = activeUnits.Where(unit => unit != null).OrderBy(unit => unit.InGamePlay ? unit.initiative : 1000).ToList();
@@ -29,6 +30,11 @@ public static class InitiativeSystem
     public static void registerListener(ITurnListener l)
     {
         turnListeners.Add(l);
+    }
+
+    public static void registerManager(InitiativeUIManager ui)
+    {
+        uiManager = ui; 
     }
 
     public static Unit currentUnit()
@@ -52,9 +58,8 @@ public static class InitiativeSystem
         activeUnits.Clear();
     }
 
-    public static void nextTurn()
+    public static void finishNextTurn()
     {
-        currentQueue.First().CurrentTurn = false;
         do
         {
             currentQueue.Enqueue(currentQueue.Dequeue());
@@ -66,5 +71,18 @@ public static class InitiativeSystem
         turnListeners = turnListeners.Where(l => l != null).ToList();
         Unit unit = currentQueue.First();
         turnListeners.ForEach(l => l.NextTurn(unit));
+    }
+
+    public static void nextTurn()
+    {
+        currentQueue.First().CurrentTurn = false;
+        if (uiManager != null)
+        {
+            uiManager.TriggerInitiativeChange();
+        }
+        else
+        {
+            finishNextTurn();
+        }
     }
 }
