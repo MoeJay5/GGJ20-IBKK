@@ -31,7 +31,7 @@ public class Astar
             closed.Add (current);
             if (current == end)
             {
-                Debug.Log ("Found Path");
+                //Debug.Log ("Found Path");
 
                 return Retrace (start, current);
             }

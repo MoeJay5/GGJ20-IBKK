@@ -20,7 +20,7 @@ MonoBehaviour:
   - elementTitle: 
     xAxis: 0
     yAxis: 1
-    isGood: 1
+    isGood: 0
   - elementTitle: 
     xAxis: 1
     yAxis: -1
@@ -28,57 +28,57 @@ MonoBehaviour:
   - elementTitle: 
     xAxis: 1
     yAxis: 1
-    isGood: 1
+    isGood: 0
   - elementTitle: 
     xAxis: 1
     yAxis: 0
-    isGood: 1
+    isGood: 0
   - elementTitle: 
     xAxis: 0
     yAxis: -1
-    isGood: 1
+    isGood: 0
   - elementTitle: 
     xAxis: -1
     yAxis: -1
-    isGood: 1
+    isGood: 0
   - elementTitle: 
     xAxis: -1
     yAxis: 0
-    isGood: 1
+    isGood: 0
   - elementTitle: 
     xAxis: -1
     yAxis: 1
-    isGood: 1
+    isGood: 0
   OriginalPattern:
   - elementTitle: 
     xAxis: 0
     yAxis: 1
-    isGood: 1
+    isGood: 0
   - elementTitle: 
     xAxis: 1
     yAxis: -1
-    isGood: 1
+    isGood: 0
   - elementTitle: 
     xAxis: 1
     yAxis: 1
-    isGood: 1
+    isGood: 0
   - elementTitle: 
     xAxis: 1
     yAxis: 0
-    isGood: 1
+    isGood: 0
   - elementTitle: 
     xAxis: 0
     yAxis: -1
-    isGood: 1
+    isGood: 0
   - elementTitle: 
     xAxis: -1
     yAxis: -1
-    isGood: 1
+    isGood: 0
   - elementTitle: 
     xAxis: -1
     yAxis: 0
-    isGood: 1
+    isGood: 0
   - elementTitle: 
     xAxis: -1
     yAxis: 1
-    isGood: 1
+    isGood: 0

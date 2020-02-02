@@ -19,6 +19,7 @@ class PatrolState : State
 
     public override void EnterState (StateMachine parent)
     {
+        Debug.Log ("ENTER STATE");
         myUnit = parent.GetComponent<Unit> ();
         if (myUnit == null)
         {
@@ -27,7 +28,10 @@ class PatrolState : State
 
         myUnit.transform.position = destinations[0].transform.position + Vector3.up;
         destinations[0].occupyingUnit = myUnit;
-        prevNode = null;
+        // if (prevNode != null)
+        //     prevNode.occupyingUnit = null;
+
+        // prevNode = null;
 
         targetIndex = 1;
     }
@@ -52,9 +56,10 @@ class PatrolState : State
             pathIndex = 0;
         }
 
-        foreach (Card_ScriptableObject.PatternNode pn in card.pattern)
+        var checkDetection = false;
+        for (int i = 0; i < card.pattern.Count - 1; i++)
         {
-            var node = myUnit.GetMyGridNode ().GetNeighbor (PatternNodeDirection (pn));
+            var node = myUnit.GetMyGridNode ().GetNeighbor (PatternNodeDirection (card.pattern[i]));
             if (node == null)
                 continue;
 
@@ -62,16 +67,23 @@ class PatrolState : State
             playerWithinRange = unitDetected != null ? true : false;
             if (playerWithinRange)
             {
-                if (unitDetected) Debug.Log (unitDetected.name + " is within range.", gameObject);
-                if ((myUnit.IsEnemy && !unitDetected.IsEnemy) || (!myUnit.IsEnemy && unitDetected.IsEnemy))
+                if (unitDetected)
+                {
+                    checkDetection = true;
+                    Debug.Log (unitDetected.name + " is within range.", gameObject);
+                }
+                if (myUnit.IsEnemy && !unitDetected.IsEnemy)
                 {
                     Debug.Log (myUnit.name + " is attacking " + unitDetected.name + " With the card: " + card);
-                    parent.PushState (parent.gameObject.GetComponent<AttackState> ());
+                    //parent.PushState (parent.gameObject.GetComponent<AttackState> ());
+                    unitDetected.health -= card.effectIntensity;
+                    checkDetection = true;
                 }
-                InitiativeSystem.nextTurn ();
             }
             else if (unitDetected) Debug.Log (unitDetected.name + " is not within range.", gameObject);
         }
+        if (checkDetection)
+            InitiativeSystem.nextTurn ();
 
         if (!playerWithinRange)
         {
@@ -98,12 +110,14 @@ class PatrolState : State
                 myUnit.speed * Time.deltaTime);
             myPath.nodes[pathIndex].occupyingUnit = myUnit;
 
-            if (prevNode != null)
+            if (prevNode != null && prevNode != myUnit.GetMyGridNode ())
+            {
                 prevNode.occupyingUnit = null;
+            }
 
             prevNode = myPath.nodes[pathIndex];
+            //prevNode.occupyingUnit = myUnit;
         }
-
     }
 
     private Direction PatternNodeDirection (Card_ScriptableObject.PatternNode pn)
@@ -124,18 +138,5 @@ class PatrolState : State
             return Direction.Left;
         else
             return Direction.UpLeft;
-    }
-
-    void RotateCardPatern (float angle)
-    {
-        angle = -angle;
-        //angle = angle - 90;
-        for (int i = 0; i < HandCardManager.Instance.CurrentlySelectedCard.cardRef.OriginalPattern.Count; i++)
-        {
-            var ogPatern = HandCardManager.Instance.CurrentlySelectedCard.cardRef.OriginalPattern[i];
-            HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern[i].xAxis = (int) Mathf.Round (((ogPatern.xAxis * Mathf.Cos (angle * Mathf.Deg2Rad)) - (ogPatern.yAxis * Mathf.Sin (angle * Mathf.Deg2Rad))));
-            HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern[i].yAxis = (int) Mathf.Round (((ogPatern.xAxis * Mathf.Sin (angle * Mathf.Deg2Rad)) + (ogPatern.yAxis * Mathf.Cos (angle * Mathf.Deg2Rad))));
-        }
-
     }
 }
