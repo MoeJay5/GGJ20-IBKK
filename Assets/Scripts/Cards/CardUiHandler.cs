@@ -46,7 +46,8 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
 
     public void Update()
     {
-        if (cardIsPreviewingUse && InputListener.Instance.PressedDown_Escape)
+        if ((cardIsPreviewingUse && InputListener.Instance.PressedDown_Escape)
+            || (InputListener.Instance.PressedDown_Mouse_LeftClick && MousedOverCardOrGrid() == false))
             Animate_PreviewCardUsage(false);
     }
 
@@ -93,6 +94,12 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
             t += updateTickTime;
             yield return new WaitForSeconds(updateTickTime);
         }
+    }
+
+    //ToDo
+    private bool MousedOverCardOrGrid()
+    {
+        return false;
     }
 
     /* Animation Events */
