@@ -14,6 +14,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private Image newCardShowoffPanel = null;
     [SerializeField] private Image newCardImage = null;
     [SerializeField] private Image noRoomForNewCardImage = null;
+    [SerializeField] private Animator gameOverAnimator = null;
 
     // States
     private bool showingOffNewCard = false;
@@ -61,5 +62,22 @@ public class UiManager : MonoBehaviour
         showingOffNewCard = false;
         newCardImage.gameObject.SetActive(false);
         newCardShowoffPanel.gameObject.SetActive(false);
+    }
+
+    //ToDo: Call when player hp hits 0
+    public void GameOver()
+    {
+        gameOverAnimator.gameObject.SetActive(true);
+        gameOverAnimator.SetTrigger("GameOver");
+    }
+
+    public void BackToTitleScreen()
+    {
+        LevelLoader.LoadSceneByName("TitleScene");
+    }
+
+    public void TryAgain()
+    {
+        LevelLoader.LoadSceneByName("Level 1");
     }
 }
