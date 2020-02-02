@@ -4608,12 +4608,12 @@ GameObject:
   m_Component:
   - component: {fileID: 922312601}
   m_Layer: 0
-  m_Name: ___TEMP DELETE ME___
+  m_Name: ___Level Objectives___
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &922312601
 Transform:
   m_ObjectHideFlags: 0
@@ -4627,9 +4627,8 @@ Transform:
   m_Children:
   - {fileID: 1300819531}
   - {fileID: 1832595818}
-  - {fileID: 1499372844}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!21 &946174771
 Material:
@@ -6617,7 +6616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1300819531
 Transform:
   m_ObjectHideFlags: 0
@@ -8696,7 +8695,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 922312601}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7780553059979606280, guid: 96f249576492c124ab9f624aec17e7da,
         type: 3}
@@ -8741,7 +8740,7 @@ PrefabInstance:
     - target: {fileID: 7780553059979606281, guid: 96f249576492c124ab9f624aec17e7da,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7780553059979606281, guid: 96f249576492c124ab9f624aec17e7da,
         type: 3}
@@ -8760,12 +8759,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96f249576492c124ab9f624aec17e7da, type: 3}
---- !u!4 &1499372844 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7780553059979606281, guid: 96f249576492c124ab9f624aec17e7da,
-    type: 3}
-  m_PrefabInstance: {fileID: 1499372843}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1564352029
 GameObject:
   m_ObjectHideFlags: 0
@@ -10546,7 +10539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1832595818
 Transform:
   m_ObjectHideFlags: 0
