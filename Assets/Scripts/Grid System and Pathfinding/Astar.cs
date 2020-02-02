@@ -7,7 +7,8 @@ public class Astar
 
     public static Path CalculatePath(Node start, Node end, GridSystem grid)
     {
-
+        if (end.myGridIndex == 17)
+            Debug.Log(0);
         HashSet<Node> open = new HashSet<Node>();
         HashSet<Node> closed = new HashSet<Node>();
         List<Node> openList = new List<Node>();
@@ -21,8 +22,9 @@ public class Astar
 
         while (open.Count != 0)
         {
-
+            openList.Sort((a, b) => a.fScore.CompareTo(b.fScore));
             current = openList[0];
+
             open.Remove(current);
             openList.Remove(current);
             closed.Add(current);
@@ -40,32 +42,32 @@ public class Astar
                 Node shared2 = null;
                 foreach (Node n in current.neighbors)
                 {
-                    if (node.neighbors.Contains(n))
-                    {
-                        if (shared1 == null)
-                            shared1 = n;
-                        else
-                            shared2 = n;
-                    }
+                    //if (node.neighbors.Contains(n))
+                    //{
+                    //    if (shared1 == null)
+                    //        shared1 = n;
+                    //    else
+                    //        shared2 = n;
+                    //}
 
                 }
 
                 if (!open.Contains(node))
                 {
-                    if (shared1 != null && shared2 != null)
-                    {
-                        if ((shared1.walkable || shared2.walkable))
-                        {
-                            open.Add(node);
-                            openList.Add(node);
-                        }
-
-                    }
-                    else
-                    {
+                    //if (shared1 != null && shared2 != null)
+                    //{
+                    //    if ((shared1.walkable || shared2.walkable))
+                    //    {
+                    //        open.Add(node);
+                    //        openList.Add(node);
+                    //    }
+                    //
+                    //}
+                    //else
+                    //{
                         open.Add(node);
                         openList.Add(node);
-                    }
+                    //}
                 }
                 else if (tentative_g >= node.gScore)
                     continue;
@@ -91,7 +93,7 @@ public class Astar
 
         }
         else
-            return 100f;
+            return 10000f;
     }
     static float Manhattan(Node testingNode, Node destination)
     {
