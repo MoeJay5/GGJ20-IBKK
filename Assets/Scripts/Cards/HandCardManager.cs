@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HandCardManager : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class HandCardManager : MonoBehaviour
     /* Variables */
 
     [Header("Cards")]
-    [SerializeField] private List<CardUiHandler> myCards = new List<CardUiHandler>();
+    [SerializeField] private List<Card_ScriptableObject> myCards = new List<Card_ScriptableObject>();
+    [SerializeField] private CardUiHandler cardUiPrefab = null;
 
     [Header("Properties")]
     [SerializeField] private float cardSpacingMultiplier = 1.0f;
@@ -29,13 +31,14 @@ public class HandCardManager : MonoBehaviour
     {
         int i = 1;
 
-        List<CardUiHandler> cards = myCards;
+        List<Card_ScriptableObject> cards = myCards;
         while(cards.Count > maxNumberCards)
             cards.RemoveAt(cards.Count - 1);
 
-        foreach (CardUiHandler card in cards)
+        foreach (Card_ScriptableObject card in cards)
         {
-            RectTransform spawnedCard = GameObject.Instantiate(card.gameObject, HandCardsParentTransform.Instance.transform).GetComponent<RectTransform>();
+            RectTransform spawnedCard = GameObject.Instantiate(cardUiPrefab.gameObject, HandCardsParentTransform.Instance.transform).GetComponent<RectTransform>();
+            spawnedCard.GetComponent<Image>().sprite = card.cardImage;
 
             Vector3 localPos = spawnedCard.localPosition;
             localPos.x = GetCardSpawnPosition(Mathf.Clamp(myCards.Count, 0, maxNumberCards), i++);
@@ -44,22 +47,17 @@ public class HandCardManager : MonoBehaviour
     }
 
     //ToDo: Call this function when you USE a card
-    public void RemoveCardFromHand(CardUiHandler cardToRemove)
+    public void RemoveCardFromHand(Card_ScriptableObject cardToRemove)
     {
         myCards.Remove(cardToRemove);
     }
 
     //ToDo: Call this when getting a new card
-    public void GainNewCard(CardUiHandler cardGained)
+    public void GainNewCard(Card_ScriptableObject cardGained)
     {
-        if (myCards.Count >= maxNumberCards)
-            GainedNewCardWithNoRoomLeft();
-
         myCards.Add(cardGained);
-    }
-    private void GainedNewCardWithNoRoomLeft()
-    {
-        //ToDo
+
+        UiManager.Instance.ShowOffNewCard(cardGained.cardImage, myCards.Count > maxNumberCards);
     }
 
     /* Helper Functions */

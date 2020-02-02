@@ -21,7 +21,14 @@ public class NodeEditor : UnityEditor.Editor
             if (n == null) continue;
 
             var mesh = n.GetComponent<MeshRenderer>();
+            
+            if (n.isStairs)
+            {
+                n.transform.localScale = (n.direction) ? new Vector3(1, .5f, .5f) : new Vector3(.5f, .5f, 1);
+           
+            }
 
+            /*
             if (!n.walkable)
             {
                 mesh.material.SetColor("_BaseColor", Color.red);
@@ -29,11 +36,11 @@ public class NodeEditor : UnityEditor.Editor
             else if (n.isStairs)
             {
                 mesh.material.color = Color.blue;
-                n.transform.localScale = (n.direction) ? new Vector3(1, .5f, .5f) : new Vector3(.5f, .5f, 1);
            
             }
             else
                 mesh.material.color = ogColor;
+                */
 
             foreach (var neighbor in n.neighbors)
             {
