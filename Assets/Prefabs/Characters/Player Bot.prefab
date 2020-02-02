@@ -171,6 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2201465926584833469}
+  - component: {fileID: 1977852294746427758}
   m_Layer: 0
   m_Name: Player Bot
   m_TagString: Untagged
@@ -194,6 +195,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1977852294746427758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201465926584833466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae2f429219cc534f90c9cdf42b5bbf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBarImage: {fileID: 6101417356305257661}
+  healthBarSprites:
+  - {fileID: 21300000, guid: f89ab428036ae494bb0674e6a8bd76fe, type: 3}
+  - {fileID: 21300000, guid: 02631090587358540a4092bf7a15c26f, type: 3}
+  - {fileID: 21300000, guid: 044356d10af481a4480033c8863e3bea, type: 3}
+  - {fileID: 21300000, guid: da9472d7a9abfd748a1b0be03b0b16e3, type: 3}
+  - {fileID: 21300000, guid: 26af07985c73115469759d291ff51ead, type: 3}
+  - {fileID: 21300000, guid: f940e9933e4e14548a3f8551b36b3396, type: 3}
+  - {fileID: 21300000, guid: 6a48064570514794eb074df2d54562a0, type: 3}
 --- !u!1 &6257121665425134488
 GameObject:
   m_ObjectHideFlags: 0
