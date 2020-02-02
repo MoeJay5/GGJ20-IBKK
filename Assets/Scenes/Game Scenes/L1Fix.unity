@@ -899,8 +899,11 @@ MonoBehaviour:
   - {fileID: 1653037730}
   - {fileID: 427508613}
   - {fileID: 1145471252}
-  directionsList: 
-  nodeList: []
+  directionsList: 070000000000000001000000
+  nodeList:
+  - {fileID: 1653037730}
+  - {fileID: 427508613}
+  - {fileID: 1145471252}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -1652,8 +1655,12 @@ MonoBehaviour:
   - {fileID: 1145471252}
   - {fileID: 1319690975}
   - {fileID: 1653037730}
-  directionsList: 
-  nodeList: []
+  directionsList: 03000000040000000200000000000000
+  nodeList:
+  - {fileID: 918245993}
+  - {fileID: 1145471252}
+  - {fileID: 1319690975}
+  - {fileID: 1653037730}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -2096,8 +2103,12 @@ MonoBehaviour:
   - {fileID: 539828319}
   - {fileID: 2053101076}
   - {fileID: 1733078986}
-  directionsList: 
-  nodeList: []
+  directionsList: 03000000060000000200000001000000
+  nodeList:
+  - {fileID: 669497266}
+  - {fileID: 539828319}
+  - {fileID: 2053101076}
+  - {fileID: 1733078986}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -2525,8 +2536,10 @@ MonoBehaviour:
   neighbors:
   - {fileID: 857016296}
   - {fileID: 1653037730}
-  directionsList: 
-  nodeList: []
+  directionsList: 0000000001000000
+  nodeList:
+  - {fileID: 857016296}
+  - {fileID: 1653037730}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -2958,8 +2971,14 @@ MonoBehaviour:
   - {fileID: 1083189729}
   - {fileID: 1733078986}
   - {fileID: 539828319}
-  directionsList: 
-  nodeList: []
+  directionsList: 030000000400000006000000020000000500000000000000
+  nodeList:
+  - {fileID: 1736413976}
+  - {fileID: 805330853}
+  - {fileID: 427508613}
+  - {fileID: 1083189729}
+  - {fileID: 1733078986}
+  - {fileID: 539828319}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -3080,8 +3099,11 @@ MonoBehaviour:
   - {fileID: 415174852}
   - {fileID: 1736413976}
   - {fileID: 130613287}
-  directionsList: 
-  nodeList: []
+  directionsList: 050000000000000001000000
+  nodeList:
+  - {fileID: 415174852}
+  - {fileID: 1736413976}
+  - {fileID: 130613287}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -3201,8 +3223,10 @@ MonoBehaviour:
   neighbors:
   - {fileID: 1994364774}
   - {fileID: 1431759913}
-  directionsList: 
-  nodeList: []
+  directionsList: 0300000002000000
+  nodeList:
+  - {fileID: 1994364774}
+  - {fileID: 1431759913}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -3626,8 +3650,13 @@ MonoBehaviour:
   - {fileID: 1465506890}
   - {fileID: 1602038182}
   - {fileID: 1285828423}
-  directionsList: 
-  nodeList: []
+  directionsList: 0300000004000000060000000000000001000000
+  nodeList:
+  - {fileID: 1394732519}
+  - {fileID: 676606987}
+  - {fileID: 1465506890}
+  - {fileID: 1602038182}
+  - {fileID: 1285828423}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -3828,8 +3857,16 @@ MonoBehaviour:
   - {fileID: 1083189729}
   - {fileID: 669497266}
   - {fileID: 415174852}
-  directionsList: 
-  nodeList: []
+  directionsList: 0300000004000000060000000200000005000000070000000000000001000000
+  nodeList:
+  - {fileID: 805330853}
+  - {fileID: 2100588055}
+  - {fileID: 1736413976}
+  - {fileID: 1733078986}
+  - {fileID: 324384395}
+  - {fileID: 1083189729}
+  - {fileID: 669497266}
+  - {fileID: 415174852}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -4307,8 +4344,11 @@ MonoBehaviour:
   - {fileID: 1340865621}
   - {fileID: 1240377989}
   - {fileID: 1436320901}
-  directionsList: 
-  nodeList: []
+  directionsList: 030000000600000001000000
+  nodeList:
+  - {fileID: 1340865621}
+  - {fileID: 1240377989}
+  - {fileID: 1436320901}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -4431,8 +4471,13 @@ MonoBehaviour:
   - {fileID: 324384395}
   - {fileID: 1733078986}
   - {fileID: 539828319}
-  directionsList: 
-  nodeList: []
+  directionsList: 0300000006000000020000000700000001000000
+  nodeList:
+  - {fileID: 2100588055}
+  - {fileID: 805330853}
+  - {fileID: 324384395}
+  - {fileID: 1733078986}
+  - {fileID: 539828319}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -4555,8 +4600,13 @@ MonoBehaviour:
   - {fileID: 513587675}
   - {fileID: 676759765}
   - {fileID: 1394732519}
-  directionsList: 
-  nodeList: []
+  directionsList: 0200000005000000070000000000000001000000
+  nodeList:
+  - {fileID: 1602038182}
+  - {fileID: 885910382}
+  - {fileID: 513587675}
+  - {fileID: 676759765}
+  - {fileID: 1394732519}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -4679,8 +4729,13 @@ MonoBehaviour:
   - {fileID: 1602038182}
   - {fileID: 1240377989}
   - {fileID: 676606987}
-  directionsList: 
-  nodeList: []
+  directionsList: 0200000005000000070000000000000001000000
+  nodeList:
+  - {fileID: 885910382}
+  - {fileID: 1436320901}
+  - {fileID: 1602038182}
+  - {fileID: 1240377989}
+  - {fileID: 676606987}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -5002,8 +5057,13 @@ MonoBehaviour:
   - {fileID: 1621584577}
   - {fileID: 1012368191}
   - {fileID: 2112496685}
-  directionsList: 
-  nodeList: []
+  directionsList: 0300000004000000060000000000000001000000
+  nodeList:
+  - {fileID: 1063007884}
+  - {fileID: 1564352034}
+  - {fileID: 1621584577}
+  - {fileID: 1012368191}
+  - {fileID: 2112496685}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -5124,8 +5184,11 @@ MonoBehaviour:
   - {fileID: 2053101076}
   - {fileID: 1340865621}
   - {fileID: 1240377989}
-  directionsList: 
-  nodeList: []
+  directionsList: 030000000200000007000000
+  nodeList:
+  - {fileID: 2053101076}
+  - {fileID: 1340865621}
+  - {fileID: 1240377989}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -5359,8 +5422,11 @@ MonoBehaviour:
   - {fileID: 1918172082}
   - {fileID: 1012368191}
   - {fileID: 1564352034}
-  directionsList: 
-  nodeList: []
+  directionsList: 020000000700000001000000
+  nodeList:
+  - {fileID: 1918172082}
+  - {fileID: 1012368191}
+  - {fileID: 1564352034}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -5697,8 +5763,13 @@ MonoBehaviour:
   - {fileID: 415174852}
   - {fileID: 2100588055}
   - {fileID: 1736413976}
-  directionsList: 
-  nodeList: []
+  directionsList: 0200000005000000070000000000000001000000
+  nodeList:
+  - {fileID: 539828319}
+  - {fileID: 669497266}
+  - {fileID: 415174852}
+  - {fileID: 2100588055}
+  - {fileID: 1736413976}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -6177,8 +6248,11 @@ MonoBehaviour:
   - {fileID: 1485313546}
   - {fileID: 2024287069}
   - {fileID: 376135804}
-  directionsList: 
-  nodeList: []
+  directionsList: 020000000700000001000000
+  nodeList:
+  - {fileID: 1485313546}
+  - {fileID: 2024287069}
+  - {fileID: 376135804}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -6492,8 +6566,13 @@ MonoBehaviour:
   - {fileID: 676606987}
   - {fileID: 1436320901}
   - {fileID: 1602038182}
-  directionsList: 
-  nodeList: []
+  directionsList: 0300000004000000060000000000000001000000
+  nodeList:
+  - {fileID: 676759765}
+  - {fileID: 1240377989}
+  - {fileID: 676606987}
+  - {fileID: 1436320901}
+  - {fileID: 1602038182}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -7230,8 +7309,11 @@ MonoBehaviour:
   - {fileID: 225735275}
   - {fileID: 1653037730}
   - {fileID: 1145471252}
-  directionsList: 
-  nodeList: []
+  directionsList: 020000000500000000000000
+  nodeList:
+  - {fileID: 225735275}
+  - {fileID: 1653037730}
+  - {fileID: 1145471252}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -7801,8 +7883,13 @@ MonoBehaviour:
   - {fileID: 1063007884}
   - {fileID: 1918172082}
   - {fileID: 712274650}
-  directionsList: 
-  nodeList: []
+  directionsList: 0300000004000000060000000000000001000000
+  nodeList:
+  - {fileID: 1564352034}
+  - {fileID: 740970491}
+  - {fileID: 1063007884}
+  - {fileID: 1918172082}
+  - {fileID: 712274650}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -8479,13 +8566,22 @@ MonoBehaviour:
   walkable: 0
   parent: {fileID: 0}
   neighbors:
+  - {fileID: 1485313546}
+  - {fileID: 2024287069}
   - {fileID: 712274650}
   - {fileID: 1012368191}
   - {fileID: 2112496685}
   - {fileID: 1564352034}
   - {fileID: 1621584577}
-  directionsList: 
-  nodeList: []
+  directionsList: 03000000060000000200000005000000070000000000000001000000
+  nodeList:
+  - {fileID: 1485313546}
+  - {fileID: 2024287069}
+  - {fileID: 712274650}
+  - {fileID: 1012368191}
+  - {fileID: 2112496685}
+  - {fileID: 1564352034}
+  - {fileID: 1621584577}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -8713,8 +8809,11 @@ MonoBehaviour:
   - {fileID: 415174852}
   - {fileID: 539828319}
   - {fileID: 1733078986}
-  directionsList: 
-  nodeList: []
+  directionsList: 030000000400000000000000
+  nodeList:
+  - {fileID: 415174852}
+  - {fileID: 539828319}
+  - {fileID: 1733078986}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -8943,8 +9042,12 @@ MonoBehaviour:
   - {fileID: 225735275}
   - {fileID: 130613287}
   - {fileID: 918245993}
-  directionsList: 
-  nodeList: []
+  directionsList: 02000000070000000000000001000000
+  nodeList:
+  - {fileID: 1653037730}
+  - {fileID: 225735275}
+  - {fileID: 130613287}
+  - {fileID: 918245993}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -9139,8 +9242,10 @@ MonoBehaviour:
   neighbors:
   - {fileID: 1319690975}
   - {fileID: 1872077174}
-  directionsList: 
-  nodeList: []
+  directionsList: 0300000002000000
+  nodeList:
+  - {fileID: 1319690975}
+  - {fileID: 1872077174}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -9557,8 +9662,12 @@ MonoBehaviour:
   - {fileID: 1987668753}
   - {fileID: 1285828423}
   - {fileID: 1465506890}
-  directionsList: 
-  nodeList: []
+  directionsList: 03000000020000000500000000000000
+  nodeList:
+  - {fileID: 1872077174}
+  - {fileID: 1987668753}
+  - {fileID: 1285828423}
+  - {fileID: 1465506890}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -9776,8 +9885,14 @@ MonoBehaviour:
   - {fileID: 885910382}
   - {fileID: 1340865621}
   - {fileID: 676759765}
-  directionsList: 
-  nodeList: []
+  directionsList: 040000000200000005000000070000000000000001000000
+  nodeList:
+  - {fileID: 717249497}
+  - {fileID: 1436320901}
+  - {fileID: 666812525}
+  - {fileID: 885910382}
+  - {fileID: 1340865621}
+  - {fileID: 676759765}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -10333,8 +10448,13 @@ MonoBehaviour:
   - {fileID: 1218301911}
   - {fileID: 513587675}
   - {fileID: 1987668753}
-  directionsList: 
-  nodeList: []
+  directionsList: 0300000004000000060000000000000001000000
+  nodeList:
+  - {fileID: 1465506890}
+  - {fileID: 1394732519}
+  - {fileID: 1218301911}
+  - {fileID: 513587675}
+  - {fileID: 1987668753}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -10702,8 +10822,11 @@ MonoBehaviour:
   - {fileID: 225735275}
   - {fileID: 1653037730}
   - {fileID: 1170241797}
-  directionsList: 
-  nodeList: []
+  directionsList: 030000000400000002000000
+  nodeList:
+  - {fileID: 225735275}
+  - {fileID: 1653037730}
+  - {fileID: 1170241797}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -11047,8 +11170,12 @@ MonoBehaviour:
   - {fileID: 666812525}
   - {fileID: 1436320901}
   - {fileID: 1240377989}
-  directionsList: 
-  nodeList: []
+  directionsList: 03000000020000000700000001000000
+  nodeList:
+  - {fileID: 717249497}
+  - {fileID: 666812525}
+  - {fileID: 1436320901}
+  - {fileID: 1240377989}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -11419,8 +11546,13 @@ MonoBehaviour:
   - {fileID: 1285828423}
   - {fileID: 676606987}
   - {fileID: 1465506890}
-  directionsList: 
-  nodeList: []
+  directionsList: 0200000005000000070000000000000001000000
+  nodeList:
+  - {fileID: 513587675}
+  - {fileID: 1602038182}
+  - {fileID: 1285828423}
+  - {fileID: 676606987}
+  - {fileID: 1465506890}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -11541,8 +11673,11 @@ MonoBehaviour:
   - {fileID: 439780634}
   - {fileID: 1621584577}
   - {fileID: 2112496685}
-  directionsList: 
-  nodeList: []
+  directionsList: 030000000400000000000000
+  nodeList:
+  - {fileID: 439780634}
+  - {fileID: 1621584577}
+  - {fileID: 2112496685}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -11665,8 +11800,13 @@ MonoBehaviour:
   - {fileID: 676759765}
   - {fileID: 666812525}
   - {fileID: 885910382}
-  directionsList: 
-  nodeList: []
+  directionsList: 0300000004000000060000000000000001000000
+  nodeList:
+  - {fileID: 1240377989}
+  - {fileID: 1340865621}
+  - {fileID: 676759765}
+  - {fileID: 666812525}
+  - {fileID: 885910382}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -12073,8 +12213,14 @@ MonoBehaviour:
   - {fileID: 1987668753}
   - {fileID: 1394732519}
   - {fileID: 1218301911}
-  directionsList: 
-  nodeList: []
+  directionsList: 060000000200000005000000070000000000000001000000
+  nodeList:
+  - {fileID: 1872077174}
+  - {fileID: 1285828423}
+  - {fileID: 513587675}
+  - {fileID: 1987668753}
+  - {fileID: 1394732519}
+  - {fileID: 1218301911}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -12193,9 +12339,17 @@ MonoBehaviour:
   parent: {fileID: 0}
   neighbors:
   - {fileID: 857016296}
+  - {fileID: 1063007884}
+  - {fileID: 1564352034}
+  - {fileID: 1621584577}
   - {fileID: 2024287069}
-  directionsList: 
-  nodeList: []
+  directionsList: 0300000002000000050000000700000001000000
+  nodeList:
+  - {fileID: 857016296}
+  - {fileID: 1063007884}
+  - {fileID: 1564352034}
+  - {fileID: 1621584577}
+  - {fileID: 2024287069}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -13066,13 +13220,20 @@ MonoBehaviour:
   walkable: 1
   parent: {fileID: 0}
   neighbors:
+  - {fileID: 1485313546}
   - {fileID: 1012368191}
   - {fileID: 1918172082}
   - {fileID: 712274650}
   - {fileID: 740970491}
   - {fileID: 1063007884}
-  directionsList: 
-  nodeList: []
+  directionsList: 060000000200000005000000070000000000000001000000
+  nodeList:
+  - {fileID: 1485313546}
+  - {fileID: 1012368191}
+  - {fileID: 1918172082}
+  - {fileID: 712274650}
+  - {fileID: 740970491}
+  - {fileID: 1063007884}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -13195,8 +13356,13 @@ MonoBehaviour:
   - {fileID: 1394732519}
   - {fileID: 885910382}
   - {fileID: 513587675}
-  directionsList: 
-  nodeList: []
+  directionsList: 0300000004000000060000000000000001000000
+  nodeList:
+  - {fileID: 676606987}
+  - {fileID: 676759765}
+  - {fileID: 1394732519}
+  - {fileID: 885910382}
+  - {fileID: 513587675}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -13408,12 +13574,22 @@ MonoBehaviour:
   walkable: 1
   parent: {fileID: 0}
   neighbors:
+  - {fileID: 2024287069}
+  - {fileID: 1485313546}
+  - {fileID: 1994364774}
   - {fileID: 2112496685}
   - {fileID: 712274650}
   - {fileID: 1431759913}
   - {fileID: 1063007884}
-  directionsList: 
-  nodeList: []
+  directionsList: 03000000040000000600000002000000050000000700000000000000
+  nodeList:
+  - {fileID: 2024287069}
+  - {fileID: 1485313546}
+  - {fileID: 1994364774}
+  - {fileID: 2112496685}
+  - {fileID: 712274650}
+  - {fileID: 1431759913}
+  - {fileID: 1063007884}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -13786,8 +13962,14 @@ MonoBehaviour:
   - {fileID: 1319690975}
   - {fileID: 376135804}
   - {fileID: 225735275}
-  directionsList: 
-  nodeList: []
+  directionsList: 030000000400000006000000070000000000000001000000
+  nodeList:
+  - {fileID: 1145471252}
+  - {fileID: 130613287}
+  - {fileID: 918245993}
+  - {fileID: 1319690975}
+  - {fileID: 376135804}
+  - {fileID: 225735275}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -14326,8 +14508,14 @@ MonoBehaviour:
   - {fileID: 2053101076}
   - {fileID: 324384395}
   - {fileID: 1083189729}
-  directionsList: 
-  nodeList: []
+  directionsList: 030000000400000006000000050000000000000001000000
+  nodeList:
+  - {fileID: 539828319}
+  - {fileID: 669497266}
+  - {fileID: 415174852}
+  - {fileID: 2053101076}
+  - {fileID: 324384395}
+  - {fileID: 1083189729}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -14449,8 +14637,12 @@ MonoBehaviour:
   - {fileID: 539828319}
   - {fileID: 805330853}
   - {fileID: 427508613}
-  directionsList: 
-  nodeList: []
+  directionsList: 02000000050000000000000001000000
+  nodeList:
+  - {fileID: 415174852}
+  - {fileID: 539828319}
+  - {fileID: 805330853}
+  - {fileID: 427508613}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -14889,8 +15081,11 @@ MonoBehaviour:
   - {fileID: 1170241797}
   - {fileID: 1218301911}
   - {fileID: 1465506890}
-  directionsList: 
-  nodeList: []
+  directionsList: 030000000200000005000000
+  nodeList:
+  - {fileID: 1170241797}
+  - {fileID: 1218301911}
+  - {fileID: 1465506890}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -15011,8 +15206,11 @@ MonoBehaviour:
   - {fileID: 740970491}
   - {fileID: 1564352034}
   - {fileID: 1012368191}
-  directionsList: 
-  nodeList: []
+  directionsList: 030000000600000001000000
+  nodeList:
+  - {fileID: 740970491}
+  - {fileID: 1564352034}
+  - {fileID: 1012368191}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -15231,8 +15429,11 @@ MonoBehaviour:
   - {fileID: 1218301911}
   - {fileID: 1465506890}
   - {fileID: 1285828423}
-  directionsList: 
-  nodeList: []
+  directionsList: 030000000400000000000000
+  nodeList:
+  - {fileID: 1218301911}
+  - {fileID: 1465506890}
+  - {fileID: 1285828423}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -15351,9 +15552,13 @@ MonoBehaviour:
   parent: {fileID: 0}
   neighbors:
   - {fileID: 439780634}
+  - {fileID: 1621584577}
   - {fileID: 2024287069}
-  directionsList: 
-  nodeList: []
+  directionsList: 020000000500000000000000
+  nodeList:
+  - {fileID: 439780634}
+  - {fileID: 1621584577}
+  - {fileID: 2024287069}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -15661,10 +15866,17 @@ MonoBehaviour:
   parent: {fileID: 0}
   neighbors:
   - {fileID: 857016296}
+  - {fileID: 1621584577}
+  - {fileID: 1063007884}
   - {fileID: 1485313546}
   - {fileID: 1994364774}
-  directionsList: 
-  nodeList: []
+  directionsList: 0400000002000000050000000000000001000000
+  nodeList:
+  - {fileID: 857016296}
+  - {fileID: 1621584577}
+  - {fileID: 1063007884}
+  - {fileID: 1485313546}
+  - {fileID: 1994364774}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -15785,8 +15997,11 @@ MonoBehaviour:
   - {fileID: 324384395}
   - {fileID: 1733078986}
   - {fileID: 717249497}
-  directionsList: 
-  nodeList: []
+  directionsList: 030000000600000002000000
+  nodeList:
+  - {fileID: 324384395}
+  - {fileID: 1733078986}
+  - {fileID: 717249497}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -16025,8 +16240,11 @@ MonoBehaviour:
   - {fileID: 669497266}
   - {fileID: 539828319}
   - {fileID: 805330853}
-  directionsList: 
-  nodeList: []
+  directionsList: 020000000700000001000000
+  nodeList:
+  - {fileID: 669497266}
+  - {fileID: 539828319}
+  - {fileID: 805330853}
   gScore: 0
   hScore: 0
   fScore: 0
@@ -16222,8 +16440,12 @@ MonoBehaviour:
   - {fileID: 1063007884}
   - {fileID: 712274650}
   - {fileID: 1431759913}
-  directionsList: 
-  nodeList: []
+  directionsList: 03000000040000000000000001000000
+  nodeList:
+  - {fileID: 1621584577}
+  - {fileID: 1063007884}
+  - {fileID: 712274650}
+  - {fileID: 1431759913}
   gScore: 0
   hScore: 0
   fScore: 0

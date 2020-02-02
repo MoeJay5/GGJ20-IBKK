@@ -68,3 +68,6 @@ MonoBehaviour:
     type: 3}
   cardSpacingMultiplier: 10
   maxNumberCards: 7
+  redOutline: {fileID: 2800000, guid: 323a69d85ed32eb4a9cdf15d59214180, type: 3}
+  blueOutline: {fileID: 2800000, guid: a96c98dda344a2a41b028850bae2a1c0, type: 3}
+  whiteOutline: {fileID: 2800000, guid: 0c2c38e52daf88241971ea28785e46cb, type: 3}
