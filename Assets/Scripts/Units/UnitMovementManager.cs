@@ -35,6 +35,7 @@ public class UnitMovementManager : MonoBehaviour
         if (startingNode == null)
             startingNode = grid.gridNodes[0];
         myUnit = this.GetComponent<Unit> ();
+        myUnit.anim = myAnimator;
     }
 
     private void Update ()

@@ -55,6 +55,9 @@ public class Node : MonoBehaviour
     {
         neighbors.Clear ();
         neighborDirections.Clear ();
+        nodeList.Clear();
+        directionsList.Clear();
+       
         //right
         if ((myGridIndex + 1) % grid.width != 0)
         {

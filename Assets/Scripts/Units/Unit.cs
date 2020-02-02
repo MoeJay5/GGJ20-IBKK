@@ -6,7 +6,7 @@ public class Unit : MonoBehaviour
     /* Variables */
 
     public static Node current_UnitNode;
-
+    [HideInInspector] public Animator anim;
     [Header ("Unit Stats")]
     [SerializeField] private int health = 5;
 
@@ -60,8 +60,13 @@ public class Unit : MonoBehaviour
             return hit.collider.gameObject.GetComponent<Node> ();
     }
 
-    public void DecreaseAPBy (int amount)
+    public void DecreaseAPBy(int amount)
     {
         _AP -= amount;
+    }
+    public void Damage(int amount)
+    {
+        health -= amount;
+        anim.SetTrigger("Hit");
     }
 }
