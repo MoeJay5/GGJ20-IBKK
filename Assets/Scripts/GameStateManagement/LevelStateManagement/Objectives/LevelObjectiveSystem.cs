@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+using System.Collections;
 public class LevelObjectiveSystem : MonoBehaviour
 {
     #region Singleton
@@ -40,10 +40,14 @@ public class LevelObjectiveSystem : MonoBehaviour
     private void CompletedLastMandatoryObjective()
     {
         highlightedExit = true;
-
-        UiManager.Instance.LevelCompleted(isLastLevel);
+        StartCoroutine(WaitASec());
     }
+    IEnumerator WaitASec()
+    {
+        yield return new WaitForSeconds(2);
+        UiManager.Instance.LevelCompleted(isLastLevel);
 
+    }
     private bool AllMandatoryObjectivesCompleted()
     {
         foreach (LevelObjective mandatoryObjective in mandatoryObjectives)
