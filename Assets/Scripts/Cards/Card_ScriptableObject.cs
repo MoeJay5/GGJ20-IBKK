@@ -19,5 +19,38 @@ public class Card_ScriptableObject : ScriptableObject
         public int yAxis;
         public bool isGood;
     }
+    public void UseCard(Unit unitUsingCard,Node n)
+    {
+
+        foreach(var p in pattern)
+        {
+            Node target = n;
+
+            for (int i = 0; i < Mathf.Abs(p.xAxis); i++)
+            {
+                if (p.xAxis > 0)
+                {
+                    target = target?.GetNeighbor(Direction.Right);
+                }
+                else
+                    target = target?.GetNeighbor(Direction.Left);
+            }
+            for (int j = 0; j < Mathf.Abs(p.yAxis); j++)
+            {
+                if (p.yAxis > 0)
+                {
+                    target = target?.GetNeighbor(Direction.Up);
+                }
+                else
+                    target = target?.GetNeighbor(Direction.Down);
+            }
+
+            if(n.occupyingUnit!=null)
+            {
+                n.occupyingUnit.Damage((p.isGood)?-effectIntensity:effectIntensity);
+            }
+        }
+
+    }
 
 }

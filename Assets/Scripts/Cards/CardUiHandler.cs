@@ -49,9 +49,11 @@ public class CardUiHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void Update()
     {
-        if (cardIsPreviewingUse && !cardIsMoving&&
+        if (cardIsPreviewingUse && !cardIsMoving &&
             (InputListener.Instance.PressedDown_Escape || (InputListener.Instance.PressedDown_Mouse_LeftClick && MousedOverCardOrGrid() == false)))
             Animate_PreviewCardUsage(false);
+        else if (InputListener.Instance.PressedUp_Mouse_LeftClick)
+            cardRef.UseCard(InitiativeSystem.currentUnit(), InitiativeSystem.currentUnit().GetMyGridNode());
     }
 
     /* Animation Helper Functions */
