@@ -19,7 +19,7 @@ public class Node : MonoBehaviour
     public static Node current_SelectedNode;
 
     public Unit occupyingUnit = null;
-    [SerializeField] private Tile myTile;
+    [SerializeField] public Tile tile;
 
     public bool walkable;
     [HideInInspector]
