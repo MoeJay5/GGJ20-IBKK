@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Unit))]
 public class UnitMovementManager : MonoBehaviour
@@ -57,6 +59,13 @@ public class UnitMovementManager : MonoBehaviour
         //Will calculate path AND show the path in-game
         Path movementPath = Astar.CalculatePath(startingNode, destinationNode, LevelStateManager.Instance.generatedGrid);
 
+        movementPath.nodes = movementPath.nodes.GetRange(Math.Max(movementPath.nodes.Count - myUnit.AP, 0), Math.Min(myUnit.AP, movementPath.nodes.Count));
+        
+        if (movementPath.nodes.First().isStairs)
+        {
+            movementPath.nodes.Remove(movementPath.nodes.First());
+        }
+
         if (InputListener.Instance.PressedDown_Mouse_LeftClick)
         {
             if (Time.time - lastClickTime_ForDoubleClick < catchTime_ForDoubleClick)
@@ -66,7 +75,7 @@ public class UnitMovementManager : MonoBehaviour
             lastClickTime_ForDoubleClick = Time.time;
         }
 
-        HighlightNavigation();
+        HighlightNavigation(movementPath);
     }
 
     //Helper Functions 
@@ -127,7 +136,7 @@ public class UnitMovementManager : MonoBehaviour
         movingInitiatedUnit = true;
     }
 
-    private void HighlightNavigation()
+    private void HighlightNavigation(Path p)
     {
         if (unitIsMoveing)
             return;
@@ -135,7 +144,7 @@ public class UnitMovementManager : MonoBehaviour
         if (Unit.current_UnitNode == null)
             Unit.current_UnitNode = startingNode;
 
-        Path p = Astar.CalculatePath(Unit.current_UnitNode, Node.current_SelectedNode, grid);
+        //Path p = Astar.CalculatePath(Unit.current_UnitNode, Node.current_SelectedNode, grid);
         foreach (Node n in grid.gridNodes)
         {
             if (n.walkable)
