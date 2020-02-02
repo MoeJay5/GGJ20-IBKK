@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Unit))]
 public class UnitMovementManager : MonoBehaviour
@@ -57,6 +59,19 @@ public class UnitMovementManager : MonoBehaviour
         //Will calculate path AND show the path in-game
         Path movementPath = Astar.CalculatePath(startingNode, destinationNode, LevelStateManager.Instance.generatedGrid);
 
+        if (movementPath != null && movementPath.nodes.Count > 0)
+        {
+            if (movementPath.nodes.Count > myUnit.AP)
+            {
+                movementPath.nodes = movementPath.nodes.GetRange(movementPath.nodes.Count - myUnit.AP, myUnit.AP);
+            }
+        
+            if (movementPath.nodes.First().isStairs)
+            {
+                movementPath.nodes.Remove(movementPath.nodes.First());
+            }
+        }
+
         if (InputListener.Instance.PressedDown_Mouse_LeftClick)
         {
             if (Time.time - lastClickTime_ForDoubleClick < catchTime_ForDoubleClick)
@@ -66,11 +81,22 @@ public class UnitMovementManager : MonoBehaviour
             lastClickTime_ForDoubleClick = Time.time;
         }
 
-        HighlightNavigation();
+        HighlightNavigation(movementPath);
     }
 
     //Helper Functions 
 
+    private void clearTiles()
+    {
+        foreach (Node n in grid.gridNodes)
+        {
+            if (n.walkable)
+            {
+                n.tile?.setState(Tile.TileStates.INACTIVE);
+            }
+        }
+    }
+    
     private Node GetMousedOverNode()
     {
         RaycastHit hit;
@@ -89,6 +115,8 @@ public class UnitMovementManager : MonoBehaviour
     private IEnumerator MoveUnitAlongPath(Unit unitToMove, Path movementPath)
     {
         Node prevNode = unitToMove.GetMyGridNode();
+        if (movementPath == null)
+            yield break;
         foreach (Node nextNode in Enumerable.Reverse(movementPath.nodes))
         {
             if (currentlyInitiatedUnit.AP <= 0 || movementPath.nodes[0].isStairs)
@@ -119,44 +147,31 @@ public class UnitMovementManager : MonoBehaviour
 
             myAnimator.SetBool("Walking", false);
 
+            prevNode.tile.setState(Tile.TileStates.INACTIVE);
             prevNode = nextNode;
             yield return new WaitUntil(() => unitToMove.GetMyGridNode() == nextNode);
         }
 
         //Done moving along path
         movingInitiatedUnit = true;
+        clearTiles();
     }
 
-    private void HighlightNavigation()
+    private void HighlightNavigation(Path p)
     {
         if (unitIsMoveing)
             return;
 
         if (Unit.current_UnitNode == null)
             Unit.current_UnitNode = startingNode;
+        
+        clearTiles();
 
-        Path p = Astar.CalculatePath(Unit.current_UnitNode, Node.current_SelectedNode, grid);
-        foreach (Node n in grid.gridNodes)
-        {
-            if (n.walkable)
-            {
-                //n.GetComponent<MeshRenderer> ().material.SetColor ("_BaseColor", Color.white);
-                n.tile.gameObject.SetActive(false);
-            }
-        }
-
-        int allowedMovement = currentlyInitiatedUnit.AP;
+        if (p == null) return;
         foreach (Node n in Enumerable.Reverse(p.nodes))
         {
-            var mesh = n.GetComponent<MeshRenderer>();
-            if (allowedMovement > 0)
-                n.tile.gameObject.SetActive(true);
-            // else
-            //     mesh.material.SetColor ("_BaseColor", Color.red);
-
-            allowedMovement--;
+            n.tile?.setState(Tile.TileStates.ACTIVE);
         }
-        //p.nodes[0].GetComponent<MeshRenderer>().material.color = Color.green;
     }
 
     void PlayerTurnHandleRotate()

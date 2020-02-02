@@ -12,6 +12,10 @@ class PatrolState : State
 
     private Node prevNode;
 
+    private bool playerWithinRange;
+
+    [SerializeField] private Card_ScriptableObject card;
+
     public override void EnterState (StateMachine parent)
     {
         myUnit = parent.GetComponent<Unit> ();
@@ -41,27 +45,61 @@ class PatrolState : State
             pathIndex = 0;
         }
 
-        Vector3 nextDestinationVector = myPath.nodes[pathIndex].transform.position + Vector3.up;
-
-        if (Vector3.Distance (parent.transform.position, nextDestinationVector) < 0.001)
+        foreach (Card_ScriptableObject.PatternNode pn in card.pattern)
         {
-            if (++pathIndex == myPath.nodes.Count)
+            var occupyingUnit = myUnit.GetMyGridNode ().GetNeighbor (PatternNodeDirection (pn)).occupyingUnit;
+            playerWithinRange = occupyingUnit != null ? true : false;
+            if (playerWithinRange)
             {
-                myPath = null;
-                targetIndex = (targetIndex + 1) % destinations.Count;
+                Debug.Log ("Player is within range.", gameObject);
+                parent.PushState (parent.gameObject.GetComponent<AttackState> ());
             }
-            InitiativeSystem.nextTurn ();
-            return;
         }
 
-        parent.transform.position = Vector3.MoveTowards (parent.transform.position, nextDestinationVector,
-            myUnit.speed * Time.deltaTime);
-        myPath.nodes[pathIndex].occupyingUnit = myUnit;
+        if (!playerWithinRange)
+        {
+            Vector3 nextDestinationVector = myPath.nodes[pathIndex].transform.position + Vector3.up;
 
-        if (prevNode != null)
-            prevNode.occupyingUnit = null;
+            if (Vector3.Distance (parent.transform.position, nextDestinationVector) < 0.001)
+            {
+                if (++pathIndex == myPath.nodes.Count)
+                {
+                    myPath = null;
+                    targetIndex = (targetIndex + 1) % destinations.Count;
+                }
+                InitiativeSystem.nextTurn ();
+                return;
+            }
 
-        prevNode = myPath.nodes[pathIndex];
+            parent.transform.position = Vector3.MoveTowards (parent.transform.position, nextDestinationVector,
+                myUnit.speed * Time.deltaTime);
+            myPath.nodes[pathIndex].occupyingUnit = myUnit;
 
+            if (prevNode != null)
+                prevNode.occupyingUnit = null;
+
+            prevNode = myPath.nodes[pathIndex];
+        }
+
+    }
+
+    private Direction PatternNodeDirection (Card_ScriptableObject.PatternNode pn)
+    {
+        if (pn.xAxis == 0 && pn.yAxis == 1)
+            return Direction.Up;
+        else if (pn.xAxis == 1 && pn.yAxis == 1)
+            return Direction.UpRight;
+        else if (pn.xAxis == 1 && pn.yAxis == 0)
+            return Direction.Right;
+        else if (pn.xAxis == 1 && pn.yAxis == -1)
+            return Direction.DownRight;
+        else if (pn.xAxis == 0 && pn.yAxis == -1)
+            return Direction.Down;
+        else if (pn.xAxis == -1 && pn.yAxis == -1)
+            return Direction.DownLeft;
+        else if (pn.xAxis == -1 && pn.yAxis == 0)
+            return Direction.Left;
+        else
+            return Direction.UpLeft;
     }
 }

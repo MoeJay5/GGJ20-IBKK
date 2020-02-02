@@ -48,6 +48,7 @@
             <e p="Card_ScriptableObject.cs" t="Include" />
             <e p="CardUiHandler.cs" t="Include" />
             <e p="CardUsagePreviewPosition.cs" t="Include" />
+            <e p="CardUtility.cs" t="Include" />
             <e p="HandCardManager.cs" t="Include" />
             <e p="HandCardsParentTransform.cs" t="Include" />
           </e>
@@ -58,6 +59,10 @@
             <e p="GameStateManager.cs" t="Include" />
             <e p="LevelStateManagement" t="Include">
               <e p="LevelStateManager.cs" t="Include" />
+              <e p="Objectives" t="Include">
+                <e p="LevelObjective.cs" t="Include" />
+                <e p="LevelObjectiveSystem.cs" t="Include" />
+              </e>
             </e>
           </e>
           <e p="Grid System and Pathfinding" t="Include">
@@ -72,6 +77,10 @@
           <e p="Initiative + AP System" t="Include">
             <e p="InitiativeSystem.cs" t="Include" />
           </e>
+          <e p="Level Loading" t="Include">
+            <e p="LevelLoader.cs" t="Include" />
+            <e p="LevelLoadingEventHelper.cs" t="Include" />
+          </e>
           <e p="State Machine" t="Include">
             <e p="BasicIdleClass.cs" t="Include" />
             <e p="BasicWalkState.cs" t="Include" />
@@ -81,6 +90,9 @@
           </e>
           <e p="TopLevel" t="Include">
             <e p="GameMaster.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="UiManager.cs" t="Include" />
           </e>
           <e p="Units" t="Include">
             <e p="Unit.cs" t="Include" />
