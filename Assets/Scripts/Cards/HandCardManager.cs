@@ -6,7 +6,7 @@ public class HandCardManager : MonoBehaviour
 {
     #region Singleton
     public static HandCardManager Instance;
-    private void OnEnable() => Instance = this;
+    private void Awake() => Instance = this;
     #endregion
 
     /* Variables */

@@ -17,35 +17,68 @@ MonoBehaviour:
   effectIntensity: 2
   cardImage: {fileID: 21300000, guid: b1a6b62ea81b2cf42a1cb3060909c44a, type: 3}
   pattern:
-  - elementTitle: Node
+  - elementTitle: 
     xAxis: 0
     yAxis: 1
     isGood: 1
-  - elementTitle: Node
+  - elementTitle: 
+    xAxis: 1
+    yAxis: -1
+    isGood: 0
+  - elementTitle: 
     xAxis: 1
     yAxis: 1
     isGood: 1
-  - elementTitle: Node
+  - elementTitle: 
     xAxis: 1
     yAxis: 0
     isGood: 1
-  - elementTitle: Node
-    xAxis: 1
-    yAxis: -1
-    isGood: 1
-  - elementTitle: Node
+  - elementTitle: 
     xAxis: 0
     yAxis: -1
     isGood: 1
-  - elementTitle: Node
+  - elementTitle: 
     xAxis: -1
     yAxis: -1
     isGood: 1
-  - elementTitle: Node
+  - elementTitle: 
     xAxis: -1
     yAxis: 0
     isGood: 1
-  - elementTitle: Node
+  - elementTitle: 
+    xAxis: -1
+    yAxis: 1
+    isGood: 1
+  OriginalPattern:
+  - elementTitle: 
+    xAxis: 0
+    yAxis: 1
+    isGood: 1
+  - elementTitle: 
+    xAxis: 1
+    yAxis: -1
+    isGood: 1
+  - elementTitle: 
+    xAxis: 1
+    yAxis: 1
+    isGood: 1
+  - elementTitle: 
+    xAxis: 1
+    yAxis: 0
+    isGood: 1
+  - elementTitle: 
+    xAxis: 0
+    yAxis: -1
+    isGood: 1
+  - elementTitle: 
+    xAxis: -1
+    yAxis: -1
+    isGood: 1
+  - elementTitle: 
+    xAxis: -1
+    yAxis: 0
+    isGood: 1
+  - elementTitle: 
     xAxis: -1
     yAxis: 1
     isGood: 1
