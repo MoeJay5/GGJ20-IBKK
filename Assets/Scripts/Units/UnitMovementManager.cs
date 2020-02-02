@@ -51,35 +51,42 @@ public class UnitMovementManager : MonoBehaviour
         }
 
         if (currentlyInitiatedUnit == myUnit)
+        {
             if (HandCardManager.Instance.CurrentlySelectedCard != null)
             {
-                PlayerTurnHandleRotate ();
+                PlayerTurnHandleRotate();
                 foreach (var p in HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern)
                 {
-                    Node n = myUnit.GetMyGridNode ();
+                    Node n = myUnit.GetMyGridNode();
 
-                    for (int i = 0; i < Mathf.Abs (p.xAxis); i++)
+                    for (int i = 0; i < Mathf.Abs(p.xAxis); i++)
                     {
                         if (p.xAxis > 0)
                         {
-                            n = n?.GetNeighbor (Direction.Right);
+                            n = n?.GetNeighbor(Direction.Right);
                         }
                         else
-                            n = n?.GetNeighbor (Direction.Left);
+                            n = n?.GetNeighbor(Direction.Left);
                     }
-                    for (int j = 0; j < Mathf.Abs (p.yAxis); j++)
+                    for (int j = 0; j < Mathf.Abs(p.yAxis); j++)
                     {
                         if (p.yAxis > 0)
                         {
-                            n = n?.GetNeighbor (Direction.Up);
+                            n = n?.GetNeighbor(Direction.Up);
                         }
                         else
-                            n = n?.GetNeighbor (Direction.Down);
+                            n = n?.GetNeighbor(Direction.Down);
                     }
                     n?.tile?.setState(Tile.TileStates.ACTIVE);
-                    n?.tile?.GetComponent<MeshRenderer> ().material.SetTexture ("_MainTex", (p.isGood) ? HandCardManager.BlueOutline : HandCardManager.RedOutline);
+                    n?.tile?.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", (p.isGood) ? HandCardManager.BlueOutline : HandCardManager.RedOutline);
                 }
             }
+            else
+            {
+                clearTiles();
+            }
+        }
+            
         if (movingInitiatedUnit == false)
             return;
 
@@ -115,8 +122,8 @@ public class UnitMovementManager : MonoBehaviour
             }
             lastClickTime_ForDoubleClick = Time.time;
         }
-
-        HighlightNavigation (movementPath);
+        if (HandCardManager.Instance.CurrentlySelectedCard == null) 
+            HighlightNavigation (movementPath);
     }
 
     //Helper Functions 
@@ -127,6 +134,7 @@ public class UnitMovementManager : MonoBehaviour
         {
             if (n.walkable)
             {
+                n.tile?.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", HandCardManager.WhiteOutline);
                 n.tile?.setState (Tile.TileStates.INACTIVE);
             }
         }
