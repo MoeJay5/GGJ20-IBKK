@@ -150,7 +150,7 @@ public class UnitMovementManager : MonoBehaviour
             if (n.walkable)
             {
                 //n.GetComponent<MeshRenderer> ().material.SetColor ("_BaseColor", Color.white);
-                n.tile.gameObject.SetActive(false);
+                n.tile?.gameObject.SetActive(false);
             }
         }
 
@@ -159,7 +159,7 @@ public class UnitMovementManager : MonoBehaviour
         {
             var mesh = n.GetComponent<MeshRenderer>();
             if (allowedMovement > 0)
-                n.tile.gameObject.SetActive(true);
+                n.tile?.gameObject.SetActive(true);
             // else
             //     mesh.material.SetColor ("_BaseColor", Color.red);
 
