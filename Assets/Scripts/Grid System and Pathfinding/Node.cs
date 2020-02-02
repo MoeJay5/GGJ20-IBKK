@@ -67,6 +67,13 @@ public class Node : MonoBehaviour
             occupyingUnit = null;
         }
     }
+    public void CheckForUnit()
+    {
+        foreach(var u in FindObjectsOfType<Unit>())
+        {
+            u.GetMyGridNode();
+        }
+    }
 
     public void CalculateNeighbors (GridSystem grid)
     {
