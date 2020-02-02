@@ -21,7 +21,7 @@ public class Node : MonoBehaviour
     [HideInInspector]
     public Node parent;
     [HideInInspector]
-    public List<Node> neighbors = new List<Node>();
+    public List<Node> neighbors = new List<Node> ();
     [HideInInspector]
     public Dictionary<Direction,Node> neighborDirections = new Dictionary<Direction,Node>();
     [HideInInspector]
@@ -34,10 +34,9 @@ public class Node : MonoBehaviour
     public int myGridIndex;
     public bool isStairs = false;
     public bool direction = false;
-    public void CalculateNeighbors(GridSystem grid)
+    public void GetNeighbors (GridSystem grid)
     {
-        neighbors.Clear();
-        neighborDirections.Clear();
+        neighbors.Clear ();
         //right
         if ((myGridIndex + 1) % grid.width != 0)
         {
@@ -46,10 +45,7 @@ public class Node : MonoBehaviour
                 if (right.transform.position.y > (this.transform.position.y - ((!this.isStairs) ? this.transform.localScale.y : this.transform.localScale.y * 4)))
                     if (!right.isStairs || (right.isStairs && right.direction))
                         if (!this.isStairs || this.direction)
-                        {
-                            neighbors.Add(right);
-                            neighborDirections.Add(Direction.Right,right);
-                        }
+                            neighbors.Add (right);
             //upright
             if (myGridIndex < grid.width * (grid.height - 1) && !isStairs)
             {
@@ -57,10 +53,7 @@ public class Node : MonoBehaviour
                 if (!n.isStairs && !this.isStairs)
                     if (n.transform.position.y < (this.transform.position.y + this.transform.localScale.y))
                         if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
-                        {
-                            neighbors.Add(n);
-                            neighborDirections.Add(Direction.UpRight,n);
-                        }
+                            neighbors.Add (n);
             }
             //downright
             if (myGridIndex > (grid.width - 1) && !isStairs)
@@ -69,10 +62,7 @@ public class Node : MonoBehaviour
                 if (!n.isStairs && !this.isStairs)
                     if (n.transform.position.y < (this.transform.position.y + this.transform.localScale.y))
                         if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
-                        {
-                            neighbors.Add(n);
-                            neighborDirections.Add(Direction.DownRight,n);
-                        }
+                            neighbors.Add (n);
             }
         }
         //left
@@ -83,10 +73,7 @@ public class Node : MonoBehaviour
                 if (left.transform.position.y > (this.transform.position.y - ((!this.isStairs) ? this.transform.localScale.y : this.transform.localScale.y * 4)))
                     if (!left.isStairs || (left.isStairs && left.direction))
                         if (!this.isStairs || this.direction)
-                        {
-                            neighbors.Add(left);
-                            neighborDirections.Add(Direction.Left,left);
-                        }
+                            neighbors.Add (left);
             //upleft
             if (myGridIndex < grid.width * (grid.height - 1) && !isStairs)
             {
@@ -94,10 +81,7 @@ public class Node : MonoBehaviour
                 if (!n.isStairs && !this.isStairs)
                     if (n.transform.position.y < (this.transform.position.y + this.transform.localScale.y))
                         if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
-                        {
-                            neighbors.Add(n);
-                            neighborDirections.Add(Direction.UpLeft,n);
-                        }
+                            neighbors.Add (n);
             }
             //downleft
             if (myGridIndex > (grid.width - 1) && !isStairs)
@@ -106,10 +90,7 @@ public class Node : MonoBehaviour
                 if (!n.isStairs && !this.isStairs)
                     if (n.transform.position.y < (this.transform.position.y + this.transform.localScale.y))
                         if (n.transform.position.y > (this.transform.position.y - this.transform.localScale.y))
-                        {
-                            neighbors.Add(n);
-                            neighborDirections.Add(Direction.DownLeft,n);
-                        }
+                            neighbors.Add (n);
             }
         }
         //up
@@ -120,10 +101,7 @@ public class Node : MonoBehaviour
                 if (up.transform.position.y > (this.transform.position.y - ((!this.isStairs) ? this.transform.localScale.y : this.transform.localScale.y * 4)))
                     if (!up.isStairs || (up.isStairs && !up.direction))
                         if (!this.isStairs || !this.direction)
-                        {
-                            neighbors.Add(up);
-                            neighborDirections.Add(Direction.Up,up);
-                        }
+                            neighbors.Add (up);
         }
         //down
         if (myGridIndex > (grid.width - 1))
@@ -133,37 +111,26 @@ public class Node : MonoBehaviour
                 if (down.transform.position.y > (this.transform.position.y - ((!this.isStairs) ? this.transform.localScale.y : this.transform.localScale.y * 4)))
                     if (!down.isStairs || (down.isStairs && !down.direction))
                         if (!this.isStairs || !this.direction)
-                        {
-                            neighbors.Add(down);
-                            neighborDirections.Add(Direction.Down,down);
-                        }
+                            neighbors.Add (down);
         }
 
     }
 
-    public Node GetNeighbor(Direction dir)
+    private void OnMouseEnter ()
     {
-        Node n = null;
-        neighborDirections.TryGetValue(dir, out n);
-        return n;
-    }
+        var grid = FindObjectOfType<GridSystem> ();
 
-    private void OnMouseEnter()
-    {
-        var grid = FindObjectOfType<GridSystem>();
-
-        Path p = Astar.CalculatePath(grid.gridNodes[0], this, grid);
+        Path p = Astar.CalculatePath (grid.gridNodes[0], this, grid);
         foreach (Node n in grid.gridNodes)
         {
             if (n.walkable)
-                n.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", Color.white);
+                n.GetComponent<MeshRenderer> ().material.SetColor ("_BaseColor", Color.white);
         }
         foreach (Node n in p.nodes)
         {
-            var mesh = n.GetComponent<MeshRenderer>();
-            mesh.material.SetColor("_BaseColor", Color.green);
+            var mesh = n.GetComponent<MeshRenderer> ();
+            mesh.material.SetColor ("_BaseColor", Color.green);
         }
         //p.nodes[0].GetComponent<MeshRenderer>().material.color = Color.green;
-
     }
 }
