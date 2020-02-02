@@ -57,8 +57,17 @@ public class InitiativeUIManager : MonoBehaviour
             state.image.transform.localPosition = Vector3.right * state.target;
         });
 
-        yield return new WaitForSeconds(0.5f);
+        if (InitiativeSystem.currentUnit().InGamePlay)
+        {
+            InitiativeSystem.currentUnit().PreparingForTurn = true;
+            yield return new WaitForSeconds(1f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.25f);
+        }
         
+        InitiativeSystem.currentUnit().PreparingForTurn = false;
         InitiativeSystem.finishNextTurn();
     }
 

@@ -49,9 +49,10 @@ public class Card_ScriptableObject : ScriptableObject
             if (!target)
                 continue;
             target.CheckForUnit();
+
             if (target.occupyingUnit != null)
             {
-                if (target.occupyingUnit.IsEnemy && !unitUsingCard.IsEnemy)
+                if (target.occupyingUnit != unitUsingCard)
                     target.occupyingUnit.Damage((p.isGood) ? -effectIntensity : effectIntensity);
             }
         }

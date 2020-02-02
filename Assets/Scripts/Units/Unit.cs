@@ -7,13 +7,14 @@ public class Unit : MonoBehaviour
 
     public static Node current_UnitNode;
     public Animator anim;
-    [Header ("Unit Stats")]
+    [Header("Unit Stats")]
     [SerializeField] private int health = 5;
 
     public readonly float speed = 6;
 
     public bool InGamePlay = true;
     public bool CurrentTurn = false;
+    public bool PreparingForTurn = false;
 
     public int initiative = -1;
 
@@ -38,20 +39,20 @@ public class Unit : MonoBehaviour
         get => _AP;
     }
 
-    public void SetAP (int newAP)
+    public void SetAP(int newAP)
     {
         _AP = newAP;
     }
 
     /* Main Functions */
-    public void Awake ()
+    public void Awake()
     {
-        initiative = Random.Range (1, 100);
+        initiative = Random.Range(1, 100);
         _AP = MaxAP;
-        InitiativeSystem.registerUnit (this);
+        InitiativeSystem.registerUnit(this);
     }
 
-    public Node GetMyGridNode ()
+    public Node GetMyGridNode()
     {
         // This should only be called if we don't know the current node. We should be able to use the last tile of the path.
         RaycastHit hit;
@@ -74,6 +75,11 @@ public class Unit : MonoBehaviour
     public void Damage(int amount)
     {
         health -= amount;
-        anim.SetTrigger("Hit");
+        if (health <= 0)
+        {
+            anim.SetTrigger("Defeated");
+        }
+        else
+            anim.SetTrigger("Hit");
     }
 }
