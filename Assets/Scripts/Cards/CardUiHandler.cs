@@ -52,13 +52,17 @@ public class CardUiHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (cardIsPreviewingUse && !cardIsMoving &&
             (InputListener.Instance.PressedDown_Escape || (InputListener.Instance.PressedDown_Mouse_LeftClick && MousedOverCardOrGrid() == false)))
             Animate_PreviewCardUsage(false);
-        else if (cardIsPreviewingUse &&InputListener.Instance.PressedUp_Mouse_LeftClick)
+        else if (cardIsPreviewingUse && InputListener.Instance.PressedUp_Mouse_LeftClick&&NodeMousedOver()!=null)
+        {
             cardRef.UseCard(InitiativeSystem.currentUnit(), InitiativeSystem.currentUnit().GetMyGridNode());
+            Animate_PreviewCardUsage(false);
+            this.gameObject.SetActive(false);
+        }
     }
 
     /* Animation Helper Functions */
 
-    private void Animate_PreviewCardUsage(bool moveToPreviewSpot)
+    public void Animate_PreviewCardUsage(bool moveToPreviewSpot)
     {
         HandCardManager.Instance.SetCurrentlySelectedCard(moveToPreviewSpot ? this : null);
         Transform cardUsagePreviewDestination = CardUsagePreviewPosition.Instance.transform;

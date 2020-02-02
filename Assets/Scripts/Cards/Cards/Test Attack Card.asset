@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04b146841b3230408f3a5aa9fa38433, type: 3}
   m_Name: Test Attack Card
   m_EditorClassIdentifier: 
-  cardName: te
+  cardName: TEST
   cost: 2
   effectIntensity: 1
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: b1a6b62ea81b2cf42a1cb3060909c44a, type: 3}
   pattern:
+  - elementTitle: 
+    xAxis: -1
+    yAxis: 0
+    isGood: 0
+  OriginalPattern:
   - elementTitle: 
     xAxis: 0
     yAxis: 1
     isGood: 0
-  OriginalPattern: []

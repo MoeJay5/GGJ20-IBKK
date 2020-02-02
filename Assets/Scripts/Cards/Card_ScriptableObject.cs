@@ -21,6 +21,8 @@ public class Card_ScriptableObject : ScriptableObject
     }
     public void UseCard(Unit unitUsingCard,Node n)
     {
+        
+
         unitUsingCard.DecreaseAPBy(cost);
         foreach(var p in pattern)
         {
