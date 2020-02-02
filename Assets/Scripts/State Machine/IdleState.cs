@@ -7,11 +7,16 @@ class IdleState : State
 
     public override void EnterState (StateMachine parent)
     {
-        myUnit = parent.GetComponent<Unit> ();
+        myUnit = this.GetComponent<Unit> ();
+        if (myUnit == null)
+        {
+            Debug.LogWarning ("State assigned to state machine without unit.");
+        }
     }
 
     public override void UpdateState (StateMachine parent)
     {
-
+        if (!myUnit.CurrentTurn) return;
+        InitiativeSystem.nextTurn();
     }
 }

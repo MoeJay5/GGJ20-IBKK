@@ -7,7 +7,7 @@ public class InitiativeUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //InitiativeSystem.registerManager(this);
+        InitiativeSystem.registerManager(this);
     }
 
     // Update is called once per frame

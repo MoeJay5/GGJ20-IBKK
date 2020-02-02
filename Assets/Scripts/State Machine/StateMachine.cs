@@ -9,10 +9,11 @@ public class StateMachine : MonoBehaviour
 
     [SerializeField] State defaultState;
     [SerializeField] State startState;
-        
+
     // Start is called before the first frame update
     void Start()
     {
+        
         if (startState != null)
         {
             PushState(startState);
