@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class APUIManager : MonoBehaviour, ITurnListener
+public class APUIManager : MonoBehaviour
 {
     [SerializeField] private Image APMeter;
 
@@ -14,13 +14,10 @@ public class APUIManager : MonoBehaviour, ITurnListener
 
     private int targetAPValue;
 
+    private Unit currentTargetPlayer;
+
     [SerializeField] private float delayChange = 0.5f;
     private float lastChange = 0;
-
-    private void Start()
-    {
-        InitiativeSystem.registerListener(this);
-    }
 
     // Update is called once per frame
     void Update()
@@ -28,12 +25,19 @@ public class APUIManager : MonoBehaviour, ITurnListener
         Unit u = InitiativeSystem.currentUnit();
         
         if (u == null) return;
-        
-        if (!u.CurrentTurn)
+
+        if (!(u.CurrentTurn || u.PreparingForTurn))
         {
             APMeter.sprite = APMeterImages[u.AP];
-        };
-        
+            return;
+        } else if (u != currentTargetPlayer)
+        {
+            currentTargetPlayer = u;
+            currentAPValue = InitiativeSystem.currentUnit().previousAP;
+            targetAPValue = InitiativeSystem.currentUnit().AP;
+            APMeter.sprite = APMeterImages[currentAPValue];
+        }
+
         if (u.IsEnemy) return;
 
         targetAPValue = u.AP;
@@ -44,12 +48,5 @@ public class APUIManager : MonoBehaviour, ITurnListener
             currentAPValue += Math.Sign(targetAPValue - currentAPValue);
             APMeter.sprite = APMeterImages[currentAPValue];
         }
-    }
-
-    public void NextTurn(Unit unit)
-    {
-        currentAPValue = InitiativeSystem.currentUnit().previousAP;
-        targetAPValue = InitiativeSystem.currentUnit().AP;
-        APMeter.sprite = APMeterImages[currentAPValue];
     }
 }

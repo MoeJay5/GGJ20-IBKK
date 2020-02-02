@@ -14,6 +14,7 @@ public class Unit : MonoBehaviour
 
     public bool InGamePlay = true;
     public bool CurrentTurn = false;
+    public bool PreparingForTurn = false;
 
     public int initiative = -1;
 
