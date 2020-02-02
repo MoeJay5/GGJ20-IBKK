@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
@@ -82,10 +83,19 @@ public class Unit : MonoBehaviour
             if (this.IsEnemy)
                 LevelObjectiveSystem.Instance.ObjectiveCompleted();
             anim.SetTrigger("Defeated");
+            this.InGamePlay = false;
+            StartCoroutine( waitToKill());
             if(isPlayer)
                 UiManager.Instance.GameOver();
         }
         else
             anim.SetTrigger("Hit");
+    }
+
+    private IEnumerator waitToKill()
+    {
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
+        
     }
 }
