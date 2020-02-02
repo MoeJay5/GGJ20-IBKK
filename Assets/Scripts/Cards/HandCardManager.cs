@@ -49,6 +49,19 @@ public class HandCardManager : MonoBehaviour
         myCards.Remove(cardToRemove);
     }
 
+    //ToDo: Call this when getting a new card
+    public void GainNewCard(CardUiHandler cardGained)
+    {
+        if (myCards.Count >= maxNumberCards)
+            GainedNewCardWithNoRoomLeft();
+
+        myCards.Add(cardGained);
+    }
+    private void GainedNewCardWithNoRoomLeft()
+    {
+        //ToDo
+    }
+
     /* Helper Functions */
 
     private float GetCardSpawnPosition(int totalNumCards, int thisCardNum) //thisCardNum = [1, totalNumCards]
