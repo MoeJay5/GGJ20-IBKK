@@ -54,6 +54,7 @@ public class UnitMovementManager : MonoBehaviour
         {
             if (HandCardManager.Instance.CurrentlySelectedCard != null)
             {
+                clearTiles();
                 PlayerTurnHandleRotate();
                 foreach (var p in HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern)
                 {
@@ -279,6 +280,7 @@ public class UnitMovementManager : MonoBehaviour
 
     void RotateCardPatern (float angle)
     {
+        angle = -angle;
         //angle = angle - 90;
         for (int i = 0; i < HandCardManager.Instance.CurrentlySelectedCard.cardRef.OriginalPattern.Count; i++)
         {

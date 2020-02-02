@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Linq;
 public class HandCardManager : MonoBehaviour
 {
     #region Singleton
@@ -49,7 +49,21 @@ public class HandCardManager : MonoBehaviour
             Vector3 localPos = spawnedCard.localPosition;
             localPos.x = GetCardSpawnPosition(Mathf.Clamp(myCards.Count, 0, maxNumberCards), i++);
             spawnedCard.localPosition = localPos * 100;
-            spawnedCard.GetComponent<CardUiHandler>().cardRef = card;
+            var cardUI = spawnedCard.GetComponent<CardUiHandler>();
+            cardUI.cardRef = card;
+            cardUI.cardRef.pattern.Clear();
+            foreach(var p in cardUI.cardRef.OriginalPattern)
+            {
+                Card_ScriptableObject.PatternNode newP = new Card_ScriptableObject.PatternNode();
+                newP.elementTitle = p.elementTitle;
+                newP.isGood = p.isGood;
+                newP.xAxis = p.xAxis;
+                newP.yAxis = p.yAxis;
+                cardUI.cardRef.pattern.Add(newP);
+            }
+                // cardUI.cardRef.OriginalPattern.Where(e => true).ToList();
+            //new List<Card_ScriptableObject.PatternNode>(cardUI.cardRef.OriginalPattern.ToArray());
+
         }
     }
 
