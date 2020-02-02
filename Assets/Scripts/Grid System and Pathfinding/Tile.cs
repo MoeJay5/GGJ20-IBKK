@@ -24,7 +24,7 @@ public class Tile : MonoBehaviour, ITurnListener
             1 << GameMaster.Layer_GridNode))
             hit.collider.gameObject.GetComponent<Node>().tile = this;
 
-        this.enabled = false;
+        this.gameObject.SetActive(false);
     }
     
     // Update is called once per frame
