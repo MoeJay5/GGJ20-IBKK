@@ -24,7 +24,7 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
         if (cardIsPreviewingUse)
             return;
 
-        AudioManager.Instance.PlayAudio(AudioManager.CardSfx.OnHover);
+        //AudioManager.Instance.PlayAudio(AudioManager.CardSfx.OnHover); - CALLED IN ANIMATION KEY
         cardAnimator.SetBool("MousedOver", true);
     }
 
@@ -93,5 +93,12 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
             t += updateTickTime;
             yield return new WaitForSeconds(updateTickTime);
         }
+    }
+
+    /* Animation Events */
+
+    public void PlaySFX_OnHover()
+    {
+        AudioManager.Instance.PlayAudio(AudioManager.CardSfx.OnHover);
     }
 }
