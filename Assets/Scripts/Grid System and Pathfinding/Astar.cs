@@ -33,7 +33,7 @@ public class Astar
             //current.GetNeighbors(grid);
             foreach (Node node in current.neighbors)
             {
-                if (closed.Contains(node) || !node.walkable)
+                if (closed.Contains(node) || !node.walkable||node.occupyingUnit!=null)
                     continue;
                 var tentative_g = current.gScore + Distance(current, node);
                 Node shared1 = null;

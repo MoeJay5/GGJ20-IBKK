@@ -10,7 +10,7 @@ public class Card_ScriptableObject : ScriptableObject
     public int effectIntensity;
     public Sprite cardImage;
     public List<PatternNode> pattern = new List<PatternNode> ();
-
+    public List<PatternNode> OriginalPattern = new List<PatternNode>();
     [Serializable]
     public class PatternNode
     {
