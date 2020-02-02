@@ -7,8 +7,6 @@ public class Astar
 
     public static Path CalculatePath(Node start, Node end, GridSystem grid)
     {
-        if (end.myGridIndex == 17)
-            Debug.Log(0);
         HashSet<Node> open = new HashSet<Node>();
         HashSet<Node> closed = new HashSet<Node>();
         List<Node> openList = new List<Node>();

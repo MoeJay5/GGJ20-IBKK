@@ -16,7 +16,7 @@ public class Unit : MonoBehaviour
 
     public int initiative = -1;
 
-    private int maxAP;
+    [SerializeField] int maxAP = 5;
 
     public int MaxAP
     {
@@ -39,8 +39,8 @@ public class Unit : MonoBehaviour
 
     public void Start ()
     {
-        _AP = maxAP = Random.Range (1, 10);
         initiative = Random.Range (1, 100);
+        _AP = MaxAP;
         InitiativeSystem.registerUnit (this);
     }
 

@@ -37,6 +37,17 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Audio" t="Include">
+            <e p="AudioManager.cs" t="Include" />
+          </e>
+          <e p="Camera" t="Include">
+            <e p="CameraManager.cs" t="Include" />
+          </e>
+          <e p="Cards" t="Include">
+            <e p="Card_Base.cs" t="Include" />
+            <e p="CardUiHandler.cs" t="Include" />
+            <e p="HandCardManager.cs" t="Include" />
+          </e>
           <e p="Core Player Scripts" t="Include">
             <e p="InputListener.cs" t="Include" />
           </e>
@@ -53,6 +64,7 @@
             <e p="Node.cs" t="Include" />
             <e p="NodeEditor.cs" t="Include" />
             <e p="TestAstar.cs" t="Include" />
+            <e p="TileManager.cs" t="Include" />
           </e>
           <e p="Initiative + AP System" t="Include">
             <e p="InitiativeSystem.cs" t="Include" />
@@ -68,8 +80,8 @@
             <e p="GameMaster.cs" t="Include" />
           </e>
           <e p="Units" t="Include">
-            <e p="MovementLeftoverCode.cs" t="Include" />
             <e p="Unit.cs" t="Include" />
+            <e p="UnitMovementManager.cs" t="Include" />
           </e>
         </e>
       </e>

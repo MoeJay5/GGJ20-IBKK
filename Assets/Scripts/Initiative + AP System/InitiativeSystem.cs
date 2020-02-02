@@ -23,12 +23,12 @@ public static class InitiativeSystem
     public static void registerUnit( Unit u )
     {
         activeUnits.Add(u);
+        recalculateInitiativeOrder();
     }
 
     public static void clearList()
     {
         activeUnits.Clear();
-        recalculateInitiativeOrder();
     }
 
     public static void nextTurn()

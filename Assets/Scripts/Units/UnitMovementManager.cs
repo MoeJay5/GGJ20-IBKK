@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 [RequireComponent (typeof (Unit))]
 public class UnitMovementManager : MonoBehaviour
@@ -31,7 +32,7 @@ public class UnitMovementManager : MonoBehaviour
 
     private void Update ()
     {
-        if (currentlyInitiatedUnit.AP == 0 && currentlyInitiatedUnit.CurrentTurn)
+        if (currentlyInitiatedUnit.AP == 0 && currentlyInitiatedUnit.CurrentTurn && movingInitiatedUnit)
         {
             InitiativeSystem.nextTurn();
             return;
