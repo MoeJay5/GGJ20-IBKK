@@ -37,7 +37,7 @@ public static class InitiativeSystem
         do
         {
             currentQueue.Enqueue(currentQueue.Dequeue());
-        } while (currentQueue.First().InGamePlay);
+        } while (!currentQueue.First().InGamePlay);
 
         currentQueue.First().CurrentTurn = true;
     }
