@@ -27,6 +27,8 @@ public class Unit : MonoBehaviour
 
     public int previousAP = 0;
 
+    [SerializeField] private bool isPlayer = false;
+
     public int MaxAP
     {
         get => maxAP;
@@ -78,6 +80,8 @@ public class Unit : MonoBehaviour
         if (health <= 0)
         {
             anim.SetTrigger("Defeated");
+            if(isPlayer)
+                UiManager.Instance.GameOver();
         }
         else
             anim.SetTrigger("Hit");
