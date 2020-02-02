@@ -4,6 +4,8 @@ public class Unit : MonoBehaviour
 {
     /* Variables */
 
+    public static Node current_UnitNode;
+
     [Header ("Unit Stats")]
     [SerializeField] private int health = 5;
 

@@ -36,6 +36,8 @@ public class UnitMovementManager : MonoBehaviour
         if (InputListener.Instance.PressedDown_Mouse_LeftClick)
             OrderUnitMovement (currentlyInitiatedUnit, movementPath);
 
+        HighlightNavigation ();
+
     }
 
     //Helper Functions 
@@ -66,12 +68,14 @@ public class UnitMovementManager : MonoBehaviour
             while (t < 1)
             {
                 Vector3 newPos = Vector3.Lerp (prevNode.transform.position, nextNode.transform.position, t);
-                newPos.y = unitToMove.transform.position.y;
+                //newPos.y = unitToMove.transform.position.y;
                 unitToMove.transform.position = newPos;
 
                 t += tickDuration;
                 yield return null;
             }
+
+            Unit.current_UnitNode = nextNode;
 
             prevNode = nextNode;
             yield return new WaitUntil (() => unitToMove.GetMyGridNode () == nextNode);
@@ -80,4 +84,25 @@ public class UnitMovementManager : MonoBehaviour
         //Done moving along path
         movingInitiatedUnit = true;
     }
+
+    private void HighlightNavigation ()
+    {
+        var grid = FindObjectOfType<GridSystem> ();
+
+        if (Unit.current_UnitNode == null)
+            Unit.current_UnitNode = grid.gridNodes[0];
+        Path p = Astar.CalculatePath (Unit.current_UnitNode, Node.current_SelectedNode, grid);
+        foreach (Node n in grid.gridNodes)
+        {
+            if (n.walkable)
+                n.GetComponent<MeshRenderer> ().material.SetColor ("_BaseColor", Color.white);
+        }
+        foreach (Node n in p.nodes)
+        {
+            var mesh = n.GetComponent<MeshRenderer> ();
+            mesh.material.SetColor ("_BaseColor", Color.green);
+        }
+        //p.nodes[0].GetComponent<MeshRenderer>().material.color = Color.green;
+    }
+
 }
