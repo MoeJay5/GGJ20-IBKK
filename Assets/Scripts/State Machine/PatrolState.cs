@@ -18,11 +18,17 @@ class PatrolState : State
             Debug.LogWarning("Patrol assigned to state machine without unit.");
         }
 
-        targetIndex = 0;
+        myUnit.transform.position = destinations[0].transform.position + Vector3.up;
+
+        targetIndex = 1;
     }
     
     public override void  UpdateState(StateMachine parent)
     {
+        if (!myUnit.CurrentTurn){
+            return;
+        }
+
         if (myPath == null)
         {
             myPath = Astar.CalculatePath(destinations[targetIndex],
@@ -39,6 +45,7 @@ class PatrolState : State
                 myPath = null;
                 targetIndex = (targetIndex + 1) % destinations.Count;
             }
+            InitiativeSystem.nextTurn();
             return;
         }
 
