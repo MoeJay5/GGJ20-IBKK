@@ -18,6 +18,9 @@ public class UnitMovementManager : MonoBehaviour
     private float catchTime_ForDoubleClick = 0.25f;
     private bool unitIsMoveing;
 
+    [Header("Dependencies")]
+    [SerializeField] private Animator myAnimator = null;
+
     /* Main Functions */
 
     void OnEnable ()
@@ -87,6 +90,9 @@ public class UnitMovementManager : MonoBehaviour
 
             currentlyInitiatedUnit.DecreaseAPBy (1);
 
+            myAnimator.transform.LookAt(nextNode.transform, Vector3.up);
+            myAnimator.SetBool("Walking", true);
+
             //Move Unit to Node
             float t = 0;
             float tickDuration = currentlyInitiatedUnit.speed * Time.deltaTime;
@@ -104,6 +110,9 @@ public class UnitMovementManager : MonoBehaviour
 
             unitIsMoveing = false;
             Unit.current_UnitNode = nextNode;
+
+
+            myAnimator.SetBool("Walking", false);
 
             prevNode = nextNode;
             yield return new WaitUntil (() => unitToMove.GetMyGridNode () == nextNode);
