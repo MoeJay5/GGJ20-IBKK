@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -36,10 +37,12 @@ public class NodeEditor : UnityEditor.Editor
             else if (n.isStairs)
             {
                 mesh.material.color = Color.blue;
-           
+                List<int> x = new List<int>();
+                List<int> copy = x.Where(e => true).ToList();
+
             }
             else
-                mesh.material.color = ogColor;
+                mesh.material.SetColor("_BaseColor", Color.grey);
                 
 
             foreach (var neighbor in n.neighbors)
