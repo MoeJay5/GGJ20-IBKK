@@ -75,6 +75,7 @@
             <e p="Tile.cs" t="Include" />
           </e>
           <e p="Initiative + AP System" t="Include">
+            <e p="APUIManager.cs" t="Include" />
             <e p="InitiativeSystem.cs" t="Include" />
           </e>
           <e p="Level Loading" t="Include">

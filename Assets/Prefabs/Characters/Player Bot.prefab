@@ -28,6 +28,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2201465926584833469}
+  - component: {fileID: 1977852294746427758}
   m_Layer: 0
   m_Name: Player Bot
   m_TagString: Untagged

@@ -18,6 +18,8 @@ public class Unit : MonoBehaviour
 
     [SerializeField] int maxAP = 5;
 
+    public bool IsEnemy = true;
+
     public int MaxAP
     {
         get => maxAP;
