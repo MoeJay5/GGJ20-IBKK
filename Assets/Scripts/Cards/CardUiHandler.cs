@@ -8,7 +8,6 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
 
     [Header("Dependencies")]
     [SerializeField] private Animator cardAnimator = null;
-    [SerializeField] private Transform cardUsagePreviewDestination = null;
 
     // States
     private Vector3 positionInHand = Vector3.zero;
@@ -47,7 +46,8 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
 
     public void Update()
     {
-        if (cardIsPreviewingUse && InputListener.Instance.PressedDown_Escape)
+        if ((cardIsPreviewingUse && InputListener.Instance.PressedDown_Escape)
+            || (InputListener.Instance.PressedDown_Mouse_LeftClick && MousedOverCardOrGrid() == false))
             Animate_PreviewCardUsage(false);
     }
 
@@ -56,6 +56,7 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
     private void Animate_PreviewCardUsage(bool moveToPreviewSpot)
     {
         HandCardManager.Instance.SetCurrentlySelectedCard(moveToPreviewSpot ? this : null);
+        Transform cardUsagePreviewDestination = CardUsagePreviewPosition.Instance.transform;
 
         cardIsPreviewingUse = moveToPreviewSpot;
         cardAnimator.SetBool("CardUsagePreviewing", moveToPreviewSpot);
@@ -93,6 +94,12 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
             t += updateTickTime;
             yield return new WaitForSeconds(updateTickTime);
         }
+    }
+
+    //ToDo
+    private bool MousedOverCardOrGrid()
+    {
+        return false;
     }
 
     /* Animation Events */
