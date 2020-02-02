@@ -12,6 +12,7 @@ public class LevelObjectiveSystem : MonoBehaviour
 
     [Header("Properties")]
     [SerializeField] private List<LevelObjective> mandatoryObjectives = new List<LevelObjective>();
+    [SerializeField] private string levelToLoadAfterThisOne = "Level 2";
 
     // States
     private bool highlightedExit = false;
@@ -31,7 +32,7 @@ public class LevelObjectiveSystem : MonoBehaviour
     {
         highlightedExit = true;
 
-        //ToDo: Highlight exit area
+        UiManager.Instance.LevelCompleted();
     }
 
     private bool AllMandatoryObjectivesCompleted()
