@@ -9,7 +9,7 @@ public class LevelObjective : MonoBehaviour
 
     /* Main Functionality */
 
-    protected virtual void ObjectiveCompleted()
+    public void ObjectiveCompleted()
     {
         completed = true;
         LevelObjectiveSystem.Instance.ObjectiveCompleted();
