@@ -8820,6 +8820,11 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 1281727949}
+    - target: {fileID: 492791689, guid: 0d2b4b1df16fae34e90a5b489d7bb24c, type: 3}
+      propertyPath: unitIconDisabled
+      value: 
+      objectReference: {fileID: 21300000, guid: e6f1304e80369944aa61ababea635a10,
+        type: 3}
     - target: {fileID: 2201465926584833466, guid: 0d2b4b1df16fae34e90a5b489d7bb24c,
         type: 3}
       propertyPath: m_Name
