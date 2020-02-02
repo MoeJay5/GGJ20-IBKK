@@ -27,7 +27,7 @@ public class Unit : MonoBehaviour
 
     public int previousAP = 0;
 
-    [SerializeField] private bool isPlayer = false;
+    [SerializeField] public bool isPlayer = false;
 
     public int MaxAP
     {
@@ -79,6 +79,8 @@ public class Unit : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
+            if (this.IsEnemy)
+                LevelObjectiveSystem.Instance.ObjectiveCompleted();
             anim.SetTrigger("Defeated");
             if(isPlayer)
                 UiManager.Instance.GameOver();

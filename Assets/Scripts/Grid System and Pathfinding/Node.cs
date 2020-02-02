@@ -43,6 +43,7 @@ public class Node : MonoBehaviour
     public int myGridIndex;
     public bool isStairs = false;
     public bool direction = false;
+    public bool EnterToCompleteObjective = false;
 
     private void Start()
     {
@@ -55,6 +56,12 @@ public class Node : MonoBehaviour
 
     private void Update()
     {
+        if(EnterToCompleteObjective)
+        {
+            this.CheckForUnit();
+            if (occupyingUnit!=null&&occupyingUnit.isPlayer)
+                LevelObjectiveSystem.Instance.ObjectiveCompleted();
+        }
         if (occupyingUnit == null)
         {
             return;
