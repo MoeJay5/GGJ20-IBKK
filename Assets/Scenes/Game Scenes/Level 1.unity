@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: afff110dbb7e3ad44a30c6383595c8ca,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -517,14 +517,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d46c672948c2c340b4ebd627436e391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 87356102}
+  anim: {fileID: 0}
   health: 5
   InGamePlay: 1
   CurrentTurn: 0
+  PreparingForTurn: 0
   initiative: -1
   maxAP: 2
   IsEnemy: 1
   unitIcon: {fileID: 0}
+  unitIconDisabled: {fileID: 0}
+  previousAP: 0
+  isPlayer: 0
   _AP: 0
 --- !u!114 &87356101
 MonoBehaviour:
@@ -540,12 +544,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultState: {fileID: 87356099}
   startState: {fileID: 87356099}
---- !u!95 &87356102 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6738178788784320486, guid: 2a5183a698808804c8a76fc88dd175a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 87356096}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &87356104 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 698835362, guid: 2a5183a698808804c8a76fc88dd175a5,
@@ -939,6 +937,7 @@ MonoBehaviour:
   myGridIndex: 20
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &156968087
 Material:
   serializedVersion: 6
@@ -1910,6 +1909,7 @@ MonoBehaviour:
   myGridIndex: 5
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &250597363
 Material:
   serializedVersion: 6
@@ -2359,6 +2359,7 @@ MonoBehaviour:
   myGridIndex: 46
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &342205151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,6 +2684,7 @@ MonoBehaviour:
   myGridIndex: 19
   isStairs: 1
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &399230354
 Material:
   serializedVersion: 6
@@ -3122,6 +3124,7 @@ MonoBehaviour:
   myGridIndex: 33
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &420823809
 Material:
   serializedVersion: 6
@@ -3355,6 +3358,7 @@ MonoBehaviour:
   myGridIndex: 27
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &439780629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3478,6 +3482,7 @@ MonoBehaviour:
   myGridIndex: 10
   isStairs: 1
   direction: 1
+  EnterToCompleteObjective: 0
 --- !u!1 &448073356
 GameObject:
   m_ObjectHideFlags: 0
@@ -3701,10 +3706,14 @@ MonoBehaviour:
   health: 5
   InGamePlay: 1
   CurrentTurn: 0
+  PreparingForTurn: 0
   initiative: -1
   maxAP: 5
   IsEnemy: 0
   unitIcon: {fileID: 0}
+  unitIconDisabled: {fileID: 0}
+  previousAP: 0
+  isPlayer: 0
   _AP: 0
 --- !u!1001 &509893732
 PrefabInstance:
@@ -3910,6 +3919,7 @@ MonoBehaviour:
   myGridIndex: 14
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1001 &527997344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4228,6 +4238,7 @@ MonoBehaviour:
   myGridIndex: 40
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!4 &560946464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8162556814726470689, guid: ca64436d33c1c1546bbd7f3f0c9bfde4,
@@ -4710,6 +4721,7 @@ MonoBehaviour:
   myGridIndex: 42
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &669497261
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,6 +4851,7 @@ MonoBehaviour:
   myGridIndex: 47
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &676606982
 GameObject:
   m_ObjectHideFlags: 0
@@ -4968,6 +4981,7 @@ MonoBehaviour:
   myGridIndex: 22
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &676759760
 GameObject:
   m_ObjectHideFlags: 0
@@ -5097,6 +5111,7 @@ MonoBehaviour:
   myGridIndex: 29
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &693572467
 Material:
   serializedVersion: 6
@@ -5425,6 +5440,7 @@ MonoBehaviour:
   myGridIndex: 23
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &717249492
 GameObject:
   m_ObjectHideFlags: 0
@@ -5550,6 +5566,7 @@ MonoBehaviour:
   myGridIndex: 44
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!4 &727245440 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6036501266298275381, guid: 7f1fb40357463164fba1b0da76e559fe,
@@ -5681,6 +5698,7 @@ MonoBehaviour:
   myGridIndex: 38
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &764657305
 Material:
   serializedVersion: 6
@@ -5917,6 +5935,7 @@ MonoBehaviour:
   myGridIndex: 41
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &822436065
 Material:
   serializedVersion: 6
@@ -6299,6 +6318,7 @@ MonoBehaviour:
   myGridIndex: 26
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &860425176
 GameObject:
   m_ObjectHideFlags: 0
@@ -6619,6 +6639,7 @@ MonoBehaviour:
   myGridIndex: 28
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &899593439
 GameObject:
   m_ObjectHideFlags: 0
@@ -7039,6 +7060,7 @@ MonoBehaviour:
   myGridIndex: 6
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &922312600
 GameObject:
   m_ObjectHideFlags: 0
@@ -7615,6 +7637,7 @@ MonoBehaviour:
   myGridIndex: 30
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &1014559102
 GameObject:
   m_ObjectHideFlags: 0
@@ -8089,6 +8112,7 @@ MonoBehaviour:
   myGridIndex: 24
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &1065728451
 Material:
   serializedVersion: 6
@@ -8321,6 +8345,7 @@ MonoBehaviour:
   myGridIndex: 32
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &1109081336
 Material:
   serializedVersion: 6
@@ -8555,6 +8580,7 @@ MonoBehaviour:
   myGridIndex: 13
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1001 &1153763884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8753,6 +8779,7 @@ MonoBehaviour:
   myGridIndex: 3
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1001 &1172786146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9175,6 +9202,7 @@ MonoBehaviour:
   myGridIndex: 1
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &1223714698
 Material:
   serializedVersion: 6
@@ -9508,6 +9536,7 @@ MonoBehaviour:
   myGridIndex: 36
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &1252067037
 Material:
   serializedVersion: 6
@@ -9624,15 +9653,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1348566187, guid: 610cfbee4a52c8f47999c2d60c5240e9, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1449307070, guid: 610cfbee4a52c8f47999c2d60c5240e9, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1634658106, guid: 610cfbee4a52c8f47999c2d60c5240e9, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6358490388996705321, guid: 610cfbee4a52c8f47999c2d60c5240e9,
         type: 3}
@@ -9975,6 +10004,7 @@ MonoBehaviour:
   myGridIndex: 7
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &1286165231
 Material:
   serializedVersion: 6
@@ -10235,7 +10265,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mandatoryObjectives:
   - {fileID: 1832595819}
-  optionalObjectives: []
 --- !u!1 &1312469983
 GameObject:
   m_ObjectHideFlags: 0
@@ -10455,6 +10484,7 @@ MonoBehaviour:
   myGridIndex: 4
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &1322922313
 Material:
   serializedVersion: 6
@@ -10911,6 +10941,7 @@ MonoBehaviour:
   myGridIndex: 43
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &1348566186
 GameObject:
   m_ObjectHideFlags: 0
@@ -11181,6 +11212,7 @@ MonoBehaviour:
   myGridIndex: 15
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &1420456448
 Material:
   serializedVersion: 6
@@ -11413,6 +11445,7 @@ MonoBehaviour:
   myGridIndex: 9
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &1436320896
 GameObject:
   m_ObjectHideFlags: 0
@@ -11542,6 +11575,7 @@ MonoBehaviour:
   myGridIndex: 35
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1001 &1445248457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11956,6 +11990,7 @@ MonoBehaviour:
   myGridIndex: 8
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &1485313541
 GameObject:
   m_ObjectHideFlags: 0
@@ -12079,6 +12114,7 @@ MonoBehaviour:
   myGridIndex: 25
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1001 &1507479909
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13069,6 +13105,7 @@ MonoBehaviour:
   myGridIndex: 31
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &1602038177
 GameObject:
   m_ObjectHideFlags: 0
@@ -13198,6 +13235,7 @@ MonoBehaviour:
   myGridIndex: 21
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &1608380602
 GameObject:
   m_ObjectHideFlags: 0
@@ -13419,56 +13457,7 @@ MonoBehaviour:
   myGridIndex: 17
   isStairs: 0
   direction: 0
---- !u!1 &1634658105
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1634658106}
-  - component: {fileID: 1634658107}
-  m_Layer: 5
-  m_Name: Initiative
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1634658106
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1634658105}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2014671556}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1634658107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1634658105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20834842df005dc41a682a309cdd94c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitiativeBar: {fileID: 0}
-  IconPrefab: {fileID: 0}
+  EnterToCompleteObjective: 0
 --- !u!1 &1635429772
 GameObject:
   m_ObjectHideFlags: 0
@@ -13694,6 +13683,7 @@ MonoBehaviour:
   myGridIndex: 12
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &1671925705
 Material:
   serializedVersion: 6
@@ -14241,6 +14231,7 @@ MonoBehaviour:
   myGridIndex: 39
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &1736413971
 GameObject:
   m_ObjectHideFlags: 0
@@ -14368,6 +14359,7 @@ MonoBehaviour:
   myGridIndex: 34
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1001 &1790958879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14811,6 +14803,7 @@ MonoBehaviour:
   myGridIndex: 2
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &1918172077
 GameObject:
   m_ObjectHideFlags: 0
@@ -14936,6 +14929,7 @@ MonoBehaviour:
   myGridIndex: 37
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &1919988045
 GameObject:
   m_ObjectHideFlags: 0
@@ -15267,6 +15261,7 @@ MonoBehaviour:
   myGridIndex: 0
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &1994364769
 GameObject:
   m_ObjectHideFlags: 0
@@ -15390,6 +15385,7 @@ MonoBehaviour:
   myGridIndex: 11
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &2001947449
 Material:
   serializedVersion: 6
@@ -15704,6 +15700,7 @@ MonoBehaviour:
   myGridIndex: 18
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!21 &2029930009
 Material:
   serializedVersion: 6
@@ -15937,6 +15934,7 @@ MonoBehaviour:
   myGridIndex: 45
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &2058230628
 GameObject:
   m_ObjectHideFlags: 0
@@ -16287,6 +16285,7 @@ MonoBehaviour:
   myGridIndex: 48
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &2100588056
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16488,6 +16487,7 @@ MonoBehaviour:
   myGridIndex: 16
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!1 &2119471279
 GameObject:
   m_ObjectHideFlags: 0

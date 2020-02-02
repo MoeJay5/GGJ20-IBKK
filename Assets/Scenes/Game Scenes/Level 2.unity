@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: afff110dbb7e3ad44a30c6383595c8ca,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -367,6 +367,7 @@ MonoBehaviour:
   myGridIndex: 34
   isStairs: 1
   direction: 1
+  EnterToCompleteObjective: 0
 --- !u!23 &11227835
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1168,6 +1169,7 @@ MonoBehaviour:
   myGridIndex: 55
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &57321479
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1825,6 +1827,7 @@ MonoBehaviour:
   myGridIndex: 58
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &88271199
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1973,6 +1976,7 @@ MonoBehaviour:
   myGridIndex: 23
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &90473804
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2231,6 +2235,7 @@ MonoBehaviour:
   myGridIndex: 71
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &98665039
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2465,6 +2470,7 @@ MonoBehaviour:
   myGridIndex: 95
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &108374605
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2723,6 +2729,7 @@ MonoBehaviour:
   myGridIndex: 44
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &115998578
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3165,6 +3172,7 @@ MonoBehaviour:
   myGridIndex: 61
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &128405052
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4244,6 +4252,7 @@ MonoBehaviour:
   myGridIndex: 65
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &181598708
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4383,6 +4392,7 @@ MonoBehaviour:
   myGridIndex: 25
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &185187421
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5649,6 +5659,7 @@ MonoBehaviour:
   myGridIndex: 10
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &244079514
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5788,6 +5799,7 @@ MonoBehaviour:
   myGridIndex: 64
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &245562299
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6232,6 +6244,7 @@ MonoBehaviour:
   myGridIndex: 13
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &264710083
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6544,6 +6557,7 @@ MonoBehaviour:
   myGridIndex: 86
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &274662205
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6695,6 +6709,7 @@ MonoBehaviour:
   myGridIndex: 31
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &282332895
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6933,6 +6948,7 @@ MonoBehaviour:
   myGridIndex: 0
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &292419714
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7168,6 +7184,7 @@ MonoBehaviour:
   myGridIndex: 68
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &295036290
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7389,6 +7406,7 @@ MonoBehaviour:
   myGridIndex: 14
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &303000668
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7629,6 +7647,7 @@ MonoBehaviour:
   myGridIndex: 4
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &307151350
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8041,6 +8060,7 @@ MonoBehaviour:
   myGridIndex: 52
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &329315513
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9250,6 +9270,7 @@ MonoBehaviour:
   myGridIndex: 18
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &397284860
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10297,6 +10318,7 @@ MonoBehaviour:
   myGridIndex: 21
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &429125061
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10448,6 +10470,7 @@ MonoBehaviour:
   myGridIndex: 62
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &429770547
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10953,6 +10976,7 @@ MonoBehaviour:
   myGridIndex: 92
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &452876434
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11606,6 +11630,7 @@ MonoBehaviour:
   myGridIndex: 78
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &481030084
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11833,6 +11858,7 @@ MonoBehaviour:
   myGridIndex: 63
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &488200588
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12153,6 +12179,7 @@ MonoBehaviour:
   myGridIndex: 76
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &491584052
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12266,12 +12293,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d46c672948c2c340b4ebd627436e391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   health: 5
   InGamePlay: 1
   CurrentTurn: 0
+  PreparingForTurn: 0
   initiative: -1
   maxAP: 5
   IsEnemy: 0
+  unitIcon: {fileID: 0}
+  unitIconDisabled: {fileID: 0}
+  previousAP: 0
+  isPlayer: 0
   _AP: 0
 --- !u!1 &496903353
 GameObject:
@@ -13002,6 +13035,7 @@ MonoBehaviour:
   myGridIndex: 72
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &523267229
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13141,6 +13175,7 @@ MonoBehaviour:
   myGridIndex: 24
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &531308874
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13557,6 +13592,7 @@ MonoBehaviour:
   myGridIndex: 51
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &550145564
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13792,6 +13828,7 @@ MonoBehaviour:
   myGridIndex: 74
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &558718693
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13931,6 +13968,7 @@ MonoBehaviour:
   myGridIndex: 80
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &565888221
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14878,6 +14916,7 @@ MonoBehaviour:
   myGridIndex: 41
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &616848366
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15637,6 +15676,7 @@ MonoBehaviour:
   myGridIndex: 53
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &659931044
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15968,6 +16008,7 @@ MonoBehaviour:
   myGridIndex: 43
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &674347631
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16436,6 +16477,7 @@ MonoBehaviour:
   myGridIndex: 39
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &717278710
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16970,6 +17012,7 @@ MonoBehaviour:
   myGridIndex: 96
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &726772409
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17496,6 +17539,7 @@ MonoBehaviour:
   myGridIndex: 60
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &739128278
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17635,6 +17679,7 @@ MonoBehaviour:
   myGridIndex: 93
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &747274355
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17771,6 +17816,7 @@ MonoBehaviour:
   myGridIndex: 97
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &749860782
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18331,6 +18377,7 @@ MonoBehaviour:
   myGridIndex: 66
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &782075647
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18482,6 +18529,7 @@ MonoBehaviour:
   myGridIndex: 82
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &786204283
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19478,6 +19526,7 @@ MonoBehaviour:
   myGridIndex: 3
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &843057959
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19787,6 +19836,7 @@ MonoBehaviour:
   myGridIndex: 83
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &848760064
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20017,6 +20067,7 @@ MonoBehaviour:
   myGridIndex: 42
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &864136557
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20339,6 +20390,7 @@ MonoBehaviour:
   myGridIndex: 22
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &867060826
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20717,6 +20769,7 @@ MonoBehaviour:
   myGridIndex: 38
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &889078031
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21243,6 +21296,7 @@ MonoBehaviour:
   myGridIndex: 40
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &908051837
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21382,6 +21436,7 @@ MonoBehaviour:
   myGridIndex: 77
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &912327937
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22166,6 +22221,7 @@ MonoBehaviour:
   myGridIndex: 90
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &929334588
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23711,6 +23767,7 @@ MonoBehaviour:
   myGridIndex: 88
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1009083969
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23850,6 +23907,7 @@ MonoBehaviour:
   myGridIndex: 19
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1009662810
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25098,6 +25156,7 @@ MonoBehaviour:
   myGridIndex: 35
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1075196966
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25530,6 +25589,7 @@ MonoBehaviour:
   myGridIndex: 70
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1097193321
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25770,6 +25830,7 @@ MonoBehaviour:
   myGridIndex: 54
   isStairs: 1
   direction: 1
+  EnterToCompleteObjective: 0
 --- !u!23 &1102952350
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25921,6 +25982,7 @@ MonoBehaviour:
   myGridIndex: 11
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1106870446
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26136,6 +26198,7 @@ MonoBehaviour:
   myGridIndex: 6
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1107908486
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26429,6 +26492,7 @@ MonoBehaviour:
   myGridIndex: 27
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1129184499
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26678,6 +26742,7 @@ MonoBehaviour:
   myGridIndex: 15
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1136145707
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26817,6 +26882,7 @@ MonoBehaviour:
   myGridIndex: 89
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1137048865
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27189,6 +27255,7 @@ MonoBehaviour:
   myGridIndex: 29
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1165543999
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27409,6 +27476,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6288766965228992460, guid: f3396aed8a68d5e4ba35fb996c404a85,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d8667e6f627892e49a5a76102a6c084b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3396aed8a68d5e4ba35fb996c404a85, type: 3}
 --- !u!21 &1173376199
@@ -27659,6 +27731,7 @@ MonoBehaviour:
   myGridIndex: 9
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1187763376
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28008,6 +28081,7 @@ MonoBehaviour:
   myGridIndex: 16
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1191027517
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28984,6 +29058,7 @@ MonoBehaviour:
   myGridIndex: 67
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1220022381
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29114,6 +29189,7 @@ MonoBehaviour:
   myGridIndex: 7
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1220962014
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29636,6 +29712,7 @@ MonoBehaviour:
   myGridIndex: 17
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1240524935
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29832,6 +29909,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7352113704043324449, guid: 610cfbee4a52c8f47999c2d60c5240e9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Level 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 610cfbee4a52c8f47999c2d60c5240e9, type: 3}
 --- !u!1001 &1253407647
@@ -30024,6 +30106,7 @@ MonoBehaviour:
   myGridIndex: 69
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1255820464
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31048,7 +31131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mandatoryObjectives:
   - {fileID: 0}
-  optionalObjectives: []
+  levelToLoadAfterThisOne: Level 2
+  isLastLevel: 0
 --- !u!1 &1302061215
 GameObject:
   m_ObjectHideFlags: 0
@@ -31111,6 +31195,7 @@ MonoBehaviour:
   myGridIndex: 8
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1302061217
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32965,6 +33050,7 @@ MonoBehaviour:
   myGridIndex: 75
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1403406103
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33341,6 +33427,7 @@ MonoBehaviour:
   myGridIndex: 2
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1410728689
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33571,6 +33658,7 @@ MonoBehaviour:
   myGridIndex: 32
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1422766828
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34346,6 +34434,7 @@ MonoBehaviour:
   myGridIndex: 91
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1469441401
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34559,6 +34648,7 @@ MonoBehaviour:
   myGridIndex: 56
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1474416321
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34971,6 +35061,7 @@ MonoBehaviour:
   myGridIndex: 12
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1478292668
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35380,6 +35471,7 @@ MonoBehaviour:
   myGridIndex: 26
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1491638849
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35511,6 +35603,7 @@ MonoBehaviour:
   myGridIndex: 99
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1493313756
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35989,6 +36082,7 @@ MonoBehaviour:
   myGridIndex: 73
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1525907302
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36323,6 +36417,7 @@ MonoBehaviour:
   myGridIndex: 37
   isStairs: 1
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1537649537
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36569,6 +36664,7 @@ MonoBehaviour:
   myGridIndex: 1
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1546732060
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38660,6 +38756,7 @@ MonoBehaviour:
   myGridIndex: 46
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1632082013
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38811,6 +38908,7 @@ MonoBehaviour:
   myGridIndex: 47
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1633150709
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38933,6 +39031,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20834842df005dc41a682a309cdd94c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InitiativeBar: {fileID: 0}
+  IconPrefab: {fileID: 0}
 --- !u!1 &1635429772
 GameObject:
   m_ObjectHideFlags: 0
@@ -39095,6 +39195,7 @@ MonoBehaviour:
   myGridIndex: 28
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1638515750
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39309,6 +39410,7 @@ MonoBehaviour:
   myGridIndex: 20
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1643657139
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39600,6 +39702,7 @@ MonoBehaviour:
   myGridIndex: 45
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1651223091
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39745,6 +39848,7 @@ MonoBehaviour:
   myGridIndex: 48
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1655734990
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39878,6 +39982,7 @@ MonoBehaviour:
   myGridIndex: 57
   isStairs: 1
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1658551607
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41037,6 +41142,7 @@ MonoBehaviour:
   myGridIndex: 50
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1722294641
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41858,6 +41964,7 @@ MonoBehaviour:
   myGridIndex: 98
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1768959860
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -43214,6 +43321,7 @@ MonoBehaviour:
   myGridIndex: 5
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1825643284
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -43540,6 +43648,7 @@ MonoBehaviour:
   myGridIndex: 59
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1845060672
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -44033,6 +44142,7 @@ MonoBehaviour:
   myGridIndex: 30
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1868617958
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -44981,6 +45091,7 @@ MonoBehaviour:
   myGridIndex: 36
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1917090663
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -45592,6 +45703,7 @@ MonoBehaviour:
   myGridIndex: 33
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1930712403
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -45725,6 +45837,7 @@ MonoBehaviour:
   myGridIndex: 94
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1938215664
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -45867,6 +45980,7 @@ MonoBehaviour:
   myGridIndex: 87
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1938698942
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -46404,6 +46518,7 @@ MonoBehaviour:
   myGridIndex: 85
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &1965302281
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -48231,6 +48346,7 @@ MonoBehaviour:
   myGridIndex: 81
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &2071941501
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -48370,6 +48486,7 @@ MonoBehaviour:
   myGridIndex: 79
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &2072753685
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -48921,6 +49038,7 @@ MonoBehaviour:
   myGridIndex: 49
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &2088902259
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49545,6 +49663,7 @@ MonoBehaviour:
   myGridIndex: 84
   isStairs: 0
   direction: 0
+  EnterToCompleteObjective: 0
 --- !u!23 &2122233323
 MeshRenderer:
   m_ObjectHideFlags: 0

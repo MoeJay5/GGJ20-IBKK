@@ -67,7 +67,7 @@ public static class InitiativeSystem
         {
             nextTurn();
             return;
-        }
+        } 
         
         u.previousAP = u.AP;
         u.SetAP(u.MaxAP);

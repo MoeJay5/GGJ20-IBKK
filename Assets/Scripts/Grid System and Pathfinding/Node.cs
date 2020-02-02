@@ -43,6 +43,7 @@ public class Node : MonoBehaviour
     public int myGridIndex;
     public bool isStairs = false;
     public bool direction = false;
+    public bool EnterToCompleteObjective = false;
 
     private void Start()
     {
@@ -55,6 +56,12 @@ public class Node : MonoBehaviour
 
     private void Update()
     {
+        if(EnterToCompleteObjective)
+        {
+            this.CheckForUnit();
+            if (occupyingUnit!=null&&occupyingUnit.isPlayer)
+                LevelObjectiveSystem.Instance.ObjectiveCompleted();
+        }
         if (occupyingUnit == null)
         {
             return;
@@ -65,6 +72,13 @@ public class Node : MonoBehaviour
                 Vector3.ProjectOnPlane(transform.position, Vector3.up)) > 0.5f)
         {
             occupyingUnit = null;
+        }
+    }
+    public void CheckForUnit()
+    {
+        foreach(var u in FindObjectsOfType<Unit>())
+        {
+            u.GetMyGridNode();
         }
     }
 

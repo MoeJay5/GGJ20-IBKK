@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (fileName = "New Card", menuName = "Card")]
+[CreateAssetMenu(fileName = "New Card", menuName = "Card")]
 public class Card_ScriptableObject : ScriptableObject
 {
     public string cardName;
     public int cost;
     public int effectIntensity;
     public Sprite cardImage;
-    public List<PatternNode> pattern = new List<PatternNode> ();
+    public List<PatternNode> pattern = new List<PatternNode>();
     public List<PatternNode> OriginalPattern = new List<PatternNode>();
     [Serializable]
     public class PatternNode
@@ -19,12 +19,12 @@ public class Card_ScriptableObject : ScriptableObject
         public int yAxis;
         public bool isGood;
     }
-    public void UseCard(Unit unitUsingCard,Node n)
+    public void UseCard(Unit unitUsingCard, Node n)
     {
-        
+
 
         unitUsingCard.DecreaseAPBy(cost);
-        foreach(var p in pattern)
+        foreach (var p in pattern)
         {
             Node target = n;
 
@@ -48,9 +48,12 @@ public class Card_ScriptableObject : ScriptableObject
             }
             if (!target)
                 continue;
-            if(target.occupyingUnit!=null)
+            target.CheckForUnit();
+
+            if (target.occupyingUnit != null)
             {
-                target.occupyingUnit.Damage((p.isGood)?-effectIntensity:effectIntensity);
+                if (target.occupyingUnit != unitUsingCard)
+                    target.occupyingUnit.Damage((p.isGood) ? -effectIntensity : effectIntensity);
             }
         }
 
