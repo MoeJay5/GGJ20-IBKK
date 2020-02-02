@@ -13,6 +13,9 @@ public class UnitMovementManager : MonoBehaviour
 
     private Unit currentlyInitiatedUnit;
     private GridSystem grid;
+    private float lastClickTime_ForDoubleClick;
+
+    private float catchTime_ForDoubleClick = 0.25f;
 
     /* Main Functions */
 
@@ -40,7 +43,13 @@ public class UnitMovementManager : MonoBehaviour
         Path movementPath = Astar.CalculatePath (startingNode, destinationNode, LevelStateManager.Instance.generatedGrid);
 
         if (InputListener.Instance.PressedDown_Mouse_LeftClick)
-            OrderUnitMovement (currentlyInitiatedUnit, movementPath);
+        {
+            if (Time.time - lastClickTime_ForDoubleClick < catchTime_ForDoubleClick)
+            {
+                OrderUnitMovement (currentlyInitiatedUnit, movementPath);
+            }
+            lastClickTime_ForDoubleClick = Time.time;
+        }
 
         HighlightNavigation ();
 
