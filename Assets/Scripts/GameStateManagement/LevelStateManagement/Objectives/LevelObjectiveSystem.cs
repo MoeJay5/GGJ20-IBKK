@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+using System.Collections;
 public class LevelObjectiveSystem : MonoBehaviour
 {
     #region Singleton
@@ -23,6 +23,14 @@ public class LevelObjectiveSystem : MonoBehaviour
     //Called by an objective
     public void ObjectiveCompleted()
     {
+        foreach(var ob in mandatoryObjectives)
+        {
+            if(!ob.Completed)
+            {
+                ob.completed = true;
+                break;
+            }
+        }
         if (highlightedExit == false && AllMandatoryObjectivesCompleted())
             CompletedLastMandatoryObjective();
     }
@@ -32,10 +40,14 @@ public class LevelObjectiveSystem : MonoBehaviour
     private void CompletedLastMandatoryObjective()
     {
         highlightedExit = true;
-
-        UiManager.Instance.LevelCompleted(isLastLevel);
+        StartCoroutine(WaitASec());
     }
+    IEnumerator WaitASec()
+    {
+        yield return new WaitForSeconds(2);
+        UiManager.Instance.LevelCompleted(isLastLevel);
 
+    }
     private bool AllMandatoryObjectivesCompleted()
     {
         foreach (LevelObjective mandatoryObjective in mandatoryObjectives)

@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: afff110dbb7e3ad44a30c6383595c8ca,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -536,6 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbdbac1b5d31b024e84fb6e70294aad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  completed: 0
 --- !u!114 &87356101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13735,7 +13736,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699137395}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.115003586, y: 1.06, z: -0.785977}
+  m_LocalPosition: {x: 0.115003586, y: 1.22, z: -0.785977}
   m_LocalScale: {x: 13.093419, y: 13.093419, z: 13.093419}
   m_Children: []
   m_Father: {fileID: 860425177}

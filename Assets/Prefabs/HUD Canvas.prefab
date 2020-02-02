@@ -1415,8 +1415,8 @@ MonoBehaviour:
   newCardImage: {fileID: 4770307797519113411}
   noRoomForNewCardImage: {fileID: 780198745110432735}
   gameOverAnimator: {fileID: 7789281473106453205}
-  levelVictoryScreen: {fileID: 0}
-  gameVictoryScreen: {fileID: 0}
+  levelVictoryScreen: {fileID: 8977908786789522502}
+  gameVictoryScreen: {fileID: 4433493731395131717}
 --- !u!1 &7114744010445055695
 GameObject:
   m_ObjectHideFlags: 0

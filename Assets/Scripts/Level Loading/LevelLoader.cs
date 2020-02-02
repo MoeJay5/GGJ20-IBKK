@@ -55,7 +55,7 @@ public class LevelLoader : MonoBehaviour
         {
             while(loadingBar.value <1)
             {
-                loadingBar.value += Random.Range(.000025f, .002f);
+                loadingBar.value += Random.Range(.00005f, .004f);
                 yield return null;
             }
         }
