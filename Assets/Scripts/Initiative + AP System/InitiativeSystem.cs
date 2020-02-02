@@ -10,7 +10,7 @@ public static class InitiativeSystem
     
     public static void recalculateInitiativeOrder()
     {
-        activeUnits = activeUnits.Where(unit => unit != null).OrderBy(unit => unit.InGamePlay ? unit.Initiative : 1000).ToList();
+        activeUnits = activeUnits.Where(unit => unit != null).OrderBy(unit => unit.InGamePlay ? unit.initiative : 1000).ToList();
         currentQueue.Clear();
         activeUnits.ForEach(unit =>
         {
@@ -37,6 +37,7 @@ public static class InitiativeSystem
         do
         {
             currentQueue.Enqueue(currentQueue.Dequeue());
+            currentQueue.First().SetAP(currentQueue.First().MaxAP);
         } while (!currentQueue.First().InGamePlay);
 
         currentQueue.First().CurrentTurn = true;

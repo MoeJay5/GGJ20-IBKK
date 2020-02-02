@@ -31,6 +31,11 @@ public class UnitMovementManager : MonoBehaviour
 
     private void Update ()
     {
+        if (currentlyInitiatedUnit.AP == 0 && currentlyInitiatedUnit.CurrentTurn)
+        {
+            InitiativeSystem.nextTurn();
+            return;
+        }
 
         if (movingInitiatedUnit == false)
             return;
@@ -77,10 +82,10 @@ public class UnitMovementManager : MonoBehaviour
         Node prevNode = unitToMove.GetMyGridNode ();
         foreach (Node nextNode in Enumerable.Reverse (movementPath.nodes))
         {
-            if (currentlyInitiatedUnit.Initiative <= 0)
+            if (currentlyInitiatedUnit.AP <= 0)
                 break;
 
-            currentlyInitiatedUnit.DecreaseInitiativeBy (1);
+            currentlyInitiatedUnit.DecreaseAPBy (1);
 
             //Move Unit to Node
             float t = 0;
@@ -122,7 +127,7 @@ public class UnitMovementManager : MonoBehaviour
                 n.GetComponent<MeshRenderer> ().material.SetColor ("_BaseColor", Color.white);
         }
 
-        int allowedMovement = currentlyInitiatedUnit.Initiative;
+        int allowedMovement = currentlyInitiatedUnit.AP;
         foreach (Node n in Enumerable.Reverse (p.nodes))
         {
             var mesh = n.GetComponent<MeshRenderer> ();

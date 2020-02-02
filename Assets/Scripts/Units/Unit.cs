@@ -14,17 +14,33 @@ public class Unit : MonoBehaviour
     public bool InGamePlay = true;
     public bool CurrentTurn = false;
 
-    public int _initiative = -1;
-    public int Initiative
+    public int initiative = -1;
+
+    private int maxAP;
+
+    public int MaxAP
     {
-        get => _initiative;
+        get => maxAP;
+    }
+
+    [SerializeField] private int _AP;
+
+    public int AP
+    {
+        get => _AP;
+    }
+
+    public void SetAP (int newAP)
+    {
+        _AP = newAP;
     }
 
     /* Main Functions */
 
     public void Start ()
     {
-        _initiative = Random.Range (1, 10);
+        _AP = maxAP = Random.Range (1, 10);
+        initiative = Random.Range (1, 100);
         InitiativeSystem.registerUnit (this);
     }
 
@@ -39,8 +55,8 @@ public class Unit : MonoBehaviour
             return hit.collider.gameObject.GetComponent<Node> ();
     }
 
-    public void DecreaseInitiativeBy (int amount)
+    public void DecreaseAPBy (int amount)
     {
-        _initiative -= amount;
+        _AP -= amount;
     }
 }
