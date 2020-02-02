@@ -40,21 +40,31 @@ class PatrolState : State
 
         if (myPath == null)
         {
-            myPath = Astar.CalculatePath (destinations[targetIndex],
-                destinations[(targetIndex + 1) % destinations.Count], LevelStateManager.Instance.generatedGrid);
+            Node start = destinations[targetIndex];
+            Node end = destinations[(targetIndex + 1) % destinations.Count];
+            if (end == myUnit.GetMyGridNode ())
+            {
+                targetIndex = (targetIndex + 1) % destinations.Count;
+                return;
+            }
+            myPath = Astar.CalculatePath (start, end, LevelStateManager.Instance.generatedGrid);
             pathIndex = 0;
         }
 
         foreach (Card_ScriptableObject.PatternNode pn in card.pattern)
         {
-            var occupyingUnit = myUnit.GetMyGridNode ().GetNeighbor (PatternNodeDirection (pn)).occupyingUnit;
+            var node = myUnit.GetMyGridNode ().GetNeighbor (PatternNodeDirection (pn));
+            if (node == null)
+                continue;
+
+            var occupyingUnit = node.occupyingUnit;
             playerWithinRange = occupyingUnit != null ? true : false;
             if (playerWithinRange)
             {
-                Debug.Log (occupyingUnit.name + " is within range.", gameObject);
+                if (occupyingUnit) Debug.Log (occupyingUnit.name + " is within range.", gameObject);
                 parent.PushState (parent.gameObject.GetComponent<AttackState> ());
             }
-            else Debug.Log (occupyingUnit.name + " is not within range.", gameObject);
+            else if (occupyingUnit) Debug.Log (occupyingUnit.name + " is not within range.", gameObject);
         }
 
         if (!playerWithinRange)
