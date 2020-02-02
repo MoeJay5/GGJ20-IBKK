@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: afff110dbb7e3ad44a30c6383595c8ca,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -29630,7 +29630,7 @@ MonoBehaviour:
   mandatoryObjectives:
   - {fileID: 1293567383}
   - {fileID: 523664138}
-  - {fileID: 1477054812}
+  - {fileID: 0}
   levelToLoadAfterThisOne: Level 2
   isLastLevel: 0
 --- !u!1 &1302061215
@@ -41496,17 +41496,17 @@ PrefabInstance:
     - target: {fileID: 268689204865529290, guid: bd33d887702c856428c3be4d58c1479d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 268689204865529290, guid: bd33d887702c856428c3be4d58c1479d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 268689204865529290, guid: bd33d887702c856428c3be4d58c1479d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 268689204865529291, guid: bd33d887702c856428c3be4d58c1479d, type: 3}
