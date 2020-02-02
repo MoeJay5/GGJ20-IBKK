@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -944,6 +944,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -1169,6 +1171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -1449,6 +1453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -1675,6 +1681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -1792,6 +1800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -1913,6 +1923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -2031,6 +2043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -2148,6 +2162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -2268,6 +2284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -2498,6 +2516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -2616,6 +2636,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -2736,6 +2758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -2856,6 +2880,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -3083,6 +3109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -3203,6 +3231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -3642,6 +3672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -3867,6 +3899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -3987,6 +4021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -4105,6 +4141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -4546,6 +4584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -5018,6 +5058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -5282,6 +5324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -5509,6 +5553,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -5841,6 +5887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -5960,6 +6008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -6184,6 +6234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -6410,6 +6462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -6531,6 +6585,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -7030,6 +7086,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -7263,6 +7321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -8024,6 +8084,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -8251,6 +8313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -8369,6 +8433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -8489,6 +8555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -8610,6 +8678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -8802,6 +8872,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -8922,6 +8994,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -9042,6 +9116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -9161,6 +9237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -9886,6 +9964,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -10007,6 +10087,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -10704,6 +10786,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -11036,6 +11120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -11356,6 +11442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -11475,6 +11563,7 @@ MonoBehaviour:
   InGamePlay: 1
   CurrentTurn: 1
   initiative: -1
+  maxAP: 5
   _AP: 3
 --- !u!1 &1994364769
 GameObject:
@@ -11582,6 +11671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -11913,6 +12004,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -12031,6 +12124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -12160,6 +12255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
@@ -12352,6 +12449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e545b6b18b8084f820553d8daba4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupyingUnit: {fileID: 0}
+  tile: {fileID: 0}
   walkable: 1
   parent: {fileID: 0}
   neighbors:
