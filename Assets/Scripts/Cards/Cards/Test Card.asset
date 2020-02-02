@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04b146841b3230408f3a5aa9fa38433, type: 3}
+  m_Name: Test Card
+  m_EditorClassIdentifier: 
+  cardName: TestDamage
+  cost: 1
+  effectIntensity: 2
+  cardImage: {fileID: 2800000, guid: b1a6b62ea81b2cf42a1cb3060909c44a, type: 3}
+  pattern:
+  - elementTitle: Node
+    xAxis: 0
+    yAxis: 1
+    isGood: 1
+  - elementTitle: Node
+    xAxis: 1
+    yAxis: 1
+    isGood: 1
+  - elementTitle: Node
+    xAxis: 1
+    yAxis: 0
+    isGood: 1
+  - elementTitle: Node
+    xAxis: 1
+    yAxis: -1
+    isGood: 1
+  - elementTitle: Node
+    xAxis: 0
+    yAxis: -1
+    isGood: 1
+  - elementTitle: Node
+    xAxis: -1
+    yAxis: -1
+    isGood: 1
+  - elementTitle: Node
+    xAxis: -1
+    yAxis: 0
+    isGood: 1
+  - elementTitle: Node
+    xAxis: -1
+    yAxis: 1
+    isGood: 1
