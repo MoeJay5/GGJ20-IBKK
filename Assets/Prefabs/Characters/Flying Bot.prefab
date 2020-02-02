@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 260706163957862505}
-  - component: {fileID: 260706163957862506}
   m_Layer: 0
   m_Name: Flying Bot
   m_TagString: Untagged
@@ -32,14 +31,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &260706163957862506
+--- !u!95 &8653640872720265459
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 260706163957862504}
+  m_GameObject: {fileID: 7001007534704693480}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: daf45837739b3c94ebe08b846cc05bd2, type: 2}
@@ -140,6 +139,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d3ff824d4a647294facb3dd5a3d7b511, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4461149ffa704c341870803b42fd978a, type: 3}
+--- !u!1 &7001007534704693480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 4461149ffa704c341870803b42fd978a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1299708870639700449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6301603068148376315 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 4461149ffa704c341870803b42fd978a,
