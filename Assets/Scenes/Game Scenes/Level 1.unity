@@ -414,6 +414,11 @@ PrefabInstance:
       propertyPath: startState
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 698835364, guid: 2a5183a698808804c8a76fc88dd175a5, type: 3}
+      propertyPath: unitIconDisabled
+      value: 
+      objectReference: {fileID: 21300000, guid: 3a649bdbf0019884ab2b7ef06703ef45,
+        type: 3}
     - target: {fileID: 1176312479, guid: 2a5183a698808804c8a76fc88dd175a5, type: 3}
       propertyPath: destinations.Array.size
       value: 2
