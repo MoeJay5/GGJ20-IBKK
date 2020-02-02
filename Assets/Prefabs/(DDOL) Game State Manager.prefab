@@ -56,3 +56,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa826b075b5a32c41880567c0aa0064f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCards:
+  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
+  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
+  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
+  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
+  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
+  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
+  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
+  cardSpacingMultiplier: 10
+  maxNumberCards: 7

@@ -14,4 +14,15 @@ public class LevelStateManager : MonoBehaviour
     public Camera gameCamera;
     public GridSystem generatedGrid;
 
+    /* Level Initialization */
+
+    private void Start()
+    {
+        InitializeLevel();
+    }
+
+    private void InitializeLevel()
+    {
+        HandCardManager.Instance.InitializeHandForLevel();
+    }
 }

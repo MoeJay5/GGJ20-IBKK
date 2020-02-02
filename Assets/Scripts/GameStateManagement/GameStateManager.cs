@@ -10,6 +10,4 @@ public class GameStateManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
     #endregion
-
-
 }

@@ -8,7 +8,6 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
 
     [Header("Dependencies")]
     [SerializeField] private Animator cardAnimator = null;
-    [SerializeField] private Transform cardUsagePreviewDestination = null;
 
     // States
     private Vector3 positionInHand = Vector3.zero;
@@ -56,6 +55,7 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
     private void Animate_PreviewCardUsage(bool moveToPreviewSpot)
     {
         HandCardManager.Instance.SetCurrentlySelectedCard(moveToPreviewSpot ? this : null);
+        Transform cardUsagePreviewDestination = CardUsagePreviewPosition.Instance.transform;
 
         cardIsPreviewingUse = moveToPreviewSpot;
         cardAnimator.SetBool("CardUsagePreviewing", moveToPreviewSpot);
