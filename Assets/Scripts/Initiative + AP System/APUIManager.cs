@@ -46,7 +46,14 @@ public class APUIManager : MonoBehaviour
         {
             lastChange = Time.time;
             currentAPValue += Math.Sign(targetAPValue - currentAPValue);
-            APMeter.sprite = APMeterImages[currentAPValue];
+            try
+            {
+                if (currentAPValue < 0)
+                    currentAPValue = 0;
+                APMeter.sprite = APMeterImages[currentAPValue];
+            }
+            catch {
+            }
         }
     }
 }

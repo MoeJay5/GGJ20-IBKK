@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEngine.Rendering.UI;
 using Random = UnityEngine.Random;
 
-[RequireComponent (typeof (Unit))]
+[RequireComponent(typeof(Unit))]
 public class UnitMovementManager : MonoBehaviour
 {
     /* Variables */
 
-    [Header ("Properties")]
+    [Header("Properties")]
     [SerializeField] private bool movingInitiatedUnit;
     [SerializeField] private Node startingNode;
 
@@ -21,33 +21,33 @@ public class UnitMovementManager : MonoBehaviour
     private float catchTime_ForDoubleClick = 0.25f;
     private bool unitIsMoveing;
 
-    [Header ("Dependencies")]
+    [Header("Dependencies")]
     [SerializeField] private Animator myAnimator = null;
 
     private Unit myUnit;
     /* Main Functions */
 
-    void OnEnable ()
+    void OnEnable()
     {
-        currentlyInitiatedUnit = gameObject.GetComponent<Unit> ();
-        grid = FindObjectOfType<GridSystem> ();
+        currentlyInitiatedUnit = gameObject.GetComponent<Unit>();
+        grid = FindObjectOfType<GridSystem>();
 
         if (startingNode == null)
             startingNode = grid.gridNodes[0];
-        myUnit = this.GetComponent<Unit> ();
+        myUnit = this.GetComponent<Unit>();
         myUnit.anim = myAnimator;
     }
 
-    private void Update ()
+    private void Update()
     {
         if (!myUnit.CurrentTurn)
         {
             return;
         }
-        
+
         if (currentlyInitiatedUnit.AP == 0 && currentlyInitiatedUnit.CurrentTurn && movingInitiatedUnit)
         {
-            InitiativeSystem.nextTurn ();
+            InitiativeSystem.nextTurn();
             return;
         }
 
@@ -88,30 +88,32 @@ public class UnitMovementManager : MonoBehaviour
                 clearTiles();
             }
         }
-            
+
         if (movingInitiatedUnit == false)
             return;
 
-        Node startingNode = currentlyInitiatedUnit.GetMyGridNode ();
-        Node destinationNode = GetMousedOverNode ();
-        if (GetMousedOverNode () == null)
+        Node startingNode = currentlyInitiatedUnit.GetMyGridNode();
+        Node destinationNode = GetMousedOverNode();
+        if (GetMousedOverNode() == null)
             return;
 
         //Will calculate path AND show the path in-game
-        Path movementPath = Astar.CalculatePath (startingNode, destinationNode, LevelStateManager.Instance.generatedGrid);
+        Path movementPath = Astar.CalculatePath(startingNode, destinationNode, LevelStateManager.Instance.generatedGrid);
 
         if (movementPath != null && movementPath.nodes.Count > 0)
         {
             if (movementPath.nodes.Count > myUnit.AP)
             {
-                movementPath.nodes = movementPath.nodes.GetRange (movementPath.nodes.Count - myUnit.AP, myUnit.AP);
+                int index = movementPath.nodes.Count - myUnit.AP;
+                if (index > 0&&myUnit.AP>0)
+                    movementPath.nodes = movementPath.nodes.GetRange(index, myUnit.AP);
             }
 
             if (movementPath.nodes.Count <= 0) return;
-        
+
             if (movementPath.nodes.First().isStairs)
             {
-                movementPath.nodes.Remove (movementPath.nodes.First ());
+                movementPath.nodes.Remove(movementPath.nodes.First());
             }
         }
 
@@ -119,60 +121,60 @@ public class UnitMovementManager : MonoBehaviour
         {
             if (Time.time - lastClickTime_ForDoubleClick < catchTime_ForDoubleClick)
             {
-                if(movementPath!=null)
-                    OrderUnitMovement (currentlyInitiatedUnit, movementPath);
+                if (movementPath != null)
+                    OrderUnitMovement(currentlyInitiatedUnit, movementPath);
             }
             lastClickTime_ForDoubleClick = Time.time;
         }
-        if (HandCardManager.Instance.CurrentlySelectedCard == null) 
-            HighlightNavigation (movementPath);
+        if (HandCardManager.Instance.CurrentlySelectedCard == null)
+            HighlightNavigation(movementPath);
     }
 
     //Helper Functions 
 
-    private void clearTiles ()
+    private void clearTiles()
     {
         foreach (Node n in grid.gridNodes)
         {
             if (n.walkable)
             {
                 n.tile?.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", HandCardManager.WhiteOutline);
-                n.tile?.setState (Tile.TileStates.INACTIVE);
+                n.tile?.setState(Tile.TileStates.INACTIVE);
             }
         }
     }
 
-    private Node GetMousedOverNode ()
+    private Node GetMousedOverNode()
     {
         RaycastHit hit;
-        Ray ray = LevelStateManager.Instance.gameCamera.ScreenPointToRay (Input.mousePosition);
-        if (!Physics.Raycast (ray, out hit, 100, 1 << GameMaster.Layer_GridNode))
+        Ray ray = LevelStateManager.Instance.gameCamera.ScreenPointToRay(Input.mousePosition);
+        if (!Physics.Raycast(ray, out hit, 100, 1 << GameMaster.Layer_GridNode))
             return null;
         else
-            return hit.collider.GetComponent<Node> ();
+            return hit.collider.GetComponent<Node>();
     }
 
-    private void OrderUnitMovement (Unit unitToMove, Path movementPath)
+    private void OrderUnitMovement(Unit unitToMove, Path movementPath)
     {
         movingInitiatedUnit = false;
-        StartCoroutine (MoveUnitAlongPath (unitToMove, movementPath));
+        StartCoroutine(MoveUnitAlongPath(unitToMove, movementPath));
     }
-    private IEnumerator MoveUnitAlongPath (Unit unitToMove, Path movementPath)
+    private IEnumerator MoveUnitAlongPath(Unit unitToMove, Path movementPath)
     {
         if (movementPath == null) yield break;
-        Node prevNode = unitToMove.GetMyGridNode ();
-        foreach (Node nextNode in Enumerable.Reverse (movementPath.nodes))
+        Node prevNode = unitToMove.GetMyGridNode();
+        foreach (Node nextNode in Enumerable.Reverse(movementPath.nodes))
         {
             if (currentlyInitiatedUnit.AP <= 0 || movementPath.nodes[0].isStairs)
                 break;
 
-            currentlyInitiatedUnit.DecreaseAPBy (1);
+            currentlyInitiatedUnit.DecreaseAPBy(1);
 
-            myAnimator.transform.LookAt (nextNode.transform, Vector3.up);
+            myAnimator.transform.LookAt(nextNode.transform, Vector3.up);
             Vector3 localRot = myAnimator.transform.localEulerAngles;
             localRot.x = 0;
             myAnimator.transform.localEulerAngles = localRot;
-            myAnimator.SetBool ("Walking", true);
+            myAnimator.SetBool("Walking", true);
 
             //Move Unit to Node
             float t = 0;
@@ -180,7 +182,7 @@ public class UnitMovementManager : MonoBehaviour
             while (t < 1)
             {
                 unitIsMoveing = true;
-                Vector3 newPos = Vector3.Lerp (prevNode.transform.position, nextNode.transform.position, t);
+                Vector3 newPos = Vector3.Lerp(prevNode.transform.position, nextNode.transform.position, t);
                 //newPos.y = unitToMove.transform.position.y;
                 newPos.y += nextNode.transform.localScale.y / 2;
                 unitToMove.transform.position = newPos;
@@ -192,19 +194,19 @@ public class UnitMovementManager : MonoBehaviour
             unitIsMoveing = false;
             Unit.current_UnitNode = nextNode;
 
-            myAnimator.SetBool ("Walking", false);
+            myAnimator.SetBool("Walking", false);
 
-            prevNode.tile.setState (Tile.TileStates.INACTIVE);
+            prevNode.tile.setState(Tile.TileStates.INACTIVE);
             prevNode = nextNode;
-            yield return new WaitUntil (() => unitToMove.GetMyGridNode () == nextNode);
+            yield return new WaitUntil(() => unitToMove.GetMyGridNode() == nextNode);
         }
 
         //Done moving along path
         movingInitiatedUnit = true;
-        clearTiles ();
+        clearTiles();
     }
 
-    private void HighlightNavigation (Path p)
+    private void HighlightNavigation(Path p)
     {
         if (unitIsMoveing)
             return;
@@ -212,36 +214,36 @@ public class UnitMovementManager : MonoBehaviour
         if (Unit.current_UnitNode == null)
             Unit.current_UnitNode = startingNode;
 
-        clearTiles ();
+        clearTiles();
 
         if (p == null) return;
-        foreach (Node n in Enumerable.Reverse (p.nodes))
+        foreach (Node n in Enumerable.Reverse(p.nodes))
         {
-            n.tile?.setState (Tile.TileStates.ACTIVE);
+            n.tile?.setState(Tile.TileStates.ACTIVE);
         }
     }
 
-    void PlayerTurnHandleRotate ()
+    void PlayerTurnHandleRotate()
     {
-        var node = CardUiHandler.NodeMousedOver ();
+        var node = CardUiHandler.NodeMousedOver();
         if (node == null)
             return;
-        var myNode = currentlyInitiatedUnit.GetMyGridNode ();
+        var myNode = currentlyInitiatedUnit.GetMyGridNode();
         if (myNode.transform.position.y != node.transform.position.y)
             return;
         float direction = 0;
         float xdif = myNode.transform.position.x - node.transform.position.x;
         float ydif = myNode.transform.position.z - node.transform.position.z;
-        if (Mathf.Abs (xdif) > Mathf.Abs (ydif))
+        if (Mathf.Abs(xdif) > Mathf.Abs(ydif))
         {
             if (xdif > 0)
                 direction = 270;
             else
                 direction = 90;
         }
-        else if (Mathf.Abs (xdif) == Mathf.Abs (ydif))
+        else if (Mathf.Abs(xdif) == Mathf.Abs(ydif))
         {
-            var picker = Random.Range (0, 1);
+            var picker = Random.Range(0, 1);
             if (picker == 0)
                 direction = (xdif > 0) ? 270 : 90;
             else
@@ -264,30 +266,30 @@ public class UnitMovementManager : MonoBehaviour
         //}
         //if (myNode.transform.position.x > node.transform.position.x)
         //    direction = 270;
-        RotateCardPatern (direction);
+        RotateCardPatern(direction);
         direction *= Mathf.Deg2Rad;
         // currentlyInitiatedUnit.transform.Rotate(Vector3.up, direction, Space.Self);
-        StartCoroutine (RotateThisObject (direction));
+        StartCoroutine(RotateThisObject(direction));
     }
-    IEnumerator RotateThisObject (float angle)
+    IEnumerator RotateThisObject(float angle)
     {
 
         for (int i = 0; i < 60; i++)
         {
-            currentlyInitiatedUnit.transform.rotation = Quaternion.Slerp (this.transform.rotation, new Quaternion (0, Mathf.Sin ((angle) / 2f), 0, Mathf.Cos ((angle) / 2f)), 1f / 30f);
+            currentlyInitiatedUnit.transform.rotation = Quaternion.Slerp(this.transform.rotation, new Quaternion(0, Mathf.Sin((angle) / 2f), 0, Mathf.Cos((angle) / 2f)), 1f / 30f);
             yield return null;
         }
     }
 
-    void RotateCardPatern (float angle)
+    void RotateCardPatern(float angle)
     {
         angle = -angle;
         //angle = angle - 90;
         for (int i = 0; i < HandCardManager.Instance.CurrentlySelectedCard.cardRef.OriginalPattern.Count; i++)
         {
             var ogPatern = HandCardManager.Instance.CurrentlySelectedCard.cardRef.OriginalPattern[i];
-            HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern[i].xAxis = (int)Mathf.Round( ((ogPatern.xAxis * Mathf.Cos (angle * Mathf.Deg2Rad)) - (ogPatern.yAxis * Mathf.Sin (angle * Mathf.Deg2Rad))));
-            HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern[i].yAxis = (int)Mathf.Round( ((ogPatern.xAxis * Mathf.Sin (angle * Mathf.Deg2Rad)) + (ogPatern.yAxis * Mathf.Cos (angle * Mathf.Deg2Rad))));
+            HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern[i].xAxis = (int)Mathf.Round(((ogPatern.xAxis * Mathf.Cos(angle * Mathf.Deg2Rad)) - (ogPatern.yAxis * Mathf.Sin(angle * Mathf.Deg2Rad))));
+            HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern[i].yAxis = (int)Mathf.Round(((ogPatern.xAxis * Mathf.Sin(angle * Mathf.Deg2Rad)) + (ogPatern.yAxis * Mathf.Cos(angle * Mathf.Deg2Rad))));
         }
 
     }
