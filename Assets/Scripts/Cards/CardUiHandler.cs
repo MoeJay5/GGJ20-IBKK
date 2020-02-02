@@ -3,23 +3,24 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections.Generic;
-public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+public class CardUiHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     /* Variables */
 
     [Header("Dependencies")]
     [SerializeField] private Animator cardAnimator = null;
+    public Card_ScriptableObject cardRef;
     [SerializeField] private static GraphicRaycaster UIRaycaster;
-
+    
     // States
     private Vector3 positionInHand = Vector3.zero;
-    private bool cardIsPreviewingUse = false;
+    public bool cardIsPreviewingUse = false;
     private bool cardIsMoving = false;
     // Private vars
     private Coroutine cardPreviewUsageCoroutine = null;
 
     /* Main Functionality */
-
+    
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (cardIsPreviewingUse)
@@ -118,22 +119,26 @@ public class CardUiHandler : Card_Base, IPointerEnterHandler, IPointerExitHandle
                 return true;
             }
         }
-       
-       
+
+
         //grid Logic
-        RaycastHit rayHit;
-        if (Physics.Raycast(LevelStateManager.Instance.gameCamera.ScreenPointToRay(new Vector3(data.position.x, data.position.y, 0)), out rayHit, 50, 1 << GameMaster.Layer_GridNode))
-        {
-            if (rayHit.collider.gameObject.GetComponent<Node>())
-            {
-                return true;
-            }
-        }
+        if (NodeMousedOver() != null)
+            return true;
+        
         return false;
     }
 
     /* Animation Events */
-
+    public static Node NodeMousedOver()
+    {
+        RaycastHit rayHit;
+        if (Physics.Raycast(LevelStateManager.Instance.gameCamera.ScreenPointToRay(Input.mousePosition), out rayHit, 50, 1 << GameMaster.Layer_GridNode))
+        {
+            return rayHit.collider.gameObject.GetComponent<Node>();
+            
+        }
+        return null;
+    }
     public void PlaySFX_OnHover()
     {
         AudioManager.Instance.PlayAudio(AudioManager.CardSfx.OnHover);
