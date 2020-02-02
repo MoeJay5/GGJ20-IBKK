@@ -11,6 +11,24 @@ public class InitiativeUIManager : MonoBehaviour
 
     private Dictionary<Unit, Image> existingImages = new Dictionary<Unit, Image>();
 
+    private class InternalNodeState
+    {
+        public Unit unit;
+        public Image image;
+        public float start;
+        public float target;
+
+        public InternalNodeState(Unit u, Image i, float s, float t)
+        {
+            unit = u;
+            image = i;
+            start = s;
+            target = t;
+        }
+    }
+
+    private List<InternalNodeState> currentProcessingWindow = new List<InternalNodeState>();
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +38,39 @@ public class InitiativeUIManager : MonoBehaviour
 
     IEnumerator transitionTurns()
     {
+        float startTime = Time.time;
+
+        while (Time.time - startTime < 1f)
+        {
+            float totalTime = Time.time - startTime;
+            currentProcessingWindow.ForEach(state =>
+                {
+                    state.image.transform.localPosition =
+                        Vector3.right * Mathf.Lerp(state.start, state.target, totalTime);
+                });
+
+            yield return null;
+        }
+        
+        currentProcessingWindow.ForEach(state =>
+        {
+            state.image.transform.localPosition = Vector3.right * state.target;
+        });
+
+        yield return new WaitForSeconds(0.5f);
+        
+        InitiativeSystem.finishNextTurn();
+    }
+
+    public void TriggerInitiativeChange()
+    {
         List<Unit> currentQueue = InitiativeSystem.currentQueue.ToList();
 
-        if (currentQueue.Count == 0) yield break;
+        if (currentQueue.Count == 0)
+        {
+            InitiativeSystem.finishNextTurn();
+            return;
+        }
         
         currentQueue.Add(currentQueue[0]);
         currentQueue.RemoveAt(0);
@@ -39,24 +87,20 @@ public class InitiativeUIManager : MonoBehaviour
         {
             Image newIcon = Instantiate(IconPrefab, InitiativeBar.transform);
             newIcon.sprite = val.unitIcon;
+            newIcon.transform.localPosition = Vector3.right * 900f;
             existingImages.Add(val, newIcon);
         });
-
+        
+        currentProcessingWindow.Clear();
+        
         for (int index = 0; index < currentQueue.Count; index++)
         {
             Unit u = currentQueue[index];
             Image i = existingImages[u];
-            float offset = (1800f / currentQueue.Count) * index - 900;
-            i.transform.localPosition = Vector3.left * offset;
+            float t = (1800f / currentQueue.Count) * index - 900f;
+            currentProcessingWindow.Add(new InternalNodeState(u, i, i.transform.localPosition.x, t));
         }
         
-        yield return new WaitForSeconds(1f);
-        
-        InitiativeSystem.finishNextTurn();
-    }
-
-    public void TriggerInitiativeChange()
-    {
         StartCoroutine(transitionTurns());
     }
 }
