@@ -19,9 +19,10 @@ public class UnitMovementManager : MonoBehaviour
     private float catchTime_ForDoubleClick = 0.25f;
     private bool unitIsMoveing;
 
-    [Header("Dependencies")]
+    [Header ("Dependencies")]
     [SerializeField] private Animator myAnimator = null;
 
+    private Unit myUnit;
     /* Main Functions */
 
     void OnEnable ()
@@ -31,16 +32,20 @@ public class UnitMovementManager : MonoBehaviour
 
         if (startingNode == null)
             startingNode = grid.gridNodes[0];
+        myUnit = this.GetComponent<Unit> ();
     }
 
     private void Update ()
     {
         if (currentlyInitiatedUnit.AP == 0 && currentlyInitiatedUnit.CurrentTurn && movingInitiatedUnit)
         {
-            InitiativeSystem.nextTurn();
+            InitiativeSystem.nextTurn ();
             return;
         }
 
+        if (currentlyInitiatedUnit == myUnit)
+            if (HandCardManager.Instance.CurrentlySelectedCard != null)
+                PlayerTurnHandleRotate ();
         if (movingInitiatedUnit == false)
             return;
 
@@ -86,13 +91,13 @@ public class UnitMovementManager : MonoBehaviour
         Node prevNode = unitToMove.GetMyGridNode ();
         foreach (Node nextNode in Enumerable.Reverse (movementPath.nodes))
         {
-            if (currentlyInitiatedUnit.AP <= 0)
+            if (currentlyInitiatedUnit.AP <= 0 || movementPath.nodes[0].isStairs)
                 break;
 
             currentlyInitiatedUnit.DecreaseAPBy (1);
 
-            myAnimator.transform.LookAt(nextNode.transform, Vector3.up);
-            myAnimator.SetBool("Walking", true);
+            myAnimator.transform.LookAt (nextNode.transform, Vector3.up);
+            myAnimator.SetBool ("Walking", true);
 
             //Move Unit to Node
             float t = 0;
@@ -112,8 +117,7 @@ public class UnitMovementManager : MonoBehaviour
             unitIsMoveing = false;
             Unit.current_UnitNode = nextNode;
 
-
-            myAnimator.SetBool("Walking", false);
+            myAnimator.SetBool ("Walking", false);
 
             prevNode = nextNode;
             yield return new WaitUntil (() => unitToMove.GetMyGridNode () == nextNode);
@@ -130,11 +134,15 @@ public class UnitMovementManager : MonoBehaviour
 
         if (Unit.current_UnitNode == null)
             Unit.current_UnitNode = startingNode;
+
         Path p = Astar.CalculatePath (Unit.current_UnitNode, Node.current_SelectedNode, grid);
         foreach (Node n in grid.gridNodes)
         {
             if (n.walkable)
-                n.GetComponent<MeshRenderer> ().material.SetColor ("_BaseColor", Color.white);
+            {
+                //n.GetComponent<MeshRenderer> ().material.SetColor ("_BaseColor", Color.white);
+                n.tile.gameObject.SetActive (false);
+            }
         }
 
         int allowedMovement = currentlyInitiatedUnit.AP;
@@ -142,13 +150,83 @@ public class UnitMovementManager : MonoBehaviour
         {
             var mesh = n.GetComponent<MeshRenderer> ();
             if (allowedMovement > 0)
-                mesh.material.SetColor ("_BaseColor", Color.green);
-            else
-                mesh.material.SetColor ("_BaseColor", Color.red);
+                n.tile.gameObject.SetActive (true);
+            // else
+            //     mesh.material.SetColor ("_BaseColor", Color.red);
 
             allowedMovement--;
         }
         //p.nodes[0].GetComponent<MeshRenderer>().material.color = Color.green;
+    }
+
+    void PlayerTurnHandleRotate ()
+    {
+        var node = CardUiHandler.NodeMousedOver ();
+        if (node == null)
+            return;
+        var myNode = currentlyInitiatedUnit.GetMyGridNode ();
+        if (myNode.transform.position.y != node.transform.position.y)
+            return;
+        float direction = 0;
+        float xdif = myNode.transform.position.x - node.transform.position.x;
+        float ydif = myNode.transform.position.z - node.transform.position.z;
+        if (Mathf.Abs (xdif) > Mathf.Abs (ydif))
+        {
+            if (xdif > 0)
+                direction = 270;
+            else
+                direction = 90;
+        }
+        else if (Mathf.Abs (xdif) == Mathf.Abs (ydif))
+        {
+            var picker = Random.Range (0, 1);
+            if (picker == 0)
+                direction = (xdif > 0) ? 270 : 90;
+            else
+                direction = (ydif > 0) ? 180 : 0;
+
+        }
+        else
+        {
+            if (ydif > 0)
+                direction = 180;
+        }
+        //
+        //if (myNode.transform.position.x < node.transform.position.x)
+        //{
+        //    direction = 90;
+        //}
+        //if (myNode.transform.position.z > node.transform.position.z)
+        //{
+        //    direction = 180;
+        //}
+        //if (myNode.transform.position.x > node.transform.position.x)
+        //    direction = 270;
+
+        direction *= Mathf.Deg2Rad;
+        // currentlyInitiatedUnit.transform.Rotate(Vector3.up, direction, Space.Self);
+        StartCoroutine (RotateThisHoe (direction));
+    }
+    IEnumerator RotateThisHoe (float angle)
+    {
+
+        for (int i = 0; i < 60; i++)
+        {
+            currentlyInitiatedUnit.transform.rotation = Quaternion.Slerp (this.transform.rotation, new Quaternion (0, Mathf.Sin ((angle) / 2f), 0, Mathf.Cos ((angle) / 2f)), 1f / 30f);
+            yield return null;
+        }
+    }
+
+    void RotateCardPatern (bool clockwise)
+    {
+        if (clockwise)
+        {
+            foreach (var pattern in HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern)
+            {
+                Vector3 v = new Vector3 (pattern.xAxis, pattern.yAxis);
+
+            }
+        }
     }
 
 }
