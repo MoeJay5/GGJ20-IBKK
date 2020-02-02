@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 698835363}
   - component: {fileID: 698835362}
   - component: {fileID: 698835364}
+  - component: {fileID: 1176312479}
+  - component: {fileID: 1176312480}
   m_Layer: 0
   m_Name: Bonk Bot
   m_TagString: Untagged
@@ -66,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d482618c4923a40a4b1d0941d6ea3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultState: {fileID: 0}
+  defaultState: {fileID: 1176312479}
   startState: {fileID: 0}
 --- !u!114 &698835362
 MonoBehaviour:
@@ -92,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d46c672948c2c340b4ebd627436e391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 6738178788784320486}
   health: 3
   InGamePlay: 1
   CurrentTurn: 0
@@ -99,7 +102,36 @@ MonoBehaviour:
   maxAP: 3
   IsEnemy: 1
   unitIcon: {fileID: 21300000, guid: 61a36984a7d92434da6d0d509c44b391, type: 3}
+  previousAP: 0
   _AP: 3
+--- !u!114 &1176312479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6738178788784320484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e992a8176bfa0ec40a5f7b531b2633af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinations:
+  - {fileID: 0}
+  - {fileID: 0}
+  card: {fileID: 11400000, guid: 0d65b957540499c498b8efabd1a4b175, type: 2}
+--- !u!114 &1176312480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6738178788784320484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685bc025e7fee8348bf763c317a0e951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1258293047710885862
 PrefabInstance:
   m_ObjectHideFlags: 0
