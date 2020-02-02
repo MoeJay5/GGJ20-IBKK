@@ -106,6 +106,8 @@ public class InitiativeUIManager : MonoBehaviour
         {
             Unit u = currentQueue[index];
             Image i = existingImages[u];
+            // Update the images.
+            i.sprite = u.InGamePlay ? u.unitIcon : u.unitIconDisabled;
             float t = (1800f / currentQueue.Count) * index - 900f;
             currentProcessingWindow.Add(new InternalNodeState(u, i, i.transform.localPosition.x, t));
         }
