@@ -52,7 +52,7 @@ public class CardUiHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (cardIsPreviewingUse && !cardIsMoving &&
             (InputListener.Instance.PressedDown_Escape || (InputListener.Instance.PressedDown_Mouse_LeftClick && MousedOverCardOrGrid() == false)))
             Animate_PreviewCardUsage(false);
-        else if (cardIsPreviewingUse && InputListener.Instance.PressedUp_Mouse_LeftClick&&NodeMousedOver()!=null)
+        else if (cardIsPreviewingUse && InputListener.Instance.PressedUp_Mouse_LeftClick&&NodeMousedOver()!=null&&!cardIsMoving)
         {
             cardRef.UseCard(InitiativeSystem.currentUnit(), InitiativeSystem.currentUnit().GetMyGridNode());
             Animate_PreviewCardUsage(false);

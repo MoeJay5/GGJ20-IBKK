@@ -286,8 +286,8 @@ public class UnitMovementManager : MonoBehaviour
         for (int i = 0; i < HandCardManager.Instance.CurrentlySelectedCard.cardRef.OriginalPattern.Count; i++)
         {
             var ogPatern = HandCardManager.Instance.CurrentlySelectedCard.cardRef.OriginalPattern[i];
-            HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern[i].xAxis = (int) ((ogPatern.xAxis * Mathf.Cos (angle * Mathf.Deg2Rad)) - (ogPatern.yAxis * Mathf.Sin (angle * Mathf.Deg2Rad)));
-            HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern[i].yAxis = (int) ((ogPatern.xAxis * Mathf.Sin (angle * Mathf.Deg2Rad)) + (ogPatern.yAxis * Mathf.Cos (angle * Mathf.Deg2Rad)));
+            HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern[i].xAxis = (int)Mathf.Round( ((ogPatern.xAxis * Mathf.Cos (angle * Mathf.Deg2Rad)) - (ogPatern.yAxis * Mathf.Sin (angle * Mathf.Deg2Rad))));
+            HandCardManager.Instance.CurrentlySelectedCard.cardRef.pattern[i].yAxis = (int)Mathf.Round( ((ogPatern.xAxis * Mathf.Sin (angle * Mathf.Deg2Rad)) + (ogPatern.yAxis * Mathf.Cos (angle * Mathf.Deg2Rad))));
         }
 
     }
