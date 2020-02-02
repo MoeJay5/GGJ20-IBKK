@@ -57,12 +57,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCards:
-  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
-  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
-  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
-  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
-  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
-  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
-  - {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448, type: 3}
+  - {fileID: 11400000, guid: 1913ab2bd0c26634f94e32a77565747b, type: 2}
+  - {fileID: 11400000, guid: 1913ab2bd0c26634f94e32a77565747b, type: 2}
+  - {fileID: 11400000, guid: 1913ab2bd0c26634f94e32a77565747b, type: 2}
+  - {fileID: 11400000, guid: 1913ab2bd0c26634f94e32a77565747b, type: 2}
+  - {fileID: 11400000, guid: 1913ab2bd0c26634f94e32a77565747b, type: 2}
+  - {fileID: 11400000, guid: 1913ab2bd0c26634f94e32a77565747b, type: 2}
+  - {fileID: 11400000, guid: 1913ab2bd0c26634f94e32a77565747b, type: 2}
+  cardUiPrefab: {fileID: 3139657747774309447, guid: 7db84f546c6c15241b03e5496a060448,
+    type: 3}
   cardSpacingMultiplier: 10
   maxNumberCards: 7

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3139657747774309444}
   - component: {fileID: 3139657747774309447}
   m_Layer: 5
-  m_Name: Card-v0
+  m_Name: Card Ui Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,4 +107,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardAnimator: {fileID: 3139657747774309444}
-  cardUsagePreviewDestination: {fileID: 0}
+  cardRef: {fileID: 11400000, guid: 1913ab2bd0c26634f94e32a77565747b, type: 2}
+  cardIsPreviewingUse: 0

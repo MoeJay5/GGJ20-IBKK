@@ -8,9 +8,9 @@ public class Card_ScriptableObject : ScriptableObject
     public string cardName;
     public int cost;
     public int effectIntensity;
-    public Texture2D cardImage;
+    public Sprite cardImage;
     public List<PatternNode> pattern = new List<PatternNode> ();
-
+    public List<PatternNode> OriginalPattern = new List<PatternNode>();
     [Serializable]
     public class PatternNode
     {

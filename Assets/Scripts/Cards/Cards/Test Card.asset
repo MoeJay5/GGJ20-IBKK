@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: TestDamage
   cost: 1
   effectIntensity: 2
-  cardImage: {fileID: 2800000, guid: b1a6b62ea81b2cf42a1cb3060909c44a, type: 3}
+  cardImage: {fileID: 21300000, guid: b1a6b62ea81b2cf42a1cb3060909c44a, type: 3}
   pattern:
   - elementTitle: Node
     xAxis: 0
