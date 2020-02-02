@@ -25,9 +25,10 @@ public class HandCardManager : MonoBehaviour
     public CardUiHandler CurrentlySelectedCard { get => currentlySelectedCard; }
     public static Texture BlueOutline => Instance.blueOutline;
     public static Texture RedOutline => Instance.redOutline;
-    [SerializeField()]private Texture redOutline;
-    [SerializeField()]private Texture blueOutline;
-
+    public static Texture WhiteOutline => Instance.whiteOutline;
+    [SerializeField]private Texture redOutline;
+    [SerializeField]private Texture blueOutline;
+    [SerializeField] private Texture whiteOutline;
     public void SetCurrentlySelectedCard(CardUiHandler newlySelectedCard) => currentlySelectedCard = newlySelectedCard;
 
     /* Main Functionality */
