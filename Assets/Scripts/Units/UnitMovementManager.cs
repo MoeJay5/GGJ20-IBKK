@@ -61,10 +61,9 @@ public class UnitMovementManager : MonoBehaviour
         foreach (Node nextNode in Enumerable.Reverse (movementPath.nodes))
         {
             //Move Unit to Node
-            float oneNodeMovementDuration = 2f;
             float t = 0;
             float tickDuration = currentlyInitiatedUnit.speed * Time.deltaTime;
-            while (t < oneNodeMovementDuration)
+            while (t < 1)
             {
                 Vector3 newPos = Vector3.Lerp (prevNode.transform.position, nextNode.transform.position, t);
                 newPos.y = unitToMove.transform.position.y;
