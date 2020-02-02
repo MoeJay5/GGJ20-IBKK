@@ -60,6 +60,7 @@ public static class InitiativeSystem
 
     public static void finishNextTurn()
     {
+        Debug.Log("Finishinhg Change");
         do
         {
             currentQueue.Enqueue(currentQueue.Dequeue());

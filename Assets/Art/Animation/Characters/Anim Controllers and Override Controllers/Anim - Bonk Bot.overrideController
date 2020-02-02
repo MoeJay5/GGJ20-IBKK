@@ -8,4 +8,19 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Anim - Bonk Bot
   m_Controller: {fileID: 9100000, guid: e13833267245e5c438817e4538dc6365, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 8822b2fa32cdc3c49b3dc9fbf521e3ea, type: 2}
+    m_OverrideClip: {fileID: 6128674996300154147, guid: 8e31ccbd6786ab146825b80a0e8bdfd8,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: bc58ac75d98c7c2449b868e872858f8c, type: 2}
+    m_OverrideClip: {fileID: 2306612668113377748, guid: 8e31ccbd6786ab146825b80a0e8bdfd8,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 42e06619cec21914288159c295939a02, type: 2}
+    m_OverrideClip: {fileID: -5816540663832869464, guid: 8e31ccbd6786ab146825b80a0e8bdfd8,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 2ce373bd832e13b4bb20db8ab7abc3a2, type: 2}
+    m_OverrideClip: {fileID: 1827226128182048838, guid: 8e31ccbd6786ab146825b80a0e8bdfd8,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 36b4fd1a3e1026e479bc5d0240ad459e, type: 2}
+    m_OverrideClip: {fileID: 7612048122393982027, guid: 8e31ccbd6786ab146825b80a0e8bdfd8,
+      type: 3}

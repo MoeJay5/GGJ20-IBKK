@@ -358,6 +358,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738178788784320486, guid: 2a5183a698808804c8a76fc88dd175a5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a5183a698808804c8a76fc88dd175a5, type: 3}
 --- !u!4 &87356097 stripped
@@ -381,13 +386,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 87356098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e992a8176bfa0ec40a5f7b531b2633af, type: 3}
+  m_Script: {fileID: 11500000, guid: 158d1a3cb1dfcb040b20340c11a77bff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinations:
-  - {fileID: 740970491}
-  - {fileID: 1621584577}
-  card: {fileID: 11400000, guid: 1913ab2bd0c26634f94e32a77565747b, type: 2}
 --- !u!114 &87356100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +408,20 @@ MonoBehaviour:
   maxAP: 2
   IsEnemy: 1
   _AP: 0
+--- !u!114 &87356101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87356098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38d482618c4923a40a4b1d0941d6ea3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultState: {fileID: 87356099}
+  startState: {fileID: 87356099}
 --- !u!21 &96381056
 Material:
   serializedVersion: 6
@@ -884,6 +899,8 @@ MonoBehaviour:
   - {fileID: 1653037730}
   - {fileID: 427508613}
   - {fileID: 1145471252}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -1635,6 +1652,8 @@ MonoBehaviour:
   - {fileID: 1145471252}
   - {fileID: 1319690975}
   - {fileID: 1653037730}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -2077,6 +2096,8 @@ MonoBehaviour:
   - {fileID: 539828319}
   - {fileID: 2053101076}
   - {fileID: 1733078986}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -2504,6 +2525,8 @@ MonoBehaviour:
   neighbors:
   - {fileID: 857016296}
   - {fileID: 1653037730}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -2935,6 +2958,8 @@ MonoBehaviour:
   - {fileID: 1083189729}
   - {fileID: 1733078986}
   - {fileID: 539828319}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -3055,6 +3080,8 @@ MonoBehaviour:
   - {fileID: 415174852}
   - {fileID: 1736413976}
   - {fileID: 130613287}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -3174,6 +3201,8 @@ MonoBehaviour:
   neighbors:
   - {fileID: 1994364774}
   - {fileID: 1431759913}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -3214,7 +3243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -810, y: 390}
+  m_AnchoredPosition: {x: -842, y: 388}
   m_SizeDelta: {x: 839, y: 231}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &448073358
@@ -3385,7 +3414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingInitiatedUnit: 1
-  startingNode: {fileID: 918245993}
+  startingNode: {fileID: 0}
   myAnimator: {fileID: 1281727949}
 --- !u!114 &492791689
 MonoBehaviour:
@@ -3597,6 +3626,8 @@ MonoBehaviour:
   - {fileID: 1465506890}
   - {fileID: 1602038182}
   - {fileID: 1285828423}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -3797,6 +3828,8 @@ MonoBehaviour:
   - {fileID: 1083189729}
   - {fileID: 669497266}
   - {fileID: 415174852}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -4274,6 +4307,8 @@ MonoBehaviour:
   - {fileID: 1340865621}
   - {fileID: 1240377989}
   - {fileID: 1436320901}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -4396,6 +4431,8 @@ MonoBehaviour:
   - {fileID: 324384395}
   - {fileID: 1733078986}
   - {fileID: 539828319}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -4518,6 +4555,8 @@ MonoBehaviour:
   - {fileID: 513587675}
   - {fileID: 676759765}
   - {fileID: 1394732519}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -4640,6 +4679,8 @@ MonoBehaviour:
   - {fileID: 1602038182}
   - {fileID: 1240377989}
   - {fileID: 676606987}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -4961,6 +5002,8 @@ MonoBehaviour:
   - {fileID: 1621584577}
   - {fileID: 1012368191}
   - {fileID: 2112496685}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -5081,6 +5124,8 @@ MonoBehaviour:
   - {fileID: 2053101076}
   - {fileID: 1340865621}
   - {fileID: 1240377989}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -5314,6 +5359,8 @@ MonoBehaviour:
   - {fileID: 1918172082}
   - {fileID: 1012368191}
   - {fileID: 1564352034}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -5650,6 +5697,8 @@ MonoBehaviour:
   - {fileID: 415174852}
   - {fileID: 2100588055}
   - {fileID: 1736413976}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -6128,6 +6177,8 @@ MonoBehaviour:
   - {fileID: 1485313546}
   - {fileID: 2024287069}
   - {fileID: 376135804}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -6441,6 +6492,8 @@ MonoBehaviour:
   - {fileID: 676606987}
   - {fileID: 1436320901}
   - {fileID: 1602038182}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -7177,6 +7230,8 @@ MonoBehaviour:
   - {fileID: 225735275}
   - {fileID: 1653037730}
   - {fileID: 1145471252}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -7746,6 +7801,8 @@ MonoBehaviour:
   - {fileID: 1063007884}
   - {fileID: 1918172082}
   - {fileID: 712274650}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -8427,6 +8484,8 @@ MonoBehaviour:
   - {fileID: 2112496685}
   - {fileID: 1564352034}
   - {fileID: 1621584577}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -8654,6 +8713,8 @@ MonoBehaviour:
   - {fileID: 415174852}
   - {fileID: 539828319}
   - {fileID: 1733078986}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -8882,6 +8943,8 @@ MonoBehaviour:
   - {fileID: 225735275}
   - {fileID: 130613287}
   - {fileID: 918245993}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -9076,6 +9139,8 @@ MonoBehaviour:
   neighbors:
   - {fileID: 1319690975}
   - {fileID: 1872077174}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -9492,6 +9557,8 @@ MonoBehaviour:
   - {fileID: 1987668753}
   - {fileID: 1285828423}
   - {fileID: 1465506890}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -9709,6 +9776,8 @@ MonoBehaviour:
   - {fileID: 885910382}
   - {fileID: 1340865621}
   - {fileID: 676759765}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -10264,6 +10333,8 @@ MonoBehaviour:
   - {fileID: 1218301911}
   - {fileID: 513587675}
   - {fileID: 1987668753}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -10631,6 +10702,8 @@ MonoBehaviour:
   - {fileID: 225735275}
   - {fileID: 1653037730}
   - {fileID: 1170241797}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -10974,6 +11047,8 @@ MonoBehaviour:
   - {fileID: 666812525}
   - {fileID: 1436320901}
   - {fileID: 1240377989}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -11344,6 +11419,8 @@ MonoBehaviour:
   - {fileID: 1285828423}
   - {fileID: 676606987}
   - {fileID: 1465506890}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -11464,6 +11541,8 @@ MonoBehaviour:
   - {fileID: 439780634}
   - {fileID: 1621584577}
   - {fileID: 2112496685}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -11586,6 +11665,8 @@ MonoBehaviour:
   - {fileID: 676759765}
   - {fileID: 666812525}
   - {fileID: 885910382}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -11992,6 +12073,8 @@ MonoBehaviour:
   - {fileID: 1987668753}
   - {fileID: 1394732519}
   - {fileID: 1218301911}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -12111,6 +12194,8 @@ MonoBehaviour:
   neighbors:
   - {fileID: 857016296}
   - {fileID: 2024287069}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -12986,6 +13071,8 @@ MonoBehaviour:
   - {fileID: 712274650}
   - {fileID: 740970491}
   - {fileID: 1063007884}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -13108,6 +13195,8 @@ MonoBehaviour:
   - {fileID: 1394732519}
   - {fileID: 885910382}
   - {fileID: 513587675}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -13323,6 +13412,8 @@ MonoBehaviour:
   - {fileID: 712274650}
   - {fileID: 1431759913}
   - {fileID: 1063007884}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -13695,6 +13786,8 @@ MonoBehaviour:
   - {fileID: 1319690975}
   - {fileID: 376135804}
   - {fileID: 225735275}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -14233,6 +14326,8 @@ MonoBehaviour:
   - {fileID: 2053101076}
   - {fileID: 324384395}
   - {fileID: 1083189729}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -14354,6 +14449,8 @@ MonoBehaviour:
   - {fileID: 539828319}
   - {fileID: 805330853}
   - {fileID: 427508613}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -14792,6 +14889,8 @@ MonoBehaviour:
   - {fileID: 1170241797}
   - {fileID: 1218301911}
   - {fileID: 1465506890}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -14912,6 +15011,8 @@ MonoBehaviour:
   - {fileID: 740970491}
   - {fileID: 1564352034}
   - {fileID: 1012368191}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -15130,6 +15231,8 @@ MonoBehaviour:
   - {fileID: 1218301911}
   - {fileID: 1465506890}
   - {fileID: 1285828423}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -15249,6 +15352,8 @@ MonoBehaviour:
   neighbors:
   - {fileID: 439780634}
   - {fileID: 2024287069}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -15558,6 +15663,8 @@ MonoBehaviour:
   - {fileID: 857016296}
   - {fileID: 1485313546}
   - {fileID: 1994364774}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -15678,6 +15785,8 @@ MonoBehaviour:
   - {fileID: 324384395}
   - {fileID: 1733078986}
   - {fileID: 717249497}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -15916,6 +16025,8 @@ MonoBehaviour:
   - {fileID: 669497266}
   - {fileID: 539828319}
   - {fileID: 805330853}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
@@ -16111,6 +16222,8 @@ MonoBehaviour:
   - {fileID: 1063007884}
   - {fileID: 712274650}
   - {fileID: 1431759913}
+  directionsList: 
+  nodeList: []
   gScore: 0
   hScore: 0
   fScore: 0
