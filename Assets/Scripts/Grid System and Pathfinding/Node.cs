@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,6 +50,21 @@ public class Node : MonoBehaviour
         for(int i = 0;i<nodeList.Count;i++)
         {
             neighborDirections.Add(directionsList[i], nodeList[i]);
+        }
+    }
+
+    private void Update()
+    {
+        if (occupyingUnit == null)
+        {
+            return;
+        }
+
+        if (Vector3.Distance(
+                Vector3.ProjectOnPlane(occupyingUnit.transform.position, Vector3.up),
+                Vector3.ProjectOnPlane(transform.position, Vector3.up)) > 0.5f)
+        {
+            occupyingUnit = null;
         }
     }
 
