@@ -14,17 +14,25 @@ public static class InitiativeSystem
     private static List<ITurnListener> turnListeners = new List<ITurnListener>();
     public static Queue<Unit> currentQueue = new Queue<Unit>();
     private static InitiativeUIManager uiManager;
-
+    
     public static void recalculateInitiativeOrder()
     {
-        activeUnits = activeUnits.Where(unit => unit != null).OrderBy(unit => unit.InGamePlay ? unit.initiative : 1000).ToList();
+        // Clear old units
+        activeUnits = activeUnits.Where(unit => unit != null).ToList();
+        
+        // Return if empty.
+        if (activeUnits.Count == 0) return;
+        
+        // Sort + Update
+        activeUnits = activeUnits.OrderBy(unit => unit.InGamePlay ? unit.Initiative : unit.Initiative + 1000).ToList();
+        
         currentQueue.Clear();
         activeUnits.ForEach(unit =>
         {
-            unit.CurrentTurn = false;
+            unit.IsCurrentTurn = false;
             currentQueue.Enqueue(unit);
         });
-        currentQueue.First().CurrentTurn = true;
+        currentQueue.First().IsCurrentTurn = true;
     }
 
     public static void registerListener(ITurnListener l)
@@ -52,12 +60,8 @@ public static class InitiativeSystem
         activeUnits.Add(u);
         recalculateInitiativeOrder();
     }
-
-    public static void clearList()
-    {
-        activeUnits.Clear();
-    }
-
+    
+    // It is the responsibility of the UI Manager to call this function;
     public static void finishNextTurn()
     {
         currentQueue.Enqueue(currentQueue.Dequeue());
@@ -69,18 +73,21 @@ public static class InitiativeSystem
             return;
         } 
         
-        u.previousAP = u.AP;
-        u.SetAP(u.MaxAP);
-        currentQueue.First().CurrentTurn = true;
-
+        // Clear old listeners
         turnListeners = turnListeners.Where(l => l != null).ToList();
+        
+        // Switch to new unit and notify
         Unit unit = currentQueue.First();
+        unit.IsCurrentTurn = true;
         turnListeners.ForEach(l => l.NextTurn(unit));
     }
 
+    // It is the responsibility of the unit to call this function;
     public static void nextTurn()
     {
-        currentQueue.First().CurrentTurn = false;
+        if (currentQueue.Count == 0) return;
+        
+        currentQueue.First().IsCurrentTurn = false;
         if (uiManager != null)
         {
             uiManager.TriggerInitiativeChange();

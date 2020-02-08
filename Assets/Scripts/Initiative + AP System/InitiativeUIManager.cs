@@ -36,6 +36,11 @@ public class InitiativeUIManager : MonoBehaviour
         InitiativeSystem.nextTurn();
     }
 
+    void Update()
+    {
+        if(InputListener.Instance.CheatNextTurn) InitiativeSystem.nextTurn();
+    }
+
     IEnumerator transitionTurns()
     {
         float startTime = Time.time;
@@ -56,18 +61,6 @@ public class InitiativeUIManager : MonoBehaviour
         {
             state.image.transform.localPosition = Vector3.right * state.target;
         });
-
-        if (InitiativeSystem.currentUnit().InGamePlay)
-        {
-            InitiativeSystem.currentUnit().PreparingForTurn = true;
-            yield return new WaitForSeconds(1f);
-        }
-        else
-        {
-            yield return new WaitForSeconds(0.25f);
-        }
-        
-        InitiativeSystem.currentUnit().PreparingForTurn = false;
         InitiativeSystem.finishNextTurn();
     }
 

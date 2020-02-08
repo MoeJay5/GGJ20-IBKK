@@ -21,6 +21,9 @@ public class InputListener : MonoBehaviour
     public bool PressedUp_Mouse_RightClick { get; private set; }
 
     public bool PressedDown_Escape { get; private set; }
+    
+    public bool CheatNextTurn { get; private set; }
+    public bool CheatNextLevel { get; private set; }
 
     /* Listen and Update Input Values - once per physics frame (0, 1, or 2+ calls per render frame, depends on physis) */
 
@@ -41,5 +44,9 @@ public class InputListener : MonoBehaviour
 
         // Keyboard Buttons
         PressedDown_Escape = Input.GetButtonDown("Esc");
+        
+        // Cheats
+        CheatNextTurn = Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.F1);
+        CheatNextLevel = Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.F2);
     }
 }

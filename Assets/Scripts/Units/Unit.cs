@@ -2,99 +2,97 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Unit : MonoBehaviour
+
+
+public class Unit : MonoBehaviour, ITurnListener
 {
     /* Variables */
 
-    public static SimpleNode current_UnitNode;
+    [Header ("References")]
     public Animator anim;
-    [Header ("Unit Stats")]
-    public int health = 5;
 
-    public readonly float speed = 6;
-
-    public bool InGamePlay = true;
-    public bool CurrentTurn = false;
-    public bool PreparingForTurn = false;
-
-    public int initiative = -1;
-
-    [SerializeField] int maxAP = 5;
-
-    public bool IsEnemy = true;
-
+    [Header ("Unit Description")]
     public Sprite unitIcon;
     public Sprite unitIconDisabled;
+    public bool IsHero = false;
+    public bool IsPlayable = false;
+    public bool IsRecruitable = false;
+    
+    [Header ("Unit Stats")]
+    public int health = 5;
+    public float speed = 6;
+    public int ap = 5;
+    
+    [Header("Initiative Stats")]
+    public bool randomInitiative = true;
+    public int Initiative = -1;
+    public bool InGamePlay = true;
+    public bool IsCurrentTurn = false;
 
-    public int previousAP = 0;
+    [Header("In Flight Stats")] 
+    public int currentHealth;
+    public float currentSpeed;
+    public int currentAP;
+    public SimpleNode currentNode;
 
-    [SerializeField] public bool isPlayer = false;
 
-    public int MaxAP
-    {
-        get => maxAP;
-    }
-
-    [SerializeField] private int _AP;
-
-    public int AP
-    {
-        get => _AP;
-    }
-
-    public void SetAP(int newAP)
-    {
-        _AP = newAP;
-    }
 
     /* Main Functions */
     public void Awake()
     {
-        initiative = Random.Range(1, 100);
-        _AP = MaxAP;
-        InitiativeSystem.registerUnit(this);
-    }
-
-    public SimpleNode GetMyGridNode()
-    {
-        // This should only be called if we don't know the current node. We should be able to use the last tile of the path.
-        RaycastHit hit;
-
-        if (!Physics.Raycast(transform.position + Vector3.up * 2, Vector3.down, out hit, 7, 1 << GameMaster.Layer_GridNode))
-            return null;
-        else
+        if (randomInitiative)
         {
-
-            var n = hit.collider.gameObject.GetComponent<SimpleNode>();
-            return n;
+            Initiative = Random.Range(1, 100);
         }
+        InitiativeSystem.registerUnit(this);
+
+        currentHealth = health;
+        currentSpeed = speed;
+        currentAP = ap;
     }
 
-    public void DecreaseAPBy(int amount)
+    public bool TryUseAP(int amount)
     {
-        _AP -= amount;
+        if (currentAP >= amount)
+        {
+            currentAP -= amount;
+            return true;
+        }
+
+        return false;
     }
+    
     public void Damage(int amount)
     {
-        health -= amount;
-        if (health <= 0)
+        currentHealth -= amount;
+        if (currentHealth <= 0)
         {
-            if (this.IsEnemy)
-                LevelObjectiveSystem.Instance.ObjectiveCompleted();
+            currentHealth = 0;
+            InGamePlay = false;
             anim.SetTrigger("Defeated");
-            this.InGamePlay = false;
-            StartCoroutine( waitToKill());
-            if(isPlayer)
-                UiManager.Instance.GameOver();
+
+            if (IsHero)
+            {
+                Debug.Log("You lose!");
+            }
         }
         else
+        {
             anim.SetTrigger("Hit");
+        }
+    }
+    
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > health) currentHealth = health;
     }
 
-    private IEnumerator waitToKill()
+    public void NextTurn(Unit unit)
     {
-        yield return new WaitForSeconds(2f);
-        gameObject.SetActive(false);
-        
+        if (unit == this && InGamePlay)
+        {
+            currentAP = ap;
+        }
     }
 }
