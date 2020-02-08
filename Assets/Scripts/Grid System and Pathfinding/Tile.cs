@@ -27,14 +27,6 @@ public class Tile : MonoBehaviour, ITurnListener
                          16 * Mathf.PI;
         
         InitiativeSystem.registerListener(this);
-        
-        RaycastHit hit;
-
-        if (Physics.Raycast(transform.position + Vector3.up * 2, Vector3.down, out hit, 7,
-            1 << GameMaster.Layer_GridNode))
-            hit.collider.gameObject.GetComponent<Node>().tile = this;
-
-        //this.gameObject.SetActive(false);
     }
 
     public void setState(TileStates state)

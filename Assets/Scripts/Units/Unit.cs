@@ -6,7 +6,7 @@ public class Unit : MonoBehaviour
 {
     /* Variables */
 
-    public static Node current_UnitNode;
+    public static SimpleNode current_UnitNode;
     public Animator anim;
     [Header ("Unit Stats")]
     public int health = 5;
@@ -55,7 +55,7 @@ public class Unit : MonoBehaviour
         InitiativeSystem.registerUnit(this);
     }
 
-    public Node GetMyGridNode()
+    public SimpleNode GetMyGridNode()
     {
         // This should only be called if we don't know the current node. We should be able to use the last tile of the path.
         RaycastHit hit;
@@ -65,8 +65,7 @@ public class Unit : MonoBehaviour
         else
         {
 
-            var n = hit.collider.gameObject.GetComponent<Node>();
-            n.occupyingUnit = this;
+            var n = hit.collider.gameObject.GetComponent<SimpleNode>();
             return n;
         }
     }

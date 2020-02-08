@@ -1,109 +1,137 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using System.Linq;
 
 public class Astar
 {
-
-    public static Path CalculatePath (Node start, Node end, GridSystem grid)
+    private class AStarNode
     {
-        HashSet<Node> open = new HashSet<Node> ();
-        HashSet<Node> closed = new HashSet<Node> ();
-        List<Node> openList = new List<Node> ();
-        Node current;
-        start.hScore = 0;
-        start.gScore = 0;
-        start.fScore = start.gScore + start.hScore;
-        open.Add (start);
-        openList.Add (start);
-        //open.Sort((a, b) => a.fScore.CompareTo(b.fScore));  
+        public SimpleNode node;
+        public float g;
+        public float h;
+        public AStarNode parent;
 
-        while (open.Count != 0)
+        public AStarNode(SimpleNode node, SimpleNode end)
         {
-            openList.Sort ((a, b) => a.fScore.CompareTo (b.fScore));
-            current = openList[0];
+            this.node = node;
 
-            Debug.DrawRay (current.transform.position, Vector3.up * 3, Color.red);
-            Debug.DrawRay (end.transform.position, Vector3.up * 5, Color.blue);
+            float xDelta = node.transform.position.x - end.transform.position.x;
+            float zDelta = node.transform.position.z - end.transform.position.z;
 
-            open.Remove (current);
-            openList.Remove (current);
-            closed.Add (current);
-            if (current == end)
+            h = Mathf.Sqrt(xDelta * xDelta + zDelta * zDelta);
+        }
+    };
+
+    private class AStarCalculation
+    {
+        private AStarNode startNode;
+        private AStarNode endNode;
+        
+        private Dictionary<SimpleNode, AStarNode> nodeMappings = new Dictionary<SimpleNode, AStarNode>();
+        HashSet<AStarNode> open = new HashSet<AStarNode>();
+        HashSet<AStarNode> closed = new HashSet<AStarNode>();
+
+        public AStarCalculation(SimpleNode start, SimpleNode end)
+        {
+            endNode = new AStarNode(end, end);
+            nodeMappings.Add(end, endNode);
+
+            startNode = getAStarNode(start);
+            open.Add(startNode);
+        }
+
+        AStarNode getAStarNode(SimpleNode node)
+        {
+            if (!nodeMappings.ContainsKey(node))
             {
-                //Debug.Log ("Found Path");
-
-                return Retrace (start, current);
+                nodeMappings[node] = new AStarNode(node, endNode.node);
             }
-            //current.GetNeighbors(grid);
-            foreach (Node node in current.neighbors)
-            {
-                Debug.DrawRay (node.transform.position, Vector3.up, Color.black);
-                if (closed.Contains (node) || !node.walkable || node.occupyingUnit != null)
-                    continue;
-                var tentative_g = current.gScore + Distance (current, node);
+            
+            return nodeMappings[node];
+        }
 
-                if (!open.Contains (node))
+        List<AStarNode> getNeighboringNodes(AStarNode node)
+        {
+            List<AStarNode> nodes = new List<AStarNode>();
+            if(node.node.UpNode != null) nodes.Add(getAStarNode(node.node.UpNode));
+            if(node.node.DownNode != null) nodes.Add(getAStarNode(node.node.DownNode));
+            if(node.node.LeftNode != null) nodes.Add(getAStarNode(node.node.LeftNode));
+            if(node.node.RightNode != null) nodes.Add(getAStarNode(node.node.RightNode));
+            return nodes;
+        }
+
+        bool ProcessStep()
+        {
+            if (open.Count == 0) return false;
+            
+            AStarNode current = open.OrderBy(n => n.g + n.h).First();
+            open.Remove(current);
+            
+            if (current == endNode) return false;
+
+            List<AStarNode> neighbors = getNeighboringNodes(current);
+
+            foreach (AStarNode node in neighbors)
+            {
+                if (open.Contains(node) || closed.Contains(node))
                 {
-                    //if (shared1 != null && shared2 != null)
-                    //{
-                    //    if ((shared1.walkable || shared2.walkable))
-                    //    {
-                    //        open.Add(node);
-                    //        openList.Add(node);
-                    //    }
-                    //
-                    //}
-                    //else
-                    //{
-                    open.Add (node);
-                    openList.Add (node);
-                    //}
+                    if (node.g > current.g + 1)
+                    {
+                        node.g = current.g + 1;
+                        node.parent = current;
+                    }
                 }
-                else if (tentative_g >= node.gScore)
-                    continue;
-                node.parent = current;
-                node.gScore = tentative_g;
-                node.hScore = Manhattan (node, end);
-                node.fScore = node.gScore + node.hScore;
-                //path.nodes.Add(curr)
+                else
+                {
+                    node.g = current.g + 1;
+                    node.parent = current;
+                }
 
+                if (!closed.Contains(node) && !open.Contains(node))
+                {
+                    open.Add(node);
+                }
             }
+
+            closed.Add(current);
+            return true;
         }
-
-        return null;
-    }
-
-    static float Distance (Node first, Node second)
-    {
-        if (first.transform.position.x == second.transform.position.x || first.transform.position.z == second.transform.position.z)
+        
+        public List<SimpleNode> GeneratePath()
         {
-            return 10f;
+            if(startNode == endNode)
+            {
+                List<SimpleNode> p = new List<SimpleNode>();
+                p.Add(startNode.node);
+                return p;
+            }
+            
+            while (ProcessStep()) ;
+            if (endNode.parent == null)
+            {
+                return null;
+            }
 
+            List<SimpleNode> path = new List<SimpleNode>();
+            AStarNode current = endNode;
+            while (current != startNode)
+            {
+                path.Add(current.node);
+                current = current.parent;
+            }
+
+            path.Add(startNode.node);
+
+            path.Reverse();
+
+            return path;
         }
-        else
-            return 10000f;
     }
-    static float Manhattan (Node testingNode, Node destination)
+
+    public static List<SimpleNode> CalculatePath(SimpleNode start, SimpleNode end)
     {
-        return (Mathf.Abs (destination.transform.position.x - testingNode.transform.position.x) + Mathf.Abs (destination.transform.position.z - testingNode.transform.position.z)) * 10f;
+        return (new AStarCalculation(start, end)).GeneratePath();
     }
-
-    static Path Retrace (Node start, Node end)
-    {
-        Path p = new Path ();
-        Node cur = end;
-        while (cur != start)
-        {
-            p.nodes.Add (cur);
-            cur = cur.parent;
-        }
-        return p;
-    }
-}
-
-public class Path
-{
-    public List<Node> nodes = new List<Node> ();
-
 }

@@ -6,6 +6,7 @@
     <e p="C:\Users\Scien\Projects\GGJ20-IBKK" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="ImageSwapper.cs" t="Include" />
         <e p="Packages-Unofficial" t="Include">
           <e p="TextMesh Pro" t="Include">
             <e p="Fonts" t="Include">
@@ -43,18 +44,10 @@
           <e p="Camera" t="Include">
             <e p="CameraManager.cs" t="Include" />
           </e>
-          <e p="Cards" t="Include">
-            <e p="Card_Base.cs" t="Include" />
-            <e p="Card_ScriptableObject.cs" t="Include" />
-            <e p="CardUiHandler.cs" t="Include" />
-            <e p="CardUsagePreviewPosition.cs" t="Include" />
-            <e p="CardUtility.cs" t="Include" />
-            <e p="HandCardManager.cs" t="Include" />
-            <e p="HandCardsParentTransform.cs" t="Include" />
-          </e>
           <e p="Core Player Scripts" t="Include">
             <e p="InputListener.cs" t="Include" />
           </e>
+          <e p="DEBUGSKIPLEVEL.cs" t="Include" />
           <e p="GameStateManagement" t="Include">
             <e p="GameStateManager.cs" t="Include" />
             <e p="LevelStateManagement" t="Include">
@@ -67,11 +60,12 @@
           </e>
           <e p="Grid System and Pathfinding" t="Include">
             <e p="Astar.cs" t="Include" />
+            <e p="AStarTester.cs" t="Include" />
             <e p="GridGenerator.cs" t="Include" />
+            <e p="GridHighlighter.cs" t="Include" />
             <e p="GridSystem.cs" t="Include" />
             <e p="Node.cs" t="Include" />
-            <e p="NodeEditor.cs" t="Include" />
-            <e p="TestAstar.cs" t="Include" />
+            <e p="SimpleNode.cs" t="Include" />
             <e p="Tile.cs" t="Include" />
           </e>
           <e p="Initiative + AP System" t="Include">
@@ -83,27 +77,17 @@
             <e p="LevelLoader.cs" t="Include" />
             <e p="LevelLoadingEventHelper.cs" t="Include" />
           </e>
-          <e p="State Machine" t="Include">
-            <e p="AttackState.cs" t="Include" />
-            <e p="BasicIdleClass.cs" t="Include" />
-            <e p="BasicWalkState.cs" t="Include" />
-            <e p="IdleState.cs" t="Include" />
-            <e p="PatrolState.cs" t="Include" />
-            <e p="State.cs" t="Include" />
-            <e p="StateMachine.cs" t="Include" />
-          </e>
           <e p="TopLevel" t="Include">
             <e p="GameMaster.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="PassButton.cs" t="Include" />
             <e p="TitleScreenLogic.cs" t="Include" />
             <e p="UiManager.cs" t="Include" />
             <e p="WorldspaceCanvas_FaceCamera.cs" t="Include" />
           </e>
           <e p="Units" t="Include">
-            <e p="HealthUiManager.cs" t="Include" />
             <e p="Unit.cs" t="Include" />
-            <e p="UnitMovementManager.cs" t="Include" />
           </e>
         </e>
       </e>

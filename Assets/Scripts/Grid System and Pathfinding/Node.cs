@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public enum Direction
 {
     Up,
@@ -220,3 +220,4 @@ public class Node : MonoBehaviour
         current_SelectedNode = this;
     }
 }
+*/

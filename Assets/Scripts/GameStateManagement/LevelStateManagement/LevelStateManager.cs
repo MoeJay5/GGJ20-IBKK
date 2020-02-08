@@ -23,6 +23,5 @@ public class LevelStateManager : MonoBehaviour
 
     private void InitializeLevel()
     {
-        HandCardManager.Instance.InitializeHandForLevel();
     }
 }
