@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 268689204865529290}
   - component: {fileID: 268689204865529291}
+  - component: {fileID: 122776426}
+  - component: {fileID: 122776428}
+  - component: {fileID: 122776429}
   m_Layer: 0
   m_Name: Buff Bot
   m_TagString: Untagged
@@ -24,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268689204865529289}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -42,7 +45,7 @@ Animator:
   m_GameObject: {fileID: 268689204865529289}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 30e38d646081a084fa5013c31a43ec70, type: 2}
+  m_Controller: {fileID: 22100000, guid: 4e5cf5bf12d855646be3c20564fbdcaa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -51,6 +54,64 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &122776426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268689204865529289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d46c672948c2c340b4ebd627436e391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 268689204865529291}
+  unitIcon: {fileID: 21300000, guid: b7aed9989a92199478aad993275d3cf3, type: 3}
+  unitIconDisabled: {fileID: 21300000, guid: 7649aa44b1147d540b1ecc7d97c91951, type: 3}
+  IsHero: 0
+  IsPlayable: 0
+  IsRecruitable: 0
+  health: 5
+  speed: 5
+  ap: 5
+  randomInitiative: 1
+  Initiative: -1
+  InGamePlay: 1
+  IsCurrentTurn: 1
+  currentHealth: 0
+  currentSpeed: 0
+  currentAP: 0
+  currentNode: {fileID: 0}
+--- !u!114 &122776428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268689204865529289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26fd7efc2b84c80a1c34b3fa8b29a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 268689204865529291}
+  idleFor: 1
+--- !u!114 &122776429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268689204865529289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38d482618c4923a40a4b1d0941d6ea3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultState: {fileID: 122776428}
+  startState: {fileID: 0}
+  owningUnit: {fileID: 122776426}
 --- !u!1001 &268689206272216727
 PrefabInstance:
   m_ObjectHideFlags: 0

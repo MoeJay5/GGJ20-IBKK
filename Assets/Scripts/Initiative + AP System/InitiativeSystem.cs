@@ -79,6 +79,7 @@ public static class InitiativeSystem
         // Switch to new unit and notify
         Unit unit = currentQueue.First();
         unit.IsCurrentTurn = true;
+        unit.StartOfTurn();
         turnListeners.ForEach(l => l.NextTurn(unit));
     }
 

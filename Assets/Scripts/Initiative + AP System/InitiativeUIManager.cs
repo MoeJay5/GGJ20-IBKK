@@ -41,29 +41,6 @@ public class InitiativeUIManager : MonoBehaviour
         if(InputListener.Instance.CheatNextTurn) InitiativeSystem.nextTurn();
     }
 
-    IEnumerator transitionTurns()
-    {
-        float startTime = Time.time;
-
-        while (Time.time - startTime < 1f)
-        {
-            float totalTime = Time.time - startTime;
-            currentProcessingWindow.ForEach(state =>
-                {
-                    state.image.transform.localPosition =
-                        Vector3.right * Mathf.Lerp(state.start, state.target, totalTime);
-                });
-
-            yield return null;
-        }
-        
-        currentProcessingWindow.ForEach(state =>
-        {
-            state.image.transform.localPosition = Vector3.right * state.target;
-        });
-        InitiativeSystem.finishNextTurn();
-    }
-
     public void TriggerInitiativeChange()
     {
         List<Unit> currentQueue = InitiativeSystem.currentQueue.ToList();
@@ -106,5 +83,28 @@ public class InitiativeUIManager : MonoBehaviour
         }
         
         StartCoroutine(transitionTurns());
+    }
+
+    IEnumerator transitionTurns()
+    {
+        float startTime = Time.time;
+
+        while (Time.time - startTime < 1f)
+        {
+            float totalTime = Time.time - startTime;
+            currentProcessingWindow.ForEach(state =>
+            {
+                state.image.transform.localPosition =
+                    Vector3.right * Mathf.Lerp(state.start, state.target, totalTime);
+            });
+
+            yield return null;
+        }
+        
+        currentProcessingWindow.ForEach(state =>
+        {
+            state.image.transform.localPosition = Vector3.right * state.target;
+        });
+        InitiativeSystem.finishNextTurn();
     }
 }

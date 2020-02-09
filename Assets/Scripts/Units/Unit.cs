@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 
 
-public class Unit : MonoBehaviour, ITurnListener
+public class Unit : MonoBehaviour
 {
     /* Variables */
 
@@ -33,7 +33,22 @@ public class Unit : MonoBehaviour, ITurnListener
     public int currentHealth;
     public float currentSpeed;
     public int currentAP;
-    public SimpleNode currentNode;
+
+    private SimpleNode _currentNode;
+    public SimpleNode currentNode
+    {
+        get
+        {
+            if (_currentNode == null && LevelStateManager.Instance != null)
+            {
+                _currentNode = LevelStateManager.Instance.gridSystem.GetNearestNode(transform.position);
+            }
+
+            return _currentNode;
+        }
+
+        set => _currentNode = value;
+    }
 
 
 
@@ -44,6 +59,7 @@ public class Unit : MonoBehaviour, ITurnListener
         {
             Initiative = Random.Range(1, 100);
         }
+
         InitiativeSystem.registerUnit(this);
 
         currentHealth = health;
@@ -88,11 +104,8 @@ public class Unit : MonoBehaviour, ITurnListener
         if (currentHealth > health) currentHealth = health;
     }
 
-    public void NextTurn(Unit unit)
+    public void StartOfTurn()
     {
-        if (unit == this && InGamePlay)
-        {
-            currentAP = ap;
-        }
+        currentAP = ap;
     }
 }

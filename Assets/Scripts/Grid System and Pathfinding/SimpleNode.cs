@@ -70,4 +70,13 @@ public class SimpleNode : MonoBehaviour
         
         transform.localPosition = new Vector3(transform.localPosition.x, layer, transform.localPosition.z);
     }
+
+    public void DebugSetVisibleState(bool state)
+    {
+        MeshRenderer mesh = gameObject.GetComponent<MeshRenderer>();
+        if(mesh != null) mesh.enabled = state;
+
+        GridHighlighter gh = gameObject.GetComponent<GridHighlighter>();
+        if (gh != null) gh.enabled = state;
+    }
 }

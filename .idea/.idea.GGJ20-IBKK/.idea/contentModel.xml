@@ -49,13 +49,16 @@
           </e>
           <e p="DEBUGSKIPLEVEL.cs" t="Include" />
           <e p="GameStateManagement" t="Include">
+            <e p="GameMaster" t="Include">
+              <e p="GameMaster.cs" t="Include" />
+            </e>
             <e p="GameStateManager.cs" t="Include" />
             <e p="LevelStateManagement" t="Include">
               <e p="LevelStateManager.cs" t="Include" />
-              <e p="Objectives" t="Include">
-                <e p="LevelObjective.cs" t="Include" />
-                <e p="LevelObjectiveSystem.cs" t="Include" />
-              </e>
+            </e>
+            <e p="Objectives" t="Include">
+              <e p="LevelObjective.cs" t="Include" />
+              <e p="LevelObjectiveSystem.cs" t="Include" />
             </e>
           </e>
           <e p="Grid System and Pathfinding" t="Include">
@@ -77,8 +80,13 @@
             <e p="LevelLoader.cs" t="Include" />
             <e p="LevelLoadingEventHelper.cs" t="Include" />
           </e>
-          <e p="TopLevel" t="Include">
-            <e p="GameMaster.cs" t="Include" />
+          <e p="State Machine" t="Include">
+            <e p="AttackState.cs" t="Include" />
+            <e p="BasicIdleState.cs" t="Include" />
+            <e p="IdleState.cs" t="Include" />
+            <e p="PatrolState.cs" t="Include" />
+            <e p="State.cs" t="Include" />
+            <e p="StateMachine.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="PassButton.cs" t="Include" />

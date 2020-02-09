@@ -43,7 +43,7 @@ public class AStarTester : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SimpleNode node = grid.getCurrentMouseNode(camera);
+        SimpleNode node = grid.GetCurrentMouseNode(camera);
         if (node != null)
         {
             if (Input.GetMouseButtonDown(1))

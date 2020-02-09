@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class GridSystem : MonoBehaviour
 
     private int lastCalculatedFrame = 0;
     private SimpleNode lastHitNode = null;
+
     public void Start()
     {
         CalculateNeighbors();
@@ -21,19 +23,55 @@ public class GridSystem : MonoBehaviour
         lastCalculatedFrame = Time.frameCount;
     }
 
-    public SimpleNode getCurrentMouseNode(Camera camera)
+    public SimpleNode GetCurrentMouseNode(Camera camera)
     {
         if (lastCalculatedFrame != Time.frameCount)
         {
             RaycastHit hit;
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         
-            if (Physics.Raycast(ray, out hit, 10000f, ~LayerMask.NameToLayer("GridNode")))
+            if (Physics.Raycast(ray, out hit, 10000f, ~GameMaster.Layer_GridNode))
             {
                 lastHitNode = hit.collider.GetComponent<SimpleNode>();
             }
         }
         return lastHitNode;
+    }
+
+    public SimpleNode GetNearestNode(Vector3 position)
+    {
+        Collider[] overlappingNodes = Physics.OverlapSphere(position, 5, ~GameMaster.Layer_GridNode);
+
+        List<SimpleNode> nodesToCheck =
+            overlappingNodes.Select(n => n.GetComponent<SimpleNode>()).Where(n => n != null).ToList();
+        
+        if (nodesToCheck.Count == 0)
+        {
+            nodesToCheck = gridNodes;
+        }
+
+        float closestValue = 0;
+        SimpleNode closestNode = null;
+
+        foreach (SimpleNode node in nodesToCheck)
+        {
+            if (closestNode == null)
+            {
+                closestNode = node;
+                closestValue = Vector3.Distance(position, node.transform.position);
+            }
+            else
+            {
+                float distance = Vector3.Distance(position, node.transform.position);
+                if (distance < closestValue)
+                {
+                    closestNode = node;
+                    closestValue = distance;
+                }
+            }
+        }
+        
+        return closestNode;
     }
 
     [ContextMenu("Calculate Neighbors")]
@@ -136,11 +174,7 @@ public class GridSystem : MonoBehaviour
     {
         foreach(SimpleNode n in gridNodes)
         {
-            MeshRenderer mesh = n.gameObject.GetComponent<MeshRenderer>();
-            if(mesh != null) mesh.enabled = true;
-
-            GridHighlighter gh = n.gameObject.GetComponent<GridHighlighter>();
-            if (gh != null) gh.enabled = true;
+            n.DebugSetVisibleState(true);
         }
     }
     
@@ -149,11 +183,7 @@ public class GridSystem : MonoBehaviour
     {
         foreach(SimpleNode n in gridNodes)
         {
-            MeshRenderer mesh = n.gameObject.GetComponent<MeshRenderer>();
-            if(mesh != null) mesh.enabled = false;
-
-            GridHighlighter gh = n.gameObject.GetComponent<GridHighlighter>();
-            if (gh != null) gh.enabled = false;
+            n.DebugSetVisibleState(false);
         }
     }
 }
