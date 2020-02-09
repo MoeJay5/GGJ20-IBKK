@@ -11,7 +11,8 @@ public class PatrolState : State
 {
     [Header("Settings")] [SerializeField] private State WaypointState;
     [SerializeField] private State NodeStepState;
-
+    [SerializeField] private AnimationCurve MovementCurve;
+    [SerializeField] private float MovementDuration = 1;
     [SerializeField] private List<SimpleNode> RouteWaypoints;
 
     [Header("Debug Info")] 
@@ -21,6 +22,7 @@ public class PatrolState : State
 
     private float nodeWalkStart = -100;
     private Unit unit;
+    private bool delayedWalkActionFlag = false;
 
     private void OnValidate()
     {
@@ -31,6 +33,7 @@ public class PatrolState : State
         // Jump the unit the the first route index.
         unit.transform.position = RouteWaypoints[0].transform.position;
         unit.currentNode = RouteWaypoints[0];
+        unit.currentNode.tile.setState(Tile.TileStates.ACTIVE);
     }
 
     public override void EnterState(StateMachine parent)
@@ -69,16 +72,14 @@ public class PatrolState : State
 
     public override void UpdateState(StateMachine parent)
     {
-        float positionDelta = (Time.time - nodeWalkStart) * unit.currentSpeed;
+        float positionDelta = (Time.time - nodeWalkStart) / MovementDuration;
         
         if (positionDelta > 1f)
         {
-            Debug.Log("Setup Turn");
             SetupTurn(parent);
         }
         else
         {
-            Debug.Log("Do Walk");
             DoWalk();
         }
     }
@@ -88,7 +89,6 @@ public class PatrolState : State
         // Update Route
         if (currentPath == null)
         {
-            Debug.Log("Updating Route");
             unit.currentNode = RouteWaypoints[routeIndex];
             unit.transform.position = RouteWaypoints[routeIndex].transform.position;
             routeIndex = ++routeIndex % RouteWaypoints.Count;
@@ -98,10 +98,10 @@ public class PatrolState : State
         }
 
         // End the path.
-        if (pathIndex >= currentPath.Count)
+        if (pathIndex >= currentPath.Count - 1)
         {
-            Debug.Log("End of Path");
             currentPath = null;
+            unit.anim.SetBool("Walking", false);
             if(WaypointState != null) parent.PushState(WaypointState);
             return;
         } 
@@ -109,20 +109,21 @@ public class PatrolState : State
         // Set new target
         if (unit.currentNode == currentPath[pathIndex])
         {
-            Debug.Log("Starting to Walk");
-            if (unit.TryUseAP(1))
+            if (unit.currentAP > 1)
             {
                 pathIndex++;
                 nodeWalkStart = Time.time;
+                currentPath[pathIndex].tile.setState(Tile.TileStates.ACTIVE);
+                delayedWalkActionFlag = true;
             }
             else
             {
+                unit.anim.SetBool("Walking", false);
                 InitiativeSystem.nextTurn();
             }
         }
         else // Finish last walk
         {
-            Debug.Log("Ending Walk");
             unit.currentNode = currentPath[pathIndex];
             unit.transform.position = currentPath[pathIndex].transform.position;
             if(NodeStepState != null) parent.PushState(NodeStepState);
@@ -131,12 +132,28 @@ public class PatrolState : State
 
     private void DoWalk()
     {
+        unit.anim.SetBool("Walking", true);
         Vector3 startPosition = unit.currentNode.transform.position;
         Vector3 targetPosition = currentPath[pathIndex].transform.position;
 
-        float positionDelta = (Time.time - nodeWalkStart) * unit.currentSpeed;
-
-        unit.transform.position = Vector3.Lerp(startPosition, targetPosition, positionDelta);
+        float movementDelta;
+        if (MovementCurve != null)
+        {
+            movementDelta = MovementCurve.Evaluate(Time.time - nodeWalkStart);
+        }
+        else
+        {
+            movementDelta = (Time.time - nodeWalkStart) / MovementDuration;
+        }
+        
+        unit.transform.position = Vector3.Lerp(startPosition, targetPosition, movementDelta);
         unit.transform.LookAt(targetPosition);
+
+        if (delayedWalkActionFlag && movementDelta > 0.75f)
+        {
+            delayedWalkActionFlag = false;
+            unit.currentNode.tile.setState(Tile.TileStates.INACTIVE);
+            unit.TryUseAP(1);
+        }
     }
 }

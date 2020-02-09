@@ -50,9 +50,6 @@ public class InitiativeUIManager : MonoBehaviour
             InitiativeSystem.finishNextTurn();
             return;
         }
-        
-        currentQueue.Add(currentQueue[0]);
-        currentQueue.RemoveAt(0);
 
         // Clear old images
         existingImages.Keys.Where(key => !currentQueue.Contains(key)).ToList().ForEach(val =>

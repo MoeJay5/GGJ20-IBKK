@@ -20,7 +20,6 @@ public class Unit : MonoBehaviour
     
     [Header ("Unit Stats")]
     public int health = 5;
-    public float speed = 6;
     public int ap = 5;
     
     [Header("Initiative Stats")]
@@ -31,7 +30,6 @@ public class Unit : MonoBehaviour
 
     [Header("In Flight Stats")] 
     public int currentHealth;
-    public float currentSpeed;
     public int currentAP;
 
     private SimpleNode _currentNode;
@@ -63,7 +61,6 @@ public class Unit : MonoBehaviour
         InitiativeSystem.registerUnit(this);
 
         currentHealth = health;
-        currentSpeed = speed;
         currentAP = ap;
     }
 

@@ -64,7 +64,6 @@ public static class InitiativeSystem
     // It is the responsibility of the UI Manager to call this function;
     public static void finishNextTurn()
     {
-        currentQueue.Enqueue(currentQueue.Dequeue());
         Unit u = currentQueue.First();
 
         if (!u.InGamePlay)
@@ -89,6 +88,9 @@ public static class InitiativeSystem
         if (currentQueue.Count == 0) return;
         
         currentQueue.First().IsCurrentTurn = false;
+        currentQueue.Enqueue(currentQueue.Dequeue());
+        currentQueue.First().StartOfTurn();
+        
         if (uiManager != null)
         {
             uiManager.TriggerInitiativeChange();

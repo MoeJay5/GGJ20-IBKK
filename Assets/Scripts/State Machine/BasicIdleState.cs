@@ -2,7 +2,6 @@ using UnityEngine;
 
 class BasicIdleState : State
 {
-    [SerializeField] private Animator animator;
     [SerializeField] private float idleFor = 1f;
     private float stateStartTime = 0f;
     private bool resetEnterTime = true;
