@@ -92,3 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec136115b7b8034b8f7146d251a8b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ActiveMaterial: {fileID: 2100000, guid: 5b78674d8792d72489dcf3b4dcab2f66, type: 2}
+  AttackMaterial: {fileID: 2100000, guid: c15898232c7387d4ab03a151847d1f25, type: 2}
+  HealMaterial: {fileID: 2100000, guid: 01222b1dd46e2324b81cba56b78eea12, type: 2}
+  ProjectMaterial: {fileID: 2100000, guid: bb3ddb6628448084398323377d0ef86a, type: 2}
+  mesh: {fileID: 6036501266298275531}

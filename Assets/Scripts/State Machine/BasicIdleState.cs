@@ -17,6 +17,11 @@ class BasicIdleState : State
         {
             stateStartTime = Time.time;
             resetEnterTime = false;
+            Unit unit = GetComponent<Unit>();
+            if (unit != null)
+            {
+                unit.anim.SetTrigger("Attack");
+            }
         }
         
         if (Time.time < stateStartTime + idleFor) return;

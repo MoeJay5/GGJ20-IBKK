@@ -23,10 +23,8 @@ public class APUIManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Hey: " + currentAPValue);
         if (Time.time - lastChange > changeDelay)
         {
-            Debug.Log("Hey 2: " + currentAPValue);
             int deltaValue = Mathf.Clamp( InitiativeSystem.currentUnit().currentAP - currentAPValue, -1, 1);
             currentAPValue = Mathf.Clamp(currentAPValue + deltaValue, 0, 5);
             APMeter.sprite = APMeterImages[currentAPValue];

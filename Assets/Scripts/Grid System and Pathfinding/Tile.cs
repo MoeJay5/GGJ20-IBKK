@@ -14,10 +14,20 @@ public class Tile : MonoBehaviour, ITurnListener
 
     private TileStates currentState = TileStates.INACTIVE;
 
+    [SerializeField] private Material ActiveMaterial;
+    [SerializeField] private Material AttackMaterial;
+    [SerializeField] private Material HealMaterial;
+    [SerializeField] private Material ProjectMaterial;
+
+    [SerializeField] private MeshRenderer mesh;
+
     public enum TileStates
     {
         INACTIVE,
-        ACTIVE
+        ACTIVE,
+        ATTACK,
+        HEAL,
+        PROJECT
     }
 
     void Start()
@@ -37,21 +47,45 @@ public class Tile : MonoBehaviour, ITurnListener
     // Update is called once per frame
     void Update()
     {
-        if (currentState == TileStates.ACTIVE)
+        if(currentState == TileStates.INACTIVE)
         {
-            float modifier = Mathf.Cos(Time.time * rate + positionOffset) * 0.5f + 0.5f;
+            currentModifier = Mathf.MoveTowards(currentModifier, 0, rate * Time.deltaTime);
+            
+            transform.localScale = originalScale * currentModifier;
+        } else
+        {
+
+            float myRate = rate;
+            
+            if (currentState == TileStates.ATTACK)
+            {
+                myRate *= 2f;
+                mesh.material = AttackMaterial;
+
+            } else if (currentState == TileStates.HEAL)
+            {
+                myRate *= 0.5f;
+                mesh.material = HealMaterial;
+            } else if (currentState == TileStates.PROJECT)
+            {
+                mesh.material = ProjectMaterial;
+            }
+            else
+            {
+                mesh.material = ActiveMaterial;
+            }
+            
+            float modifier = Mathf.Cos(Time.time * myRate + positionOffset) * 0.5f + 0.5f;
             modifier = (1.0f - scalingMagnitude) * modifier + scalingMagnitude;
 
             currentModifier = Mathf.MoveTowards(currentModifier, modifier, rate * Time.deltaTime);
             
             transform.localScale = originalScale * currentModifier;
         }
-        else if(currentState == TileStates.INACTIVE)
-        {
-            currentModifier = Mathf.MoveTowards(currentModifier, 0, rate * Time.deltaTime);
-            
-            transform.localScale = originalScale * currentModifier;
-        }
+        
+        
+        
+        
     }
 
     public void NextTurn(Unit unit)

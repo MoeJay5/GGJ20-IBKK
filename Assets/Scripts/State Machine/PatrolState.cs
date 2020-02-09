@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -92,8 +93,12 @@ public class PatrolState : State
             unit.currentNode = RouteWaypoints[routeIndex];
             unit.transform.position = RouteWaypoints[routeIndex].transform.position;
             routeIndex = ++routeIndex % RouteWaypoints.Count;
-            
+
             currentPath = Astar.CalculatePath(unit.currentNode, RouteWaypoints[routeIndex]);
+            if (currentPath.Count > unit.ap)
+            {
+                currentPath = currentPath.GetRange(0, unit.ap + 1).ToList();
+            }
             pathIndex = 0;
         }
 
@@ -106,10 +111,16 @@ public class PatrolState : State
             return;
         } 
         
+        // Project
+        for (int i = pathIndex + 1; i < currentPath.Count; i++)
+        {
+            currentPath[i].tile.setState(Tile.TileStates.PROJECT);
+        }
+        
         // Set new target
         if (unit.currentNode == currentPath[pathIndex])
         {
-            if (unit.currentAP > 1)
+            if (unit.currentAP > 0)
             {
                 pathIndex++;
                 nodeWalkStart = Time.time;
@@ -119,6 +130,11 @@ public class PatrolState : State
             else
             {
                 unit.anim.SetBool("Walking", false);
+                for (int i = pathIndex; i < currentPath.Count; i++)
+                {
+                    currentPath[i].tile.setState(Tile.TileStates.INACTIVE);
+                }
+                
                 InitiativeSystem.nextTurn();
             }
         }
